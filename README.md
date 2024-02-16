@@ -29,10 +29,7 @@ Follow these instructions to set up and run the project locally on your machine.
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/tauseedzaman/hospitalMS.git
-```
- ```bash
-   cd hospitalMS
+   git clone https://github.com/Stucom-Pelai/DAW2_M07_UF3_Eloquent-Hospital.git
 ```
 
  ```bash
