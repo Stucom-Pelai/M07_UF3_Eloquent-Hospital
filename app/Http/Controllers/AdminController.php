@@ -9,8 +9,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view("admins.login");
-        //return view("auth.login");
+        // return view("admins.login");
+        return view("auth.login");
     }
 
     public function authenticate_admin(Request $request)
