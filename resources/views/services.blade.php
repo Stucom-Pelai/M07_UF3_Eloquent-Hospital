@@ -159,10 +159,10 @@
          <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="service-widget">
                <div class="post-media wow fadeIn">
-                  <a href="images/clinic_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                  <img src="images/clinic_01.jpg" alt="" class="img-responsive">
+                  <a href="images/pharmacy.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                  <img src="images/pharmacy.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Digital Control Center</h3>
+               <h3>Pharmacy</h3>
             </div>
             <!-- end service -->
          </div>
