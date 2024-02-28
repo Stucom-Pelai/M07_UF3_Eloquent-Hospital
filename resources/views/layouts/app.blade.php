@@ -90,7 +90,7 @@
                             <li onclick="check_active('Services')"><a id="Services" data-scroll
                                     href="{{ url('/services') }}">Services</a></li>
                             <li onclick="check_active('Doctors')"><a id="Doctors" data-scroll
-                                    href="{{ url('docters') }}">Doctors</a></li>
+                                    href="{{ url('doctors') }}">Doctors</a></li>
                             <li onclick="check_active('Departments')"><a id="Departments" data-scroll
                                     href="#departments">Departments</a></li>
                             <li onclick="check_active('About')"><a id="About" data-scroll
