@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');" {{ $app = App\Models\settings::latest()->first() }}>
-   <div class="container">
+<div class="container">
       <div class="row">
          <div class="col-md-12 col-sm-12">
             <div class="text-contant">
                <h2>
-                  <span class="center"><span class="icon"><img src="{{ ($app) ? config('app.url').'storage/'. $app->icon_logo_path:'images/icon-logo.png' }}" alt="#" /></span></span>
+                  <span class="center"><span class="icon"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#" /></span></span>
                   <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Life Care", "We Care Your Health", "We are Expert!" ]'>
                   <span class="wrap"></span>
                   </a>
