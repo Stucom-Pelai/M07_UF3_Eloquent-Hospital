@@ -27,7 +27,6 @@ class Patients extends Component
     public $photo;
     public $indoor;
     public $outdoor;
-
     public $edit_photo;
     public $edit_patient_id;
     public $button_text = "Add New Patient";
@@ -72,7 +71,6 @@ class Patients extends Component
             //unset variables
             $this->name="";
             $this->email="";
-            $this->password="";
             $this->address="";
             $this->phone="";
             $this->bloodgroup="";
