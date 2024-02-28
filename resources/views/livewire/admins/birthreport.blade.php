@@ -48,8 +48,8 @@
                         @enderror
 
                         <div class="form-group">
-                            <label for="Docter">Docter</label>
-                            <select name="Docter" class="form-control" wire:model.lazy="doctor" required>
+                            <label for="Doctor">Doctor</label>
+                            <select name="Doctor" class="form-control" wire:model.lazy="doctor" required>
                                 <option value="" selected>Choose Doctor</option>
                                 @forelse ($doctors as $doctor)
                                     <option value="{{ $doctor->name }}">{{ $doctor->name }}</option>

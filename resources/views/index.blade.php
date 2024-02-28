@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');" {{ $app = App\Models\settings::latest()->first() }}>
-   <div class="container">
+<div class="container">
       <div class="row">
          <div class="col-md-12 col-sm-12">
             <div class="text-contant">
                <h2>
-                  <span class="center"><span class="icon"><img src="{{ ($app) ? config('app.url').'storage/'. $app->icon_logo_path:'images/icon-logo.png' }}" alt="#" /></span></span>
+                  <span class="center"><span class="icon"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#" /></span></span>
                   <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Life Care", "We Care Your Health", "We are Expert!" ]'>
                   <span class="wrap"></span>
                   </a>
@@ -59,7 +59,10 @@
 <div id="about" class="section wow fadeIn">
    <div class="container">
       <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
+         <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
+         <span class="icon-logo">
+         <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         </span>
          <h2>The Specialist Clinic</h2>
       </div>
       <!-- end title -->
@@ -120,10 +123,10 @@
          <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="service-widget">
                <div class="post-media wow fadeIn">
-                  <a href="images/clinic_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                  <img src="images/clinic_01.jpg" alt="" class="img-responsive">
+                  <a href="images/pharmacy.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                  <img src="images/pharmacy.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Digital Control Center</h3>
+               <h3>Pharmacy</h3>
             </div>
             <!-- end service -->
          </div>
@@ -388,7 +391,7 @@
 <div id="testimonials" class="section wb wow fadeIn">
    <div class="container">
       <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
+      <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
          <h2>Testimonials</h2>
       </div>
       <!-- end title -->

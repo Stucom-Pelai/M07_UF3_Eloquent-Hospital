@@ -34,7 +34,7 @@
                     {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('admin_docters') }}"><i class="fas fa-file-alt"></i>Docters</a>
+                    <a href="{{ route('admin_doctors') }}"><i class="fas fa-file-alt"></i>Doctors</a>
                 </li>
                 <li>
                     <a href="{{ route('admin_operations_report') }}"><i class="fas fa-file-alt"></i>Operation
