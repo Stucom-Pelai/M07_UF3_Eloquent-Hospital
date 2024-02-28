@@ -57,7 +57,7 @@
                         <div class="info-inner">
                             <span class="icontop"><img src="{{ config('app.url') }}images/phone-icon.png" alt="#"></span>
                             <span class="iconcont"><a
-                                    href="tel:{{ $settings["phone"] ?? '123 123 123' }}">{{ $settings["phone"] ?? '123 123 123' }}</a></span>
+                                    href="tel:{{ $settings["phone"] ?? '+93 12 34 56' }}">{{ $settings["phone"] ?? '+93 12 34 56' }}</a></span>
                         </div>
                         <div class="info-inner">
                             <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -88,7 +88,7 @@
                             <li onclick="check_active('Services')"><a id="Services" data-scroll
                                     href="{{ url('/services') }}">Services</a></li>
                             <li onclick="check_active('Doctors')"><a id="Doctors" data-scroll
-                                    href="{{ url('docters') }}">Doctors</a></li>
+                                    href="{{ url('doctors') }}">Doctors</a></li>
                             <li onclick="check_active('Departments')"><a id="Departments" data-scroll
                                     href="#departments">Departments</a></li>
                             <li onclick="check_active('About')"><a id="About" data-scroll
@@ -133,7 +133,7 @@
                                 aria-hidden="true"></i>{{ $settings["email"] ?? 'root@test.com' }}
                         </p>
                         <p><i class="fa fa-phone"
-                                aria-hidden="true"></i>{{ $settings["phone"] ?? '123 123 123' }}</p>
+                                aria-hidden="true"></i>{{ $settings["phone"] ?? '+93 12 34 56' }}</p>
                     </div>
                 </div>
                 @livewire('subscribe')
