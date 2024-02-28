@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');" {{ $app = App\Models\settings::latest()->first() }}>
-   <div class="container">
+<div class="container">
       <div class="row">
          <div class="col-md-12 col-sm-12">
             <div class="text-contant">
@@ -388,7 +388,7 @@
 <div id="testimonials" class="section wb wow fadeIn">
    <div class="container">
       <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
+      <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
          <h2>Testimonials</h2>
       </div>
       <!-- end title -->
