@@ -121,10 +121,9 @@ class Beds extends Component
     {
         return view('livewire.admins.beds',[
             'patients' => patient::all(),
-            'rooms' => rooms::where('available',true)->get(),
-            'rooms' => rooms::where('status','available')->get(),
+            'rooms' => Rooms::where('status', true)->get(),
+            'availableRooms' => Rooms::where('status', 'available')->get(),
             'beds' => ModelsBeds::latest()->paginate(10)
-
         ]);//->layout('admins.layouts.app');
     }
 }
