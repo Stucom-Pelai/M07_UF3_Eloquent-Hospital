@@ -59,7 +59,7 @@
                         <div class="info-inner">
                             <span class="icontop"><img src="{{ config('app.url') }}images/phone-icon.png" alt="#"></span>
                             <span class="iconcont"><a
-                                    href="tel:{{ $settings["phone"] ?? '123 123 123' }}">{{ $settings["phone"] ?? '123 123 123' }}</a></span>
+                                    href="tel:{{ $settings["phone"] ?? '+93 12 34 56' }}">{{ $settings["phone"] ?? '+93 12 34 56' }}</a></span>
                         </div>
                         <div class="info-inner">
                             <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -135,7 +135,7 @@
                                 aria-hidden="true"></i>{{ $settings["email"] ?? 'root@test.com' }}
                         </p>
                         <p><i class="fa fa-phone"
-                                aria-hidden="true"></i>{{ $settings["phone"] ?? '123 123 123' }}</p>
+                                aria-hidden="true"></i>{{ $settings["phone"] ?? '+93 12 34 56' }}</p>
                     </div>
                 </div>
                 @livewire('subscribe')
