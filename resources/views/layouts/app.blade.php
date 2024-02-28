@@ -48,13 +48,11 @@
         <a href="{{ url('/') }}"><img class="preloader" src="{{ config('app.url') }}images/loaders/heart-loading2.gif" alt=""></a>
     </div>
     <!-- END LOADER -->
-    <header>
-        <div class="header-top wow fadeIn">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"><img
-                        src="{{ config('app.url') . 'storage/' . $settings["logo"] }}"
-                        alt="logo image "></a>
-                <div class="right-header">
+    <<header>
+    <div class="header-top wow fadeIn">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" alt="logo image"></a>
+            <div class="right-header">
                     <div class="header-info">
                         <div class="info-inner">
                             <span class="icontop"><img src="{{ config('app.url') }}images/phone-icon.png" alt="#"></span>
