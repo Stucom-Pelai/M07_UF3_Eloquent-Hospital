@@ -13,8 +13,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get("/docters", function () {
-    return view('docter');
+Route::get("/doctors",function ()
+{
+    return view('doctor');
 });
 Route::get('/app', function () {
     return view('layouts.app');
@@ -34,7 +35,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('nurses', App\Http\Livewire\Admins\Nurses::class)->name('nurses');
 
-    Route::get('/docters', App\Http\Livewire\Admins\Docter::class)->name('admin_docters');
+        Route::get('/doctors',App\Http\Livewire\Admins\Doctors::class)->name('admin_doctors');
 
     Route::get('/operationsreport', App\Http\Livewire\Admins\Operationreport::class)->name('admin_operations_report');
 
