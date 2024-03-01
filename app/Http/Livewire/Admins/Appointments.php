@@ -8,13 +8,13 @@ use App\Models\nurse;
 use App\Models\doctor;
 use Livewire\Component;
 
-class Appiontment extends Component
+class Appointments extends Component
 {
 
     public $patient;
     public $nurse;
     public $doctor;
-    public $start_timeee;
+    public $start_time;
     public $endtime;
 
     public $edit_appointment_id;
@@ -38,14 +38,14 @@ class Appiontment extends Component
                 'patient_id'         => $this->patient,
                 'nurse_id'           => $this->nurse,
                 'doctor_id'         => $this->doctor,
-                'intime ' => $this->start_timeee,
+                'intime ' => $this->start_timee,
                 'outtime ' => $this->endtime,
             ]);
             //unset variables
             $this->patient="";
             $this->doctor="";
             $this->nurse="";
-            $this->start_timeee="";
+            $this->start_time="";
             $this->endtime="";
             session()->flash('message', 'Appointment Created successfully.');
         }
@@ -60,7 +60,7 @@ class Appiontment extends Component
         $this->patient = $appointment->patient_id;
         $this->doctor = $appointment->doctor_id;
         $this->nurse = $appointment->nurse_id;
-        $this->start_timeee = $appointment->intime;
+        $this->start_time = $appointment->intime;
         $this->endtime = $appointment->outtime;
 
         $this->button_text="Update Appointment";
@@ -77,7 +77,7 @@ class Appiontment extends Component
         $appointment->patient_id = $this->patient;
         $appointment->doctor_id = $this->doctor;
         $appointment->nurse_id = $this->nurse;
-        $appointment->intime = $this->start_timeee;
+        $appointment->intime = $this->start_time;
         $appointment->outtime = $this->endtime;
 
         $appointment->save();
@@ -85,7 +85,7 @@ class Appiontment extends Component
         $this->patient="";
         $this->doctor="";
         $this->nurse="";
-        $this->start_timeee="";
+        $this->start_time="";
         $this->endtime="";
 
         session()->flash('message', 'Appointment Updated Successfully.');
@@ -103,7 +103,7 @@ class Appiontment extends Component
 
     public function render()
     {
-        return view('livewire.admins.appiontment',[
+        return view('livewire.admins.appointment',[
             'patients'=> patient::all(),
             'nurses'=> nurse::all(),
             'doctors'=> doctor::all(),
