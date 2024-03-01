@@ -16,7 +16,7 @@ class Subscribe extends Component
             'email' => 'required|email|unique:subscribers,email,except,id',
         ]);
 
-        subscriber::create([
+        subscribers::create([
             'email'         => $this->email,
         ]);
 
