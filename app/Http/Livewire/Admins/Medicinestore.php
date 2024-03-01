@@ -26,7 +26,6 @@ class Medicinestore extends Component
         if ($this->edit_medicine_id) {
 
             $this->update($this->edit_medicine_id);
-            dd($this->edit_medicine_id);
 
         }else{
             $this->validate([
@@ -55,7 +54,6 @@ class Medicinestore extends Component
     {
         $Medicine = medicine::findOrFail($id);
         $this->edit_medicine_id = $id;
-        dd($this->edit_medicine_id);
         $this->price = $Medicine->price;
         $this->quantity = $Medicine->quantity;
         $this->code = $Medicine->code;
@@ -83,7 +81,6 @@ class Medicinestore extends Component
         $this->code="";
 
         $this->edit_medicine_id="";
-        dd($this->edit_medicine_id);
 
         session()->flash('message', 'Medicine Updated Successfully.');
 
