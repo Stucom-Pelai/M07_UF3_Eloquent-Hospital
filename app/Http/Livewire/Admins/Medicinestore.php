@@ -54,7 +54,6 @@ class Medicinestore extends Component
     {
         $Medicine = medicine::findOrFail($id);
         $this->edit_medicine_id = $id;
-
         $this->price = $Medicine->price;
         $this->quantity = $Medicine->quantity;
         $this->code = $Medicine->code;
