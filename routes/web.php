@@ -54,7 +54,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/employees', App\Http\Livewire\Admins\Employees::class)->name('employees');
 
-    Route::get('/appointment', App\Http\Livewire\Admins\Appiontment::class)->name('appointment');
+    Route::get('/appointment', App\Http\Livewire\Admins\Appointments::class)->name('appointment');
 
     Route::get('/blocks', App\Http\Livewire\Admins\Blocks::class)->name('blocks');
 
