@@ -19,11 +19,9 @@ class doctorSeeder extends Seeder
         $faker = Faker::create();
         Doctor::create([
             "employee_id"=>employee::where("position","doctor")->first()->id,
-            'name' => $faker->name(),
         ]);
         Doctor::create([
             "employee_id"=>employee::where("position","doctor")->latest()->first()->id,
-            'name' => $faker->name(),
         ]);
     }
 }

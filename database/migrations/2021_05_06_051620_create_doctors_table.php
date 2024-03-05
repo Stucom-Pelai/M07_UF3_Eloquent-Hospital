@@ -16,7 +16,6 @@ class CreateDoctorsTable extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->foreignId("employee_id")->constrained();
-            $table->string("name");
             $table->timestamps();
             $table->softDeletes();
         });
