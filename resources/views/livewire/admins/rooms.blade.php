@@ -44,26 +44,29 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="available">Room status</label>
-                            <div>
-                                <label for="available">Available</label>
-                                <input type="radio" id="available" name="available" value="available" wire:model.lazy="available" class="form-control">
-
+                            <label for="status">Room Status</label>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-primary">
+                                    <input type="radio" id="available" name="status" value="available"
+                                        wire:model="status" autocomplete="off">
+                                    Available
+                                </label>
+                                <label class="btn btn-outline-warning">
+                                    <input type="radio" id="occupied" name="status" value="occupied"
+                                        wire:model="status" autocomplete="off">
+                                    Occupied
+                                </label>
+                                <label class="btn btn-outline-danger">
+                                    <input type="radio" id="maintenance" name="status" value="maintenance"
+                                        wire:model="status" autocomplete="off">
+                                    Maintenance
+                                </label>
                             </div>
-                            <div>
-                                <label for="occupied">Occupied</label>
-                                <input type="radio" id="occupied" name="available" value="occupied" wire:model.lazy="available" class="form-control">
-
-                            </div>
-                            <div>
-                                <label for="maintenance">Maintenance</label>
-                                <input type="radio" id="maintenance" name="available" value="maintenance" wire:model.lazy="available" class="form-control">
-
-                            </div>
-                            @error('available')
-                            <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                            @error('status')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
                         </div>
@@ -86,17 +89,21 @@
                         </thead>
                         <tbody>
                             @forelse ($rooms as $room)
-                            <tr>
-                                <td>{{ $room->id }}</td>
-                                <td>{{ $room->roomtype }}</td>
-                                <td>{{ $room->department->name }}</td>
-                                <td>{{ $room->available }}</td>
-                                <td>{{ $room->created_at }}</td>
-                                <td class="text-right">
-                                    <button wire:click="edit({{ $room->id }})" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
-                                    <button wire:click="delete({{ $room->id }})" onclick="return confirm('{{ __('Are You Sure ?') }}')" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $room->id }}</td>
+                                    <td>{{ $room->roomtype }}</td>
+                                    <td>{{ $room->department->name }}</td>
+                                    <td>{{ $room->status }}</td>
+                                    <td>{{ $room->created_at }}</td>
+                                    <td class="text-right">
+                                        <button wire:click="edit({{ $room->id }})"
+                                            class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
+                                        <button wire:click="delete({{ $room->id }})"
+                                            onclick="return confirm('{{ __('Are You Sure ?') }}')"
+                                            class="btn btn-outline-danger btn-rounded"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
                             @empty
                             <td class="text-warning">{{ __('Null') }}</td>
                             <td class="text-warning">{{ __('Null') }}</td>

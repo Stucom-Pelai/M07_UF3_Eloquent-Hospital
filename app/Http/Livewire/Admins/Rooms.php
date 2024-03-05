@@ -15,7 +15,7 @@ class Rooms extends Component
 
     public $department;
     public $roomtype;
-    public $available;
+    public $status;
     public $edit_Room_id;
     public $button_text = "Add New Room";
 
@@ -33,15 +33,15 @@ class Rooms extends Component
 
             ModelsRooms::create([
                 'department_id'         => $this->department,
-                'roomtype'         => $this->roomtype,
-                'available'         => $this->available ? true:false,
+                'type'         => $this->roomtype,
+                'status'         => $this->status,
             ]);
 
             $this->department="";
             $this->roomtype="";
-            $this->available="";
+            $this->status="";
 
-            session()->flash('message', 'Room Created successfully.');
+            session()->flash('message', 'Room Created      .');
         }
 
     }
@@ -53,7 +53,7 @@ class Rooms extends Component
         $this->edit_Room_id = $id;
         $this->department = $Room->department_id;
         $this->roomtype = $Room->roomtype;
-        $this->available = $Room->available ? 'checked' : '';
+        $this->status = $Room->status;
 
         $this->button_text="Update Room";
     }
@@ -68,13 +68,13 @@ class Rooms extends Component
         $Room = ModelsRooms::findOrFail($id);
         $Room->department_id = $this->department;
         $Room->roomtype = $this->roomtype;
-        $Room->available = $this->available ? true:false;
+        $Room->status = $this->status;
 
         $Room->save();
 
         $this->department="";
         $this->roomtype="";
-        $this->available="";
+        $this->status="";
         $this->edit_Room_id="";
 
         session()->flash('message', 'Room Updated Successfully.');
@@ -90,7 +90,7 @@ class Rooms extends Component
 
             $this->department="";
             $this->roomtype="";
-            $this->available="";
+            $this->status="";
         $this->button_text = "Add New Room";
 
 }
