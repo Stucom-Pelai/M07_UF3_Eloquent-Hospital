@@ -13,8 +13,8 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get("/docters", function () {
-    return view('docter');
+Route::get("/doctors", function () {
+    return view('doctor');
 });
 Route::get('/app', function () {
     return view('layouts.app');
@@ -34,7 +34,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('nurses', App\Http\Livewire\Admins\Nurses::class)->name('nurses');
 
-    Route::get('/docters', App\Http\Livewire\Admins\Docter::class)->name('admin_docters');
+    Route::get('/doctors', App\Http\Livewire\Admins\Doctors::class)->name('admin_doctors');
 
     Route::get('/operationsreport', App\Http\Livewire\Admins\Operationreport::class)->name('admin_operations_report');
 
@@ -54,7 +54,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/employees', App\Http\Livewire\Admins\Employees::class)->name('employees');
 
-    Route::get('/appointment', App\Http\Livewire\Admins\Appiontment::class)->name('appointment');
+    Route::get('/appointment', App\Http\Livewire\Admins\Appointments::class)->name('appointment');
 
     Route::get('/blocks', App\Http\Livewire\Admins\Blocks::class)->name('blocks');
 
@@ -62,7 +62,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/admin/requestedappointments', App\Http\Livewire\Admins\RequestedAppointments::class)->name('requestedAppointment');
 
-    Route::get('/subscribers', App\Http\Livewire\Admins\Subscibers::class)->name('subscibers');
+    Route::get('/subscribers', App\Http\Livewire\Admins\Subscribers::class)->name('subscribers');
+
 
     Route::get('/contactedus', App\Http\Livewire\Admins\Contactedus::class)->name('contactedus');
 });

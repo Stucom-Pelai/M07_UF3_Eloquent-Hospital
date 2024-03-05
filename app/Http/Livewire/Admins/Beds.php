@@ -28,18 +28,17 @@ class Beds extends Component
         if ($this->edit_bed_id) {
 
             $this->update($this->edit_bed_id);
+        } else {
 
-        }else{
-
-           $this->validate([
-            'room_id' => 'required||numeric',
+            $this->validate([
+                'room_id' => 'required||numeric',
             ]);
-            if(!$this->patient_id == null){
+            if (!$this->patient_id == null) {
                 $this->validate([
                     'patient_id' => 'numeric|unique:beds,patient_id,except,id',
                     'alloted_time' => 'required',
 
-                    ]);
+                ]);
             }
 
             ModelsBeds::create([
@@ -49,18 +48,17 @@ class Beds extends Component
                 'discharge_time'         => $this->discharge_time,
             ]);
 
-           $this->room_id=null;
-            $this->patient_id=null;
-            $this->alloted_time=null;
-            $this->discharge_time=null;
+            $this->room_id = null;
+            $this->patient_id = null;
+            $this->alloted_time = null;
+            $this->discharge_time = null;
 
             session()->flash('message', 'Bed Assigned successfully.');
         }
-
     }
 
 
-     public function edit($id)
+    public function edit($id)
     {
         $Room = ModelsBeds::findOrFail($id);
         $this->edit_bed_id = $id;
@@ -69,21 +67,21 @@ class Beds extends Component
         $this->alloted_time = $Room->alloted_time;
         $this->discharge_time = $Room->discharge_time;
 
-        $this->button_text="Update Room";
+        $this->button_text = "Update Room";
     }
 
     public function update($id)
     {
         $this->validate([
             'room_id' => 'required|numeric',
-            ]);
-            if(!$this->patient_id == null){
-                $this->validate([
-                    'patient_id' => 'numeric|unique:beds,patient_id,except,id',
-                    'alloted_time' => 'required',
+        ]);
+        if (!$this->patient_id == null) {
+            $this->validate([
+                'patient_id' => 'numeric|unique:beds,patient_id,except,id',
+                'alloted_time' => 'required',
 
-                    ]);
-            }
+            ]);
+        }
 
 
         $Room = ModelsBeds::findOrFail($id);
@@ -94,37 +92,37 @@ class Beds extends Component
 
         $Room->save();
 
-        $this->room_id=null;
-        $this->patient_id=null;
-        $this->alloted_time=null;
-        $this->discharge_time=null;
+        $this->room_id = null;
+        $this->patient_id = null;
+        $this->alloted_time = null;
+        $this->discharge_time = null;
 
-        $this->edit_bed_id=null;
+        $this->edit_bed_id = null;
 
         session()->flash('message', 'Bed Updated Successfully.');
 
         $this->button_text = "Add New Bed";
+    }
 
-}
-
-     public function delete($id)
+    public function delete($id)
     {
         ModelsBeds::findOrFail($id)->delete();
         session()->flash('message', 'Room Deleted Successfully.');
 
-        $this->room_id=null;
-        $this->patient_id=null;
-        $this->alloted_time=null;
-        $this->discharge_time=null;
-}
+        $this->room_id = null;
+        $this->patient_id = null;
+        $this->alloted_time = null;
+        $this->discharge_time = null;
+    }
     public function render()
     {
-        return view('livewire.admins.beds',[
+        return view('livewire.admins.beds', [
             'patients' => patient::all(),
-            'rooms' => rooms::where('available',true)->get(),
-            'rooms' => rooms::where('status','available')->get(),
+            'rooms' => Rooms::where('status', true)->get(),
+            'availableRooms' => Rooms::where('status', 'available')->get(),
             'beds' => ModelsBeds::latest()->paginate(10)
 
-        ]);//->layout('admins.layouts.app');
+
+        ])->layout('admins.layouts.app');
     }
 }

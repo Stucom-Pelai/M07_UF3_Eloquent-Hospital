@@ -11,5 +11,6 @@ class doctor extends Model
     use HasFactory,SoftDeletes;
     protected $fillable=[
         'employee_id',
+        'name'
     ];
 }

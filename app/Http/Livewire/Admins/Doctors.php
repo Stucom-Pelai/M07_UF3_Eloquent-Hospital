@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 
 use Livewire\WithFileUploads;
 
-class Docter extends Component
+class Doctors extends Component
 {
     use WithFileUploads;
     use WithPagination;
@@ -149,7 +149,7 @@ class Docter extends Component
 
         session()->flash('message', 'doctor Updated Successfully.');
 
-        $this->button_text = "Add New Docter";
+        $this->button_text = "Add New Doctor";
 
 }
 
@@ -162,7 +162,7 @@ class Docter extends Component
     }
     public function render()
     {
-        return view('livewire.admins.docter',[
+        return view('livewire.admins.doctors',[
             'doctors'=>doctor::latest()->paginate(10),
         ])->layout('admins.layouts.app');
     }
