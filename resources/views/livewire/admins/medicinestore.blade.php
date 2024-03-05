@@ -22,7 +22,7 @@
                             {{ __('Add New medicine') }}</div>
                         <div class="form-group">
                             <label for="Price">Medicine Price</label>
-                            <input type="number" name="Price" id="" wire:model.lazy="price"
+                            <input type="text" name="Price" id="" wire:model.lazy="price"
                                 placeholder="Enter Medicine Price" class="form-control" required cols="30"
                                 rows="5"></textarea>
                         </div>
