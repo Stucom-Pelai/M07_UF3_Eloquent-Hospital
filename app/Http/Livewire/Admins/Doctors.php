@@ -70,7 +70,6 @@ class Doctors extends Component
             $this->Phone="";
             $this->department="";
             $this->Specialization="";
-            $this->address="";
             $this->Photo="";
             session()->flash('message', 'Doctor Created successfully.');
         }
@@ -143,7 +142,6 @@ class Doctors extends Component
         $this->Phone="";
         $this->department="";
         $this->Specialization="";
-        $this->address="";
         $this->Photo="";
         $this->edit_photo="";
 
