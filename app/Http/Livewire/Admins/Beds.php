@@ -124,6 +124,11 @@ class Beds extends Component
             'rooms' => Rooms::where('status', true)->get(),
             'availableRooms' => Rooms::where('status', 'available')->get(),
             'beds' => ModelsBeds::latest()->paginate(10)
+<<<<<<< Updated upstream
         ]);//->layout('admins.layouts.app');
+=======
+
+        ])->layout('admins.layouts.app');
+>>>>>>> Stashed changes
     }
 }
