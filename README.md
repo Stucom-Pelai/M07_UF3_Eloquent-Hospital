@@ -74,19 +74,25 @@ php artisan view:clear
 php artisan livewire:publish --assets
 ```
 
-9. Run migrations and seed the database
+9. Create hms database
+
+```bash
+php artisan db:create hms
+```
+
+10. Run migrations and seed the database
 
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-10. Start the Laravel development server
+11. Start the Laravel development server
 
 ```bash
 php artisan serve
 ```
 
-11. You are all set
+12. You are all set
 
 ## Admin Credentials
 
