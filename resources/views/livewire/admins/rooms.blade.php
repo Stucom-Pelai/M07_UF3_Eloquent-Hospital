@@ -44,8 +44,25 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="available">Available</label>
-                            <input type="checkbox" name="available" wire:model.lazy="available" class="form-control" />
+                            <label for="available">Room status</label>
+                            <div>
+                                <label for="available">Available</label>
+                                <input type="radio" id="available" name="available" value="available"
+                                    wire:model.lazy="available" class="form-control">
+
+                            </div>
+                            <div>
+                                <label for="occupied">Occupied</label>
+                                <input type="radio" id="occupied" name="available" value="occupied"
+                                    wire:model.lazy="available" class="form-control">
+
+                            </div>
+                            <div>
+                                <label for="maintenance">Maintenance</label>
+                                <input type="radio" id="maintenance" name="available" value="maintenance"
+                                    wire:model.lazy="available" class="form-control">
+
+                            </div>
                             @error('available')
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
