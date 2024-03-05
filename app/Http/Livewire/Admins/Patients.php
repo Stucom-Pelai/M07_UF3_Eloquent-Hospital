@@ -47,6 +47,7 @@ class Patients extends Component
             $this->update($this->edit_patient_id);
 
         }else{
+
             $this->validate([
                 'name' => 'required||min:6|max:50',
                 'email' => 'required|email',
