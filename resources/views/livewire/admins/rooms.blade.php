@@ -44,12 +44,29 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="available">Available</label>
-                            <input type="checkbox" name="available" wire:model.lazy="available" class="form-control" />
-                            @error('available')
-                                <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                            <label for="status">Room Status</label>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-primary">
+                                    <input type="radio" id="available" name="status" value="available"
+                                        wire:model="status" autocomplete="off">
+                                    Available
+                                </label>
+                                <label class="btn btn-outline-warning">
+                                    <input type="radio" id="occupied" name="status" value="occupied"
+                                        wire:model="status" autocomplete="off">
+                                    Occupied
+                                </label>
+                                <label class="btn btn-outline-danger">
+                                    <input type="radio" id="maintenance" name="status" value="maintenance"
+                                        wire:model="status" autocomplete="off">
+                                    Maintenance
+                                </label>
+                            </div>
+                            @error('status')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
                         </div>
@@ -75,7 +92,7 @@
                                     <td>{{ $room->id }}</td>
                                     <td>{{ $room->roomtype }}</td>
                                     <td>{{ $room->department->name }}</td>
-                                    <td>{{ $room->available }}</td>
+                                    <td>{{ $room->status }}</td>
                                     <td>{{ $room->created_at }}</td>
                                     <td class="text-right">
                                         <button wire:click="edit({{ $room->id }})"
