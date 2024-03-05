@@ -59,7 +59,10 @@
 <div id="about" class="section wow fadeIn">
    <div class="container">
       <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
+         <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
+         <span class="icon-logo">
+         <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         </span>
          <h2>The Specialist Clinic</h2>
       </div>
       <!-- end title -->
@@ -120,10 +123,10 @@
          <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="service-widget">
                <div class="post-media wow fadeIn">
-                  <a href="images/clinic_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                  <img src="images/clinic_01.jpg" alt="" class="img-responsive">
+                  <a href="images/pharmacy.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                  <img src="images/pharmacy.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Digital Control Center</h3>
+               <h3>Pharmacy</h3>
             </div>
             <!-- end service -->
          </div>
@@ -193,8 +196,11 @@
   <div class="container">
 
    <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
-         <h2>The Specialist Clinic</h2>
+         <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
+         <span class="icon-logo">
+         <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         </span>
+         <h2>Our Team</h2>
       </div>
 
       <div class="row dev-list text-center">
@@ -388,7 +394,7 @@
 <div id="testimonials" class="section wb wow fadeIn">
    <div class="container">
       <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
+      <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
          <h2>Testimonials</h2>
       </div>
       <!-- end title -->
@@ -463,14 +469,6 @@
    <!-- end container -->
 </div>
 <!-- end section -->
-<div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
-   <div class="container">
-      <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
-         <h2>Get in Touch</h2>
-      </div>
-   </div>
 @livewire('contactus')
-</div>
 
 @endsection
