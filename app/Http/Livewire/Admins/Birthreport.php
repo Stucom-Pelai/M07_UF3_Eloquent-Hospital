@@ -105,7 +105,9 @@ class Birthreport extends Component
     {
         return view('livewire.admins.birthreport',[
             'BirthReports' => ModelsBirthreport::latest()->paginate(10),
-            'doctors' => doctor::all(),
+            'doctors' =>  $doctors = doctor::join('employees', 'doctors.employee_id', '=', 'employees.id')
+            ->select('doctors.id', 'employees.name as name')
+            ->get(),
             'patients' => patient::all(),
         ])->layout('admins.layouts.app');
     }

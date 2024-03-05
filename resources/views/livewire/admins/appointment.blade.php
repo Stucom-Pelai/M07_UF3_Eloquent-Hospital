@@ -68,7 +68,7 @@
                             <label for="end_time">Start Time Of Appointment</label>
                             <input type="datetime-local" name="end_time" class="form-control"
                                 placeholder="Set End Time Of Appointment" wire:model.lazy="start_timeee" />
-                            <p class="text-info">Current Value: {{ $start_timeee }}</p>
+                            <p class="text-info">Current Value: {{ $start_time }}</p>
                             @error('start_timeee')
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror

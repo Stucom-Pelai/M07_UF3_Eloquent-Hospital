@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
+use App\Models\doctor;
 use App\Models\requestedappointment;
 use Livewire\Component;
 
@@ -49,6 +50,10 @@ class Appointmentform extends Component
     }
     public function render()
     {
-        return view('livewire.appointmentform');
+        $doctors = doctor::join('employees', 'doctors.employee_id', '=', 'employees.id')
+        ->select('doctors.id', 'employees.name as name')
+        ->get();
+
+        return view('livewire.appointmentform',compact('doctors'));
     }
 }

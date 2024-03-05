@@ -24,37 +24,34 @@ class Medicinestore extends Component
     public function add_medicine()
     {
         if ($this->edit_medicine_id) {
-
             $this->update($this->edit_medicine_id);
-
-        }else{
+        } else {
             $this->validate([
-                'price' => 'required|numeric',
+                'price' => 'required|regex:/^\d*(\.\d{1,2})?$/',
                 'quantity' => 'required|numeric',
                 'code' => 'required',
-                ]);
-
-                medicine::create([
-                'price'         => $this->price,
-                'quantity'         => $this->quantity,
-                'code'         => $this->code,
             ]);
-
-            $this->price="";
-            $this->quantity="";
-            $this->code="";
-
+    
+            medicine::create([
+                'price' => $this->price,
+                'quantity' => $this->quantity,
+                'code' => $this->code,
+            ]);
+    
+            $this->price = "";
+            $this->quantity = "";
+            $this->code = "";
+    
             session()->flash('message', 'Medicine Created successfully.');
         }
-
     }
+    
 
 
      public function edit($id)
     {
         $Medicine = medicine::findOrFail($id);
         $this->edit_medicine_id = $id;
-
         $this->price = $Medicine->price;
         $this->quantity = $Medicine->quantity;
         $this->code = $Medicine->code;

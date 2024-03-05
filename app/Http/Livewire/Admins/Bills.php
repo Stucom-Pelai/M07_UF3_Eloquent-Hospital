@@ -93,7 +93,6 @@ class Bills extends Component
         $this->amount=null;
         $this->patients_id=null;
         $this->payed=null;
-        $this->discharge_time=null;
 }
     public function render()
     {

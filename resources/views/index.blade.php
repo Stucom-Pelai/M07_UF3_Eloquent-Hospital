@@ -196,8 +196,11 @@
   <div class="container">
 
    <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
-         <h2>The Specialist Clinic</h2>
+         <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
+         <span class="icon-logo">
+         <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         </span>
+         <h2>Our Team</h2>
       </div>
 
       <div class="row dev-list text-center">
@@ -466,14 +469,6 @@
    <!-- end container -->
 </div>
 <!-- end section -->
-<div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
-   <div class="container">
-      <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
-         <h2>Get in Touch</h2>
-      </div>
-   </div>
 @livewire('contactus')
-</div>
 
 @endsection
