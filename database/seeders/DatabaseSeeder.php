@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
             departmentSeeder::class,
             doctorSeeder::class,
             patientSeeder::class,
+            birthreportSeeder::class,
             HodSeeder::class,
             roomSeeder::class,
             bedsSeeder::class,
