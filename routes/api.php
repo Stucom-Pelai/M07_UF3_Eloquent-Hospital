@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientsController;
-
+use App\Http\Controllers\BillsController; 
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('patients', [PatientsController::class, 'getAllPatients'])->name('getAllPatients');
+
+Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
