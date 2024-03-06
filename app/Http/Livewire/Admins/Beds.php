@@ -119,11 +119,13 @@ class Beds extends Component
 }
     public function render()
     {
-        return view('livewire.admins.beds',[
-            'patients' => patient::all(),
-            'rooms' => Rooms::where('status', true)->get(),
-            'availableRooms' => Rooms::where('status', 'available')->get(),
-            'beds' => ModelsBeds::latest()->paginate(10)
-        ]);//->layout('admins.layouts.app');
+        return view('livewire.admins.beds', [
+            'patients' => Patient::all(),
+            'rooms' => rooms::where('status', 'available')->get(),
+            'beds' => ModelsBeds::whereHas('room', function ($query) {
+                $query->where('status', 'available');
+            })->latest()->paginate(10)
+        ])->layout('admins.layouts.app');
     }
 }
+
