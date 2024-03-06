@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\rooms;
-class RoomsController{
+class RoomsController extends Controller{
 
 public function getAvailableRooms(){
     $rooms = rooms::where('status', 'available')->get();
