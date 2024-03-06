@@ -9,6 +9,8 @@ use Intervention\Image\ImageManagerStatic;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use App\Models\employee;
+
 
 class Nurses extends Component
 {
@@ -35,12 +37,10 @@ class Nurses extends Component
     public function add_nurse()
     {
         if ($this->edit_photo) {
-
             $this->update($this->edit_nurse_id);
-
-        }else{
+        } else {
             $this->validate([
-                'name' => 'required||min:6|max:50',
+                'name' => 'required|min:6|max:50', // Corregido aquí
                 'email' => 'required|email',
                 'position' => 'required',
                 'registered' => 'required',
@@ -49,34 +49,35 @@ class Nurses extends Component
                 'gender' => 'required',
                 'qualification' => 'required',
                 'photo' => 'required|image|max:3072',
-                ]);
+            ]);
 
             nurse::create([
-                'name'          => $this->name,
-                'email'         => $this->email,
-                'phone'         => $this->phone,
-                'gender'        => $this->gender,
-                'address'       => $this->address,
+                'name' => $this->name,
+                'email' => $this->email,
+                'phone' => $this->phone,
+                'gender' => $this->gender,
+                'address' => $this->address,
                 'qualification' => $this->qualification,
-                'photo_path'    =>$this->storeImage(),
-                'position'    =>$this->position,
-                'registered'    =>$this->registered,
+                'photo_path' => $this->storeImage(),
+                'position' => $this->position,
+                'registered' => $this->registered,
             ]);
-            //unset variables
-            $this->name="";
-            $this->email="";
-            $this->password="";
-            $this->address="";
-            $this->phone="";
-            $this->qualification="";
-            $this->address="";
-            $this->photo="";
-            $this->position="";
-            $this->registered="";
+
+            // Restablecer variables
+            $this->name = "";
+            $this->email = "";
+            $this->address = "";
+            $this->phone = "";
+            $this->qualification = "";
+            $this->address = "";
+            $this->photo = "";
+            $this->position = "";
+            $this->registered = "";
+
             session()->flash('message', 'Nurse Created successfully.');
         }
-
     }
+
 
     public function storeImage()
     {
@@ -90,7 +91,7 @@ class Nurses extends Component
         return $name;
     }
 
-     public function edit($id)
+    public function edit($id)
     {
         $nurse = nurse::findOrFail($id);
         $this->edit_nurse_id = $id;
@@ -103,18 +104,18 @@ class Nurses extends Component
         $this->edit_photo = $nurse->photo_path;
         $this->position = $nurse->position;
 
-        $this->button_text="Update nurse";
+        $this->button_text = "Update nurse";
     }
     public function update($id)
     {
         $this->validate([
-                'name' => 'required||min:6|max:50',
-                'email' => 'required|email',
-                'address' => 'required',
-                'phone' => 'required',
-                'position' => 'required',
-                'registered' => 'required',
-            ]);
+            'name' => 'required||min:6|max:50',
+            'email' => 'required|email',
+            'address' => 'required',
+            'phone' => 'required',
+            'position' => 'required',
+            'registered' => 'required',
+        ]);
 
         $nurse = nurse::findOrFail($id);
         $nurse->name = $this->name;
@@ -130,29 +131,27 @@ class Nurses extends Component
             ]);
             Storage::disk('public')->delete($nurse->photo_path);
             $nurse->photo_path = $this->storeImage();
-
         }
 
         $nurse->save();
 
-        $this->name="";
-        $this->email="";
-        $this->address="";
-        $this->phone="";
-        $this->qualification="";
-        $this->address="";
-        $this->photo="";
-        $this->edit_photo="";
-        $this->registered="";
-        $this->position="";
+        $this->name = "";
+        $this->email = "";
+        $this->address = "";
+        $this->phone = "";
+        $this->qualification = "";
+        $this->address = "";
+        $this->photo = "";
+        $this->edit_photo = "";
+        $this->registered = "";
+        $this->position = "";
 
         session()->flash('message', 'Nurse Updated Successfully.');
 
         $this->button_text = "Add New Nurse";
+    }
 
-}
-
-     public function delete($id)
+    public function delete($id)
     {
         $nurse = nurse::find($id);
         Storage::disk('public')->delete($nurse->photo_path);
@@ -163,8 +162,8 @@ class Nurses extends Component
 
     public function render()
     {
-        return view('livewire.admins.nurses',[
-            'nurses' =>nurse::latest()->paginate(10),
+        return view('livewire.admins.nurses', [
+            'nurses' => Employee::where('position', 'nurse')->latest()->paginate(10),
         ])->layout('admins.layouts.app');
     }
 }
