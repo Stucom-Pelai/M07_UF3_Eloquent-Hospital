@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Nurse;
-use Faker\Factory as Faker;
+use App\Models\Employee; // Asegúrate de importar correctamente el modelo Employee
+
 class NursesTableSeeder extends Seeder
 {
     /**
@@ -14,19 +15,14 @@ class NursesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        // Obtener todas las enfermeras que están registradas como empleadas
+        $nurseEmployees = Employee::where("position", "nurse")->get();
 
-        for ($i = 0; $i < 10; $i++) { // Creando 10 usuarios, ajusta el número según sea necesario
+        // Iterar sobre cada enfermera encontrada y crear un registro correspondiente en la tabla Nurse
+        foreach ($nurseEmployees as $employee) {
             Nurse::create([
-                'name' => $faker->name,
-                'email' => $faker->unique()->safeEmail,
-                'phone' => $faker->phoneNumber,
-                'gender' => $faker->randomElement(['male', 'female']),
-                'address' => $faker->address,
-                'qualification' => $faker->sentence(3),
-                'photo' => null, // Puedes agregar lógica para generar o obtener fotos si es necesario
-                'position' => $faker->jobTitle,
-                'registered' => $faker->dateTimeThisYear($max = 'now', $timezone = null),
+                "employee_id" => $employee->id,
             ]);
+        }
     }
-}}
+}

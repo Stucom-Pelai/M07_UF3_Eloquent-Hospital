@@ -137,11 +137,11 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Phone</th>
-                                <th>Gender</th>
-                                <th>Address</th>
-                                <th>Qualification</th>
                                 <th>Status</th>
                                 <th>Position</th>
+                                <th>Qualification</th>
+                                <th>Status</th>
+                                <th>Address</th>
                                 <th>Photo</th>
                                 <th>Actions</th>
                             </tr>
@@ -152,7 +152,7 @@
                                     <td>{{ $nurse->id }}</td>
                                     <td>{{ $nurse->name }}</td>
                                     <td>{{ $nurse->phone }}</td>
-                                    <td>{{ $nurse->gender }}</td>
+                                    <td>{{ $nurse->status }}</td>
                                     <td>{{ $nurse->position }}</td>
                                     <td>{{ $nurse->qualification }}</td>
                                     <td>{{ $nurse->registered ? 'Registered' : 'Not Registered' }}</td>
