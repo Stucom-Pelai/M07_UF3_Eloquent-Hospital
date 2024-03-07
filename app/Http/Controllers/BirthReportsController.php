@@ -5,7 +5,7 @@ use App\Models\birthreport;
 use Illuminate\Support\Facades\DB;
 
 
-class BirthReportsController {
+class BirthReportsController extends Controller {
 
     public function getBirthStats(){
         
