@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\patient;
-class PatientsController {
+class PatientsController extends Controller {
 
 public function getAllPatients(){
     $patients = patient::all()->toArray();
