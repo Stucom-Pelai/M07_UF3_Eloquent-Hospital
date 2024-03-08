@@ -39,10 +39,9 @@
                         @error('email')
                             <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
-
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="number" max="1000000000000" name="phone" wire:model.lazy="phone"
+                            <input type="text" max="1000000000000" name="phone" wire:model.lazy="phone"
                                 placeholder="Enter Employee Phone" class="form-control" required cols="30"
                                 rows="5"></textarea>
                         </div>

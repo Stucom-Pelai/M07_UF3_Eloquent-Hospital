@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Doctor;
 use App\Models\Employee;
 
-class PatientsTableSeeder extends Seeder
+class patientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
