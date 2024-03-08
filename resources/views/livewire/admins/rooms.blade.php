@@ -87,7 +87,7 @@
                                 <th>Room No</th>
                                 <th>Room Type</th>
                                 <th>Department</th>
-                                <th>Available</th>
+                                <th>Status</th>
                                 <th>Dated</th>
                                 <th>Actions</th>
                             </tr>
