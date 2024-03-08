@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Patient;
+use App\Models\rooms;
 use App\Models\Stay;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
@@ -14,10 +15,11 @@ class StaysSeeder extends Seeder
         $faker = Faker::create();
 
         $patientIds = Patient::pluck('id')->toArray();
+        $roomIds = Rooms::pluck('id')->toArray();
 
         Stay::create([
             'patient_id' => $faker->randomElement($patientIds),
-            'room_id' => $faker->randomNumber(5),
+            'room_id' => $faker->randomElement($roomIds),
             'start_time' => $faker->dateTime,
             'end_time' => $faker->dateTime,
             'status' => $faker->numberBetween(0, 1),
