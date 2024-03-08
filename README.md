@@ -62,13 +62,13 @@ php artisan key:generate
 php artisan storage:link
 ```
 
-7. Clear compiled view files 
+7. Clear compiled view files
 
 ```bash
 php artisan view:clear
 ```
 
-8. Publish livewire assets 
+8. Publish livewire assets
 
 ```bash
 php artisan livewire:publish --assets
@@ -80,7 +80,7 @@ php artisan livewire:publish --assets
 php artisan db:create hms
 ```
 
-10. Run migrations and seed the database 
+10. Run migrations and seed the database
 
 ```bash
 php artisan migrate:fresh --seed
