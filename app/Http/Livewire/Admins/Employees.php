@@ -70,7 +70,6 @@ class Employees extends Component
     {
         $employee = employee::findOrFail($id);
         $this->edit_employee_id = $id;
-
         $this->name = $employee->name;
         $this->email = $employee->email;
         $this->address = $employee->address;

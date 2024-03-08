@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\MedicinesController;
+
+use App\Http\Controllers\BirthReportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +26,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('patients', [PatientsController::class, 'getAllPatients'])->name('getAllPatients');
 Route::get('rooms/available', [RoomsController::class, 'getAvailableRooms'])->name('getAvailableRooms');
+Route::get('medicines', [MedicinesController::class, 'getAllMedicines'])->name('getAllMedicines');
 Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAllDoctors');
+Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');

@@ -8,7 +8,7 @@ public function getAllDoctors(){
 
     try{
         return response()->
-        json(['patients' => $doctors]);
+        json(['doctors' => $doctors]);
     }catch(\Exception $e){
         return response()->
         json(['action' => 'get', 'status' => false, 'error' => $e->getMessage()]);
