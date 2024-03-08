@@ -13,5 +13,10 @@ class doctor extends Model
         'employee_id',
         'name'
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(employee::class);
+    }
     
 }
