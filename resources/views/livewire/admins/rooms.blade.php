@@ -38,7 +38,12 @@
                         </div>
                         <div class="form-group">
                             <label for="roomtype">Room Type</label>
-                            <input type="text" placeholder="Enter Room Type" name="roomtype" wire:model.lazy="roomtype" class="form-control" required />
+                            <select name="roomtype"  class="form-control" required>
+                                <option selected disabled>Enter Room Type</option>
+                                <option value="general">general</option>
+                                <option value="privado">privado</option>
+                                <option value="semiprivado">semiprivado</option>
+                                <option value="barrio">barrio</option>
                             @error('roomtype')
                             <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
