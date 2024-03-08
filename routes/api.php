@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\DoctorsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientsController;
+use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\MedicinesController;
+use App\Http\Controllers\BirthReportsController;
 use App\Http\Controllers\BillsController; 
-use App\Http\Controllers\DoctorsController; 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,7 +25,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('patients', [PatientsController::class, 'getAllPatients'])->name('getAllPatients');
-
-Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
-
+Route::get('rooms/available', [RoomsController::class, 'getAvailableRooms'])->name('getAvailableRooms');
+Route::get('medicines', [MedicinesController::class, 'getAllMedicines'])->name('getAllMedicines');
 Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAllDoctors');
+Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');
+Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
