@@ -12,7 +12,7 @@ class rooms extends Model
     protected $fillable=[
         'department_id',
         'roomtype',
-        'available'
+        'status'
 ];
 
     public function department()

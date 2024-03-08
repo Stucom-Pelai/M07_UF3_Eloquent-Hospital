@@ -20,9 +20,9 @@ Follow these instructions to set up and run the project locally on your machine.
 
 ### Prerequisites
 
-- [Git](https://git-scm.com/)
-- [Composer](https://getcomposer.org/)
-- [PHP](https://www.php.net/)
+-   [Git](https://git-scm.com/)
+-   [Composer](https://getcomposer.org/)
+-   [PHP](https://www.php.net/)
 
 ### Installation
 
@@ -32,33 +32,80 @@ Follow these instructions to set up and run the project locally on your machine.
    git clone https://github.com/Stucom-Pelai/DAW2_M07_UF3_Eloquent-Hospital.git
 ```
 
- ```bash
+2. Install Composer dependencies:
+
+```bash
 composer install
 ```
- ```bash
+
+3. Update Livewire package
+
+```bash
+composer update livewire/livewire
+```
+
+4. Copy the example enviroment file:
+
+```bash
 cp .env.example .env
 ```
+
+5. Generate an application key
+
 ```bash
 php artisan key:generate
- ```
+```
+
+6. Create a symbolic link from 'public/storage' to 'storage/app/public'
+
 ```bash
 php artisan storage:link
 ```
- ```bash
- php artisan migrate:fresh --seed
-```
- ```bash
- php artisan serve
+
+7. Clear compiled view files
+
+```bash
+php artisan view:clear
 ```
 
+8. Publish livewire assets
+
+```bash
+php artisan livewire:publish --assets
+```
+
+9. Create hms database
+
+```bash
+php artisan db:create hms
+```
+
+10. Run migrations and seed the database
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+11. Start the Laravel development server
+
+```bash
+php artisan serve
+```
+
+12. You are all set
+
 ## Admin Credentials
-Admin: 
-```bash 
+
+Admin:
+
+```bash
 root@test.com
 ```
-Password: 
+
+Password:
+
 ```bash
 root
 ```
 
-## If you like our project please leave a star ❤
+## If you like our project please leave a star ❤❤

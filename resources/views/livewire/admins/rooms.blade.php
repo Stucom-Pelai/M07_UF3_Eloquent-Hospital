@@ -6,12 +6,12 @@
             </div>
             <div>
                 @if (session()->has('message'))
-                    <div class="alert alert-success">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 @endif
             </div>
             <div class="box box-primary">
@@ -19,37 +19,54 @@
                     <div class="text-info" wire:loading>Loading..</div>
                     <form accept-charset="utf-8" class="shadow rounded p-3" wire:submit.prevent="add_room()">
                         <div class="text-capitalize bg-dark p-2 shadow mb-3 text-center text-lg text-light rounded">
-                            {{ __('Add New room') }}</div>
+                            {{ __('Add New room') }}
+                        </div>
                         <div class="form-group">
                             <label for="department">Department</label>
                             <select name="department" wire:model.lazy="department" class="form-control" required>
                                 <option selected>Choose Department</option>
                                 @forelse ($departments as $department)
-                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                <option value="{{ $department->id }}">{{ $department->name }}</option>
                                 @empty
-                                    <option value="">Null</option>
+                                <option value="">Null</option>
                                 @endforelse
                             </select>
 
                             @error('department')
-                                <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                            <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="roomtype">Room Type</label>
-                            <input type="text" placeholder="Enter Room Type" name="roomtype"
-                                wire:model.lazy="roomtype" class="form-control" required />
+                            <input type="text" placeholder="Enter Room Type" name="roomtype" wire:model.lazy="roomtype" class="form-control" required />
                             @error('roomtype')
-                                <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                            <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="available">Available</label>
-                            <input type="checkbox" name="available" wire:model.lazy="available" class="form-control" />
-                            @error('available')
-                                <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                            <label for="status">Room Status</label>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-primary">
+                                    <input type="radio" id="available" name="status" value="available"
+                                        wire:model="status" autocomplete="off">
+                                    Available
+                                </label>
+                                <label class="btn btn-outline-warning">
+                                    <input type="radio" id="occupied" name="status" value="occupied"
+                                        wire:model="status" autocomplete="off">
+                                    Occupied
+                                </label>
+                                <label class="btn btn-outline-danger">
+                                    <input type="radio" id="maintenance" name="status" value="maintenance"
+                                        wire:model="status" autocomplete="off">
+                                    Maintenance
+                                </label>
+                            </div>
+                            @error('status')
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
                         </div>
@@ -57,14 +74,15 @@
                     <hr>
 
                     <div class="text-capitalize bg-dark p-2 shadow mb-3 text-center text-lg text-light rounded">
-                        {{ __('All  rooms') }}</div>
+                        {{ __('All  rooms') }}
+                    </div>
                     <table class="table table-hover" style="" id="">
                         <thead>
                             <tr>
                                 <th>Room No</th>
                                 <th>Room Type</th>
                                 <th>Department</th>
-                                <th>Avaialble</th>
+                                <th>Available</th>
                                 <th>Dated</th>
                                 <th>Actions</th>
                             </tr>
@@ -75,7 +93,7 @@
                                     <td>{{ $room->id }}</td>
                                     <td>{{ $room->roomtype }}</td>
                                     <td>{{ $room->department->name }}</td>
-                                    <td>{{ $room->available }}</td>
+                                    <td>{{ $room->status }}</td>
                                     <td>{{ $room->created_at }}</td>
                                     <td class="text-right">
                                         <button wire:click="edit({{ $room->id }})"
@@ -87,13 +105,13 @@
                                     </td>
                                 </tr>
                             @empty
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                </tr>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            </tr>
                             @endforelse
                         </tbody>
                     </table>

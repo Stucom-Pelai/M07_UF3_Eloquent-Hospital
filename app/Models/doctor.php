@@ -13,4 +13,5 @@ class doctor extends Model
         'employee_id',
         'name'
     ];
+    
 }

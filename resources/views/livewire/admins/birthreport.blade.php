@@ -52,7 +52,7 @@
                             <select name="Doctor" class="form-control" wire:model.lazy="doctor" required>
                                 <option value="" selected>Choose Doctor</option>
                                 @forelse ($doctors as $doctor)
-                                    <option value="{{ $doctor->name }}">{{ $doctor->name }}</option>
+                                    <option value="{{ $doctor->name }}">{{  $doctor->name }}</option>
                                 @empty
                                     <option value="" class="text-warning">No Doctor Found!</option>
                                 @endforelse

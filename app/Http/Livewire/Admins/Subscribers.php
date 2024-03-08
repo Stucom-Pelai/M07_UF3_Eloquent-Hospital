@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\subscriber;
 use Livewire\WithPagination;
 
-class Subscibers extends Component
+class Subscribers extends Component
 {
     use WithPagination;
 
@@ -14,7 +14,7 @@ class Subscibers extends Component
 
      public function delete($id)
     {
-        subscriber::findOrFail($id)->delete();
+        Subscribers::findOrFail($id)->delete();
         session()->flash('message', 'Subscriber Deleted Successfully.');
 
 }
