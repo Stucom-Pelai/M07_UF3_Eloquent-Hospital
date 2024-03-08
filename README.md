@@ -38,7 +38,7 @@ Follow these instructions to set up and run the project locally on your machine.
 composer install
 ```
 
-3. Update Livewire package
+3. Update Livewire package 
 
 ```bash
 composer update livewire/livewire
@@ -62,13 +62,13 @@ php artisan key:generate
 php artisan storage:link
 ```
 
-7. Clear compiled view files
+7. Clear compiled view files 
 
 ```bash
 php artisan view:clear
 ```
 
-8. Publish livewire assets
+8. Publish livewire assets 
 
 ```bash
 php artisan livewire:publish --assets
@@ -80,13 +80,13 @@ php artisan livewire:publish --assets
 php artisan db:create hms
 ```
 
-10. Run migrations and seed the database
+10. Run migrations and seed the database 
 
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-11. Start the Laravel development server
+11. Start the Laravel development server 
 
 ```bash
 php artisan serve
