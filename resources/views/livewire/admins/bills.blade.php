@@ -2,7 +2,7 @@
     <div class="content">
         <div class="container">
             <div class="page-title">
-                <h3 class="text-info">{{ env('APP_NAME') }} Bill's</h3>
+                <h3 class="text-info">{{ env('APP_NAME') }} Bill</h3>
             </div>
             <div>
                 @if (session()->has('message'))
@@ -46,9 +46,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="payed">Payed</label>
-                            <input type="checkbox" name="payed" wire:model.lazy="payed" class="form-control">
-                            @error('payed')
+                            <label for="status">Payed</label>
+                            <input type="checkbox" name="status" wire:model.lazy="status" class="form-control">
+                            @error('status')
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
                         </div>
@@ -67,17 +67,17 @@
                                 <th class="text-center">Bill ID</th>
                                 <th class="text-center">Patient</th>
                                 <th class="text-center">Bill Amount <small class="text-warning">KPR</small></th>
-                                <th class="text-center">Payed</th>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($bills as $bill)
-                                <tr @if ($bill->payed == 1) class="bg-success" @endif>
+                                <tr @if ($bill->status == 1) class="bg-success" @endif>
                                     <td class="text-center">{{ $bill->id }}</td>
                                     <td class="text-center">{{ $bill->patients_id ?: 'Null' }}</td>
                                     <td class="text-center">{{ $bill->amount ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bill->payed ? 'payed' : 'not payed' }}</td>
+                                    <td class="text-center">{{ $bill->status ? : 'not payed' }}</td>
                                     <td class="text-center">
                                         <button wire:click="edit({{ $bill->id }})"
                                             class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
