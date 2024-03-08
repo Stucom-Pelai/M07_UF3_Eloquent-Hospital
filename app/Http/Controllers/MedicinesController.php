@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\medicine;
 
-class MedicinesController
+class MedicinesController extends Controller
 {
 
     public function getAllMedicines()
