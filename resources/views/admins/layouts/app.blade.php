@@ -38,10 +38,10 @@
                 </li>
                 <li>
                     <a href="{{ route('admin_operations_report') }}"><i class="fas fa-file-alt"></i>Operation
-                        report</a>
+                        reports</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin_birth_report') }}"><i class="fas fa-file-alt"></i>Birth Report</a>
+                    <a href="{{ route('admin_birth_report') }}"><i class="fas fa-file-alt"></i>Birth Reports</a>
                 </li>
                 <li>
                     <a href="{{ route('admin_patients') }}"><i class="fas fa-file-alt"></i>Patients</a>
@@ -53,7 +53,7 @@
                     <a href="{{ route('employees') }}"><i class="fas fa-file-alt"></i>Employees</a>
                 </li>
                 <li>
-                    <a href="{{ route('departments') }}"><i class="fas fa-file-alt"></i>Department</a>
+                    <a href="{{ route('departments') }}"><i class="fas fa-file-alt"></i>Departments</a>
                 </li>
                 <li>
                     <a href="{{ route('Rooms') }}"><i class="fas fa-file-alt"></i>Rooms</a>
