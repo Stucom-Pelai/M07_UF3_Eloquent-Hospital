@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7adcf110-dd63-4367-b21d-5f3212347f84" activeEnvironment="Default" name="MySoapLaravelProject" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="a9eb2347-c4ce-4eff-8c6d-b59f36394f7d" wsaVersion="NONE" name="MySoapServiceBinding" type="wsdl" bindingName="{http://127.0.0.1:8000/api/soap/server}MySoapServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://127.0.0.1:8000/api/soap/wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://127.0.0.1:8000/api/soap/wsdl"><con:part><con:url>http://127.0.0.1:8000/api/soap/wsdl</con:url><con:content><![CDATA[<definitions name="MySoapService" targetNamespace="http://127.0.0.1:8000/api/soap/server" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://127.0.0.1:8000/api/soap/server" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <types>
+    <xsd:schema targetNamespace="http://127.0.0.1:8000/api/soap/server"/>
+  </types>
+  <portType name="MySoapServicePort">
+    <operation name="calculateCircleCircumference">
+      <documentation>Calculate the circumference  of a circle with given radius</documentation>
+      <input message="tns:calculateCircleCircumferenceIn"/>
+      <output message="tns:calculateCircleCircumferenceOut"/>
+    </operation>
+    <operation name="calculateCircleArea">
+      <documentation>Calculate the area of a circle with given radius</documentation>
+      <input message="tns:calculateCircleAreaIn"/>
+      <output message="tns:calculateCircleAreaOut"/>
+    </operation>
+  </portType>
+  <binding name="MySoapServiceBinding" type="tns:MySoapServicePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="calculateCircleCircumference">
+      <soap:operation soapAction="http://127.0.0.1:8000/api/soap/server#calculateCircleCircumference"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://127.0.0.1:8000/api/soap/server"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://127.0.0.1:8000/api/soap/server"/>
+      </output>
+    </operation>
+    <operation name="calculateCircleArea">
+      <soap:operation soapAction="http://127.0.0.1:8000/api/soap/server#calculateCircleArea"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://127.0.0.1:8000/api/soap/server"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://127.0.0.1:8000/api/soap/server"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="MySoapServiceService">
+    <port name="MySoapServicePort" binding="tns:MySoapServiceBinding">
+      <soap:address location="http://127.0.0.1:8000/api/soap/server"/>
+    </port>
+  </service>
+  <message name="calculateCircleCircumferenceIn">
+    <part name="radius" type="xsd:float"/>
+  </message>
+  <message name="calculateCircleCircumferenceOut">
+    <part name="return" type="xsd:float"/>
+  </message>
+  <message name="calculateCircleAreaIn">
+    <part name="radius" type="xsd:float"/>
+  </message>
+  <message name="calculateCircleAreaOut">
+    <part name="return" type="xsd:float"/>
+  </message>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8000/api/soap/server</con:endpoint></con:endpoints><con:operation id="b34f5ae4-f679-4b34-8476-6eb887ce551b" isOneWay="false" action="http://127.0.0.1:8000/api/soap/server#calculateCircleArea" name="calculateCircleArea" bindingOperationName="calculateCircleArea" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="328e1601-ea66-4b95-b258-0247b7e9f3ce" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8000/api/soap/server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://127.0.0.1:8000/api/soap/server">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:calculateCircleArea soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <radius xsi:type="xsd:float">3.5</radius>\r
+      </ser:calculateCircleArea>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://127.0.0.1:8000/api/soap/server#calculateCircleArea"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="df6b3571-f9e2-4a96-a3fb-36c9c3944e4c" isOneWay="false" action="http://127.0.0.1:8000/api/soap/server#calculateCircleCircumference" name="calculateCircleCircumference" bindingOperationName="calculateCircleCircumference" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a0097a7-cc2e-4009-b2db-45d7d159a8be" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8000/api/soap/server</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://127.0.0.1:8000/api/soap/server">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:calculateCircleCircumference soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <radius xsi:type="xsd:float">?</radius>\r
+      </ser:calculateCircleCircumference>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://127.0.0.1:8000/api/soap/server#calculateCircleCircumference"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

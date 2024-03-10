@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hospital.xsd">
+	<Infrastructure>
+		<Wings>
+			<Wing wingID="Wing101">
+				<Departments>
+					<Department DeptartID="_Walk_in_Clinic">
+						<DepartmentName>Walk In Clinic</DepartmentName>
+						<DepartmentPhone>202-555-0154</DepartmentPhone>
+					</Department>
+					<Department DeptartID="_Nephrology" useWard="Wing101Ward101">
+						<DepartmentName>Nephrology</DepartmentName>
+						<DepartmentPhone>202-555-0199</DepartmentPhone>
+					</Department>
+					<Department DeptartID="_Microbiology">
+						<DepartmentName>Microbiology</DepartmentName>
+						<DepartmentPhone>202-555-0189</DepartmentPhone>
+					</Department>
+				</Departments>
+				<Wards>
+					<Ward WardID="Wing101Ward106">
+						<Rooms>
+							<Room RoomSize="2" RoomID="Wing101Ward106Room101">
+								<Beds>
+									<Bed BedSize="2" BedID="Wing101Ward106Room101Bed101"/>
+									<Bed BedSize="2" BedID="Wing101Ward106Room101Bed102"/>
+								</Beds>
+							</Room>
+						</Rooms>
+					</Ward>
+					<Ward WardID="Wing101Ward101">
+						<Rooms>
+							<Room RoomID="Wing101Ward101Room101" RoomSize="3">
+								<Beds>
+									<Bed BedID="Wing101Ward101Room101Bed101" BedSize="1"/>
+									<Bed BedID="Wing101Ward101Room101Bed102" BedSize="2"/>
+									<Bed BedID="Wing101Ward101Room101Bed103" BedSize="1"/>
+								</Beds>
+							</Room>
+							<Room RoomID="Wing101Ward101Room102" RoomSize="3">
+								<Beds>
+									<Bed BedID="Wing101Ward101Room102Bed101" BedSize="1"/>
+									<Bed BedID="Wing101Ward101Room102Bed102" BedSize="2"/>
+									<Bed BedID="Wing101Ward101Room102Bed103" BedSize="2"/>
+								</Beds>
+							</Room>
+							<Room RoomID="Wing101Ward101Room103" RoomSize="6">
+								<Beds>
+									<Bed BedID="Wing101Ward101Room103Bed101" BedSize="1"/>
+									<Bed BedID="Wing101Ward101Room103Bed102" BedSize="2"/>
+									<Bed BedID="Wing101Ward101Room103Bed103" BedSize="2"/>
+									<Bed BedID="Wing101Ward101Room103Bed104" BedSize="1"/>
+									<Bed BedID="Wing101Ward101Room103Bed105" BedSize="2"/>
+									<Bed BedID="Wing101Ward101Room103Bed106" BedSize="2"/>
+								</Beds>
+							</Room>
+						</Rooms>
+					</Ward>
+				</Wards>
+			</Wing>
+			<Wing wingID="Wing102">
+				<Departments>
+					<Department DeptartID="_Oncology" useWard="Wing102Ward102">
+						<DepartmentName>Oncology</DepartmentName>
+						<DepartmentPhone>202-555-0100</DepartmentPhone>
+					</Department>
+				</Departments>
+				<Wards>
+					<Ward WardID="Wing102Ward102">
+						<Rooms>
+							<Room RoomID="Wing102Ward102Room101" RoomSize="3">
+								<Beds>
+									<Bed BedSize="1" BedID="Wing102Ward102Room101Bed101"/>
+									<Bed BedSize="1" BedID="Wing102Ward102Room101Bed102"/>
+									<Bed BedSize="1" BedID="Wing102Ward102Room101Bed103"/>
+								</Beds>
+							</Room>
+							<Room RoomID="Wing102Ward102Room102" RoomSize="2">
+								<Beds>
+									<Bed BedSize="1" BedID="Wing102Ward102Room102Bed101"/>
+									<Bed BedSize="1" BedID="Wing102Ward102Room102Bed102"/>
+								</Beds>
+							</Room>
+							<Room RoomID="Wing102Ward102Room103" RoomSize="5">
+								<Beds>
+									<Bed BedSize="2" BedID="Wing102Ward102Room103Bed101"/>
+									<Bed BedSize="2" BedID="Wing102Ward102Room103Bed102"/>
+									<Bed BedSize="2" BedID="Wing102Ward102Room103Bed103"/>
+									<Bed BedSize="2" BedID="Wing102Ward102Room103Bed104"/>
+									<Bed BedSize="1" BedID="Wing102Ward102Room103Bed105"/>
+								</Beds>
+							</Room>
+						</Rooms>
+					</Ward>
+				</Wards>
+			</Wing>
+			<Wing wingID="Wing103">
+				<Departments>
+					<Department DeptartID="_Cardiology" useWard="Wing103Ward101">
+						<DepartmentName>Cardiology</DepartmentName>
+						<DepartmentPhone>202-555-0168</DepartmentPhone>
+					</Department>
+					<Department DeptartID="_General_Surgery" useWard="Wing103Ward102">
+						<DepartmentName>General Surgery</DepartmentName>
+						<DepartmentPhone>202-555-0101</DepartmentPhone>
+					</Department>
+				</Departments>
+				<Wards>
+					<Ward WardID="Wing103Ward101">
+						<Rooms>
+							<Room RoomID="Wing103Ward101Room101" RoomSize="2">
+								<Beds>
+									<Bed BedSize="2" BedID="Wing103Ward101Room101Bed101"/>
+									<Bed BedSize="2" BedID="Wing103Ward101Room101Bed102"/>
+								</Beds>
+							</Room>
+						</Rooms>
+					</Ward>
+					<Ward WardID="Wing103Ward102">
+						<Rooms>
+							<Room RoomID="Wing103Ward102Room101" RoomSize="4">
+								<Beds>
+									<Bed BedSize="1" BedID="Wing103Ward102Room101Bed101"/>
+									<Bed BedSize="2" BedID="Wing103Ward102Room101Bed102"/>
+									<Bed BedSize="1" BedID="Wing103Ward102Room101Bed103"/>
+									<Bed BedSize="1" BedID="Wing103Ward102Room101Bed104"/>
+								</Beds>
+							</Room>
+							<Room RoomID="Wing103Ward102Room102" RoomSize="3">
+								<Beds>
+									<Bed BedSize="1" BedID="Wing103Ward102Room102Bed101"/>
+									<Bed BedSize="2" BedID="Wing103Ward102Room102Bed102"/>
+									<Bed BedSize="2" BedID="Wing103Ward102Room102Bed103"/>
+								</Beds>
+							</Room>
+						</Rooms>
+					</Ward>
+				</Wards>
+			</Wing>
+		</Wings>
+	</Infrastructure>
+	<Staff>
+		<Doctors>
+			<Doctor DoctorID="Doctor101" WorksIn="_Nephrology">
+				<DoctorName>Priscilla Arnold</DoctorName>
+				<Speciality>Nephrologist</Speciality>
+				<Relantionship RelantionshipType="Trainee"/>
+				<DoctorContact>
+					<DoctorAddress>326 Willow Street Rowlett, TX 75088</DoctorAddress>
+					<DoctorPhone>202-555-0168</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor102" WorksIn="_Nephrology">
+				<DoctorName>Jenna	Floyd</DoctorName>
+				<Speciality>Nephrologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>68 Spring Street Marysville, OH 43040</DoctorAddress>
+					<DoctorPhone>202-555-0101</DoctorPhone>
+					<DoctorPhone>202-555-0122</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor103" WorksIn="_Nephrology">
+				<DoctorName>Ollie Holloway</DoctorName>
+				<Speciality>Nephrologist</Speciality>
+				<Relantionship RelantionshipType="Visiting"/>
+				<DoctorContact>
+					<DoctorAddress>50 Water Street Gulfport, MS 39503</DoctorAddress>
+					<DoctorPhone>202-555-0154</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor117" WorksIn="_Nephrology" HeadOfDept="_Nephrology">
+				<DoctorName>Dennis Young</DoctorName>
+				<Speciality>Nephrologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>986 Lexington Court Tacoma, WA 98444</DoctorAddress>
+					<DoctorPhone>202-555-0128</DoctorPhone>
+					<DoctorPhone>202-555-0144</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor104" WorksIn="_Microbiology">
+				<DoctorName>Marlon Carpenter</DoctorName>
+				<Speciality>Microbiologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>146 Route 9 Media, PA 19063</DoctorAddress>
+					<DoctorPhone>202-555-0144</DoctorPhone>
+					<DoctorPhone>202-555-0199</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor105" WorksIn="_Microbiology">
+				<DoctorName>Clayton Lynch</DoctorName>
+				<Speciality>Microbiologist</Speciality>
+				<Relantionship RelantionshipType="Visiting"/>
+				<DoctorContact>
+					<DoctorAddress>769 Sycamore Street Niles, MI 49120</DoctorAddress>
+					<DoctorPhone>202-555-0180</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor118" WorksIn="_Microbiology" HeadOfDept="_Microbiology">
+				<DoctorName>Barbara Scott</DoctorName>
+				<Speciality>Microbiologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>621 Ridge Avenue Elkhart, IN 46514</DoctorAddress>
+					<DoctorPhone>202-555-0134</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor106" WorksIn="_Oncology">
+				<DoctorName>Joe	Powell</DoctorName>
+				<Speciality>Oncologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>230 Durham Road Allentown, PA 18102</DoctorAddress>
+					<DoctorPhone>202-555-0108</DoctorPhone>
+					<DoctorPhone>202-555-0158</DoctorPhone>
+					<DoctorPhone>202-555-0151</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor107" WorksIn="_Oncology">
+				<DoctorName>Anne Griffin</DoctorName>
+				<Speciality>Oncologist</Speciality>
+				<Relantionship RelantionshipType="Trainee"/>
+				<DoctorContact>
+					<DoctorAddress>755 Front Street South Vincentown, NJ 08088</DoctorAddress>
+					<DoctorPhone>202-555-0105</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor119" WorksIn="_Oncology">
+				<DoctorName>Frank Murphy</DoctorName>
+				<Speciality>Oncologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>15 College Avenue Great Falls, MT 59404</DoctorAddress>
+					<DoctorPhone>202-555-0187</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor120" WorksIn="_Oncology" HeadOfDept="_Oncology">
+				<DoctorName>Brandon Smith</DoctorName>
+				<Speciality>Oncologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>309 Aspen Drive West Roxbury, MA 02132</DoctorAddress>
+					<DoctorPhone>202-555-0111</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor108" WorksIn="_Cardiology">
+				<DoctorName>Fred Hill</DoctorName>
+				<Speciality>Cardiologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>374 Westminster Drive Florence, SC 29501</DoctorAddress>
+					<DoctorPhone>202-555-0111</DoctorPhone>
+					<DoctorPhone>202-555-0190</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor109" WorksIn="_Cardiology">
+				<DoctorName>Terry Thomas</DoctorName>
+				<Speciality>Cardiologist</Speciality>
+				<Relantionship RelantionshipType="Trainee"/>
+				<DoctorContact>
+					<DoctorAddress>418 Belmont Avenue Canyon Country, CA 91387</DoctorAddress>
+					<DoctorPhone>202-555-0135</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor110" WorksIn="_Cardiology">
+				<DoctorName>Louise Garcia</DoctorName>
+				<Speciality>Cardiologist</Speciality>
+				<Relantionship RelantionshipType="Visiting"/>
+				<DoctorContact>
+					<DoctorAddress>900 York Road Newark, NJ 07103</DoctorAddress>
+					<DoctorPhone>202-555-0120</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor121" WorksIn="_Cardiology" HeadOfDept="_Cardiology">
+				<DoctorName>Gary Patterson</DoctorName>
+				<Speciality>Cardiologist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>924 2nd Street New Castle, PA 16101</DoctorAddress>
+					<DoctorPhone>202-555-0154</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor111" WorksIn="_General_Surgery">
+				<DoctorName>Samuel Gonzalez</DoctorName>
+				<Speciality>Surgerist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>79 North Street Mishawaka, IN 46544</DoctorAddress>
+					<DoctorPhone>202-555-0186</DoctorPhone>
+					<DoctorPhone>202-555-0170</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor112" WorksIn="_General_Surgery">
+				<DoctorName>Phillip	Nelson</DoctorName>
+				<Speciality>Surgerist</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>973 Manor Drive Mcdonough, GA 30252</DoctorAddress>
+					<DoctorPhone>202-555-0104</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor113" WorksIn="_Walk_in_Clinic" HeadOfDept="_Walk_in_Clinic">
+				<DoctorName>Kathleen	Perry</DoctorName>
+				<Speciality>General Doctor</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>830 Ashley Court Evansville, IN 47711</DoctorAddress>
+					<DoctorPhone>202-555-0166</DoctorPhone>
+					<DoctorPhone>202-555-0155</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor114" WorksIn="_Walk_in_Clinic">
+				<DoctorName>Janice	Williams</DoctorName>
+				<Speciality>General Doctor</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>577 13th Street Chesterfield, VA 23832</DoctorAddress>
+					<DoctorPhone>202-555-0198</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor115" WorksIn="_Walk_in_Clinic">
+				<DoctorName>Evelyn Cooper</DoctorName>
+				<Speciality>General Doctor</Speciality>
+				<Relantionship RelantionshipType="Trainee"/>
+				<DoctorContact>
+					<DoctorAddress>311 Route 44 Stamford, CT 06902</DoctorAddress>
+					<DoctorPhone>202-555-0136</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+			<Doctor DoctorID="Doctor116" WorksIn="_Walk_in_Clinic">
+				<DoctorName>Roy	Johnson</DoctorName>
+				<Speciality>General Doctor</Speciality>
+				<Relantionship RelantionshipType="Permanent"/>
+				<DoctorContact>
+					<DoctorAddress>355 Cambridge Road Havertown, PA 19083</DoctorAddress>
+					<DoctorPhone>202-555-0110</DoctorPhone>
+				</DoctorContact>
+			</Doctor>
+		</Doctors>
+		<Nurses>
+			<Nurse NurseID="Nurse101" WorksIn="_Microbiology">
+				<NurseName>James	Harris</NurseName>
+				<NurseContact>
+					<NurseAddress>840 Willow Lane Milton, MA 02186</NurseAddress>
+					<NursePhone>202-555-0149</NursePhone>
+					<NursePhone>202-555-0147</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse102" WorksIn="_Microbiology">
+				<NurseName>Ann	Perry</NurseName>
+				<NurseContact>
+					<NurseAddress>921 Canterbury Road Massapequa, NY 11758</NurseAddress>
+					<NursePhone>202-555-0106</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse103" WorksIn="_Nephrology" InspectWard="Wing101Ward101">
+				<NurseName>Rachel	Carter</NurseName>
+				<NurseContact>
+					<NurseAddress>755 Colonial Avenue Astoria, NY 11102</NurseAddress>
+					<NursePhone>202-555-0148</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse104" WorksIn="_Nephrology">
+				<NurseName>Margaret Martin</NurseName>
+				<NurseContact>
+					<NurseAddress>564 5th Street South Clinton, MD 20735</NurseAddress>
+					<NursePhone>202-555-0113</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse114" WorksIn="_Nephrology">
+				<NurseName>Mary Clark</NurseName>
+				<NurseContact>
+					<NurseAddress>840 Augusta Drive Torrance, CA 90505</NurseAddress>
+					<NursePhone>202-555-0174</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse105" WorksIn="_Oncology">
+				<NurseName>Stephen Howard</NurseName>
+				<NurseContact>
+					<NurseAddress>564 Washington Avenue Venice, FL 34293</NurseAddress>
+					<NursePhone>202-555-0102</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse106" WorksIn="_Oncology">
+				<NurseName>Joan Scott</NurseName>
+				<NurseContact>
+					<NurseAddress>61 Oak Avenue Tacoma, WA 98444</NurseAddress>
+					<NursePhone>202-555-0118</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse115" WorksIn="_Oncology">
+				<NurseName>Juan Bailey</NurseName>
+				<NurseContact>
+					<NurseAddress>776 Elm Street King Of Prussia, PA 19406</NurseAddress>
+					<NursePhone>202-555-0182</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse117" WorksIn="_Oncology">
+				<NurseName>Nancy Taylor</NurseName>
+				<NurseContact>
+					<NurseAddress>198 Willow Street Homestead, FL 33030</NurseAddress>
+					<NursePhone>202-555-0142</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse107" WorksIn="_Cardiology">
+				<NurseName>Andrew Gray</NurseName>
+				<NurseContact>
+					<NurseAddress>593 Elm Street Chesapeake, VA 23320</NurseAddress>
+					<NursePhone>202-555-0153</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse108" WorksIn="_Cardiology">
+				<NurseName>Donald	Cook</NurseName>
+				<NurseContact>
+					<NurseAddress>871 Roosevelt Avenue Flint, MI 48504</NurseAddress>
+					<NursePhone>202-555-0152</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse118" WorksIn="_Cardiology">
+				<NurseName>Fred Hill</NurseName>
+				<NurseContact>
+					<NurseAddress>241 York Street Torrington, CT 06790</NurseAddress>
+					<NursePhone>202-555-0148</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse109" WorksIn="_General_Surgery">
+				<NurseName>Emily Bell</NurseName>
+				<NurseContact>
+					<NurseAddress>752 Water Street Milton, MA 02186</NurseAddress>
+					<NursePhone>202-555-0130</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse110" WorksIn="_General_Surgery">
+				<NurseName>Brandon Perez</NurseName>
+				<NurseContact>
+					<NurseAddress>426 Forest Avenue South Richmond Hill, NY 11419</NurseAddress>
+					<NursePhone>202-555-0182</NursePhone>
+					<NursePhone>202-555-0115</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse119" WorksIn="_General_Surgery">
+				<NurseName>Joseph	Jones</NurseName>
+				<NurseContact>
+					<NurseAddress>481 James Street Lenoir, NC 28645</NurseAddress>
+					<NursePhone>202-555-0103</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse120" WorksIn="_General_Surgery">
+				<NurseName>Melissa Barnes</NurseName>
+				<NurseContact>
+					<NurseAddress>141 Cemetery Road Hickory, NC 28601</NurseAddress>
+					<NursePhone>202-555-0166</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse111" WorksIn="_Walk_in_Clinic">
+				<NurseName>Deborah Moore</NurseName>
+				<NurseContact>
+					<NurseAddress>493 Broadway New Castle, PA 16101</NurseAddress>
+					<NursePhone>202-555-0180</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse112" WorksIn="_Walk_in_Clinic">
+				<NurseName>Marilyn Adams</NurseName>
+				<NurseContact>
+					<NurseAddress>444 Taylor Street Shelton, CT 06484</NurseAddress>
+					<NursePhone>202-555-0145</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse113" WorksIn="_Walk_in_Clinic">
+				<NurseName>Carol Carter</NurseName>
+				<NurseContact>
+					<NurseAddress>32 5th Street Seymour, IN 47274</NurseAddress>
+					<NursePhone>202-555-0174</NursePhone>
+				</NurseContact>
+			</Nurse>
+			<Nurse NurseID="Nurse116" WorksIn="_Walk_in_Clinic">
+				<NurseName>Louis Henderson</NurseName>
+				<NurseContact>
+					<NurseAddress>488 Route 44 Roy, UT 84067</NurseAddress>
+					<NursePhone>202-555-0114</NursePhone>
+				</NurseContact>
+			</Nurse>
+		</Nurses>
+	</Staff>
+	<Patients>
+		<Patient PatientID="Patient101" PatientType="InPatient">
+			<PatientName>Angela Washington</PatientName>
+			<Sex GenderGategory="Female"/>
+			<Weight PatientWeight="80kg"/>
+			<Age PatientAge="44"/>
+			<AttendedDept AttendedIn="_Nephrology"/>
+			<AttendedDoctor AttendedBy="Doctor101"/>
+			<BedTo assignedBed="Wing101Ward101Room101Bed101"/>
+			<RecoveryPeriod dateAdmitted="2015-10-01"/>
+			<PatientContact>
+				<PatientAddress>567 Walnut Avenue Spring Hill, FL 34608</PatientAddress>
+				<PatientPhone>202-555-0168</PatientPhone>
+			</PatientContact>
+		</Patient>
+		<Patient PatientID="Patient102" PatientType="InPatient">
+			<PatientName>Diana	Foster</PatientName>
+			<Sex GenderGategory="Female"/>
+			<Weight PatientWeight="75Kg"/>
+			<Age/>
+			<AttendedDept AttendedIn="_Cardiology"/>
+			<AttendedDoctor AttendedBy="Doctor108"/>
+			<BedTo assignedBed="Wing101Ward101Room101Bed102"/>
+			<RecoveryPeriod dateAdmitted="2015-10-01"/>
+			<PatientContact>
+				<PatientAddress>549 Inverness Drive Libertyville, IL 60048</PatientAddress>
+				<PatientPhone>202-555-0111</PatientPhone>
+			</PatientContact>
+		</Patient>
+		<Patient PatientID="Patient103" PatientType="OutPatient">
+			<PatientName>Patricia Henderson</PatientName>
+			<Sex GenderGategory="Female"/>
+			<Weight PatientWeight="65kg"/>
+			<Age PatientAge="11"/>
+			<AttendedDept/>
+			<AttendedDoctor AttendedBy="Doctor111"/>
+			<BedTo/>
+			<RecoveryPeriod dateAdmitted="2015-09-11" dateDischarged="2015-09-11"/>
+			<PatientContact>
+				<PatientAddress>25 Harrison Street Reno, NV 89523</PatientAddress>
+				<PatientPhone>202-555-0116</PatientPhone>
+			</PatientContact>
+		</Patient>
+		<Patient PatientID="Patient104" PatientType="OutPatient">
+			<PatientName>Ruby Kelly</PatientName>
+			<Sex GenderGategory="Female"/>
+			<Weight/>
+			<Age/>
+			<AttendedDept/>
+			<AttendedDoctor AttendedBy="Doctor106 Doctor111"/>
+			<BedTo assignedBed="Wing102Ward102Room101Bed101"/>
+			<RecoveryPeriod dateAdmitted="2015-03-11" dateDischarged="2015-03-11"/>
+			<PatientContact>
+				<PatientAddress>739 Valley Drive Englewood, NJ 07631</PatientAddress>
+				<PatientPhone>202-555-0108</PatientPhone>
+			</PatientContact>
+		</Patient>
+		<Patient PatientID="Patient105" PatientType="InPatient">
+			<PatientName>Alan Bailey</PatientName>
+			<Sex GenderGategory="Male"/>
+			<Weight PatientWeight="84kg"/>
+			<Age PatientAge="33"/>
+			<AttendedDept AttendedIn="_General_Surgery"/>
+			<AttendedDoctor AttendedBy="Doctor111 Doctor112"/>
+			<BedTo assignedBed="Wing103Ward102Room102Bed103"/>
+			<RecoveryPeriod dateAdmitted="2015-05-01" dateDischarged="2015-06-01"/>
+			<PatientContact>
+				<PatientAddress>768 Park Drive Burbank, IL 60459</PatientAddress>
+				<PatientPhone>202-555-0149</PatientPhone>
+			</PatientContact>
+		</Patient>
+		<Patient PatientID="Patient106" PatientType="OutPatient">
+			<PatientName>Ronald Torres</PatientName>
+			<Sex GenderGategory="Male"/>
+			<Weight PatientWeight="91kg"/>
+			<Age PatientAge="41"/>
+			<AttendedDoctor AttendedBy="Doctor111"/>
+			<BedTo/>
+			<RecoveryPeriod dateAdmitted="2015-06-06" dateDischarged="2015-08-06"/>
+			<PatientContact>
+				<PatientAddress>240 Warren Avenue West Bloomfield, MI 48322</PatientAddress>
+				<PatientPhone>202-555-0168</PatientPhone>
+				<PatientPhone>202-555-0199</PatientPhone>
+			</PatientContact>
+		</Patient>
+	</Patients>
+	<History>
+		<Record HistoryRecID="Record101">
+			<AffiliatedPatient AffiliatedPatientID="Patient101"/>
+			<PatientState Pstate="Good"/>
+			<HistoryUpdate HistoryUpdateID="HistoryUpdate101">
+				<UpdateDate UptDate="2015-10-01"/>
+				<UpdateTime UptTime="09:00:00"/>
+				<AffiliatedDoctor AffiliatedDoctorID="Doctor101"/>
+				<AffiliatedDepart AffiliatedDepartID="_Nephrology"/>
+				<MedicalCase>Kidney stones</MedicalCase>
+				<DoctorComments>He is better than yesterday</DoctorComments>
+				<Prescription>
+					<Pill PillName="Depon" Instructions="1 per day"/>
+				</Prescription>
+			</HistoryUpdate>
+		</Record>
+	</History>
+	<Reception>
+		<Appointment AppointmentID="Appointment101">
+			<AppointedDoctor AppointedDoctorID="Doctor101"/>
+			<AppointedPatient AppointedPatientID="Patient101"/>
+			<AppointedDate Aptdate="2015-10-10"/>
+			<AppointedTime AptTime="09:00:00"/>
+			<comments>It's serious</comments>
+		</Appointment>
+		<Appointment AppointmentID="Appointment102">
+			<AppointedDoctor AppointedDoctorID="Doctor104"/>
+			<AppointedPatient AppointedPatientID="Patient105"/>
+			<AppointedDate Aptdate="2015-10-10"/>
+			<AppointedTime AptTime="09:00:00"/>
+			<comments>It's serious</comments>
+		</Appointment>
+	</Reception>
+	<Accounting>
+		<Expenditures>
+			<Salaries>
+				<Salary SalaryID="Salary101" staffID="Doctor101">
+					<Payment amount="1500"/>
+				</Salary>
+				<Salary SalaryID="Salary102" staffID="Doctor102">
+					<Payment amount="1200"/>
+				</Salary>
+				<Salary SalaryID="Salary103" staffID="Doctor103">
+					<Payment amount="1500"/>
+				</Salary>
+				<Salary SalaryID="Salary104" staffID="Doctor104">
+					<Payment amount="1200"/>
+				</Salary>
+				<Salary SalaryID="Salary105" staffID="Doctor105">
+					<Payment amount="1500"/>
+				</Salary>
+				<Salary SalaryID="Salary106" staffID="Doctor106">
+					<Payment amount="1800"/>
+				</Salary>
+				<Salary SalaryID="Salary107" staffID="Doctor107">
+					<Payment amount="1800"/>
+				</Salary>
+				<Salary SalaryID="Salary108" staffID="Doctor108">
+					<Payment amount="1800"/>
+				</Salary>
+				<Salary SalaryID="Salary109" staffID="Doctor109">
+					<Payment amount="1500"/>
+				</Salary>
+				<Salary SalaryID="Salary110" staffID="Doctor110">
+					<Payment amount="1200"/>
+				</Salary>
+				<Salary SalaryID="Salary111" staffID="Doctor111">
+					<Payment amount="1800"/>
+				</Salary>
+				<Salary SalaryID="Salary112" staffID="Doctor112">
+					<Payment amount="1200"/>
+				</Salary>
+			</Salaries>
+			<MiscellaneousOrders>
+				<Order OrderID="Order101" ForDepartment="_General_Surgery" OrderDate="2015-01-01">
+					<Cost TotalCost="122.12"/>
+				</Order>
+				<Order OrderDate="2015-10-01" ForDepartment="_Cardiology" OrderID="Order102">
+					<Cost TotalCost="11000.2"></Cost>
+				</Order>
+			</MiscellaneousOrders>
+		</Expenditures>
+		<Incomes>
+			<PatientBill BillID="Bill101" BilledPatient="Patient101">
+				<BillCost amount="200.15"/>
+			</PatientBill>
+			<PatientBill BillID="Bill102" BilledPatient="Patient102">
+				<BillCost amount="140.00"></BillCost>
+			</PatientBill>
+		</Incomes>
+	</Accounting>
+</Hospital>

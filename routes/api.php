@@ -8,7 +8,7 @@ use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\MedicinesController;
 use App\Http\Controllers\BirthReportsController;
 use App\Http\Controllers\BillsController; 
-use App\Http\Controllers\DepartmentController; 
+use App\Http\Controllers\HospitalController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,6 @@ Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAll
 Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');
 Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
 
-Route::get('/soap/wsdl', [DepartmentController::class, 'wsdlAction'])->name('soap-wsdl');
-Route::post('/soap/server', [DepartmentController::class, 'serverAction'])->name('soap-server');
-// Route::get('/soap/wsdl', 'DepartmentController@wsdlAction')->name('soap-wsdl');
-// Route::post('/soap/server', 'DepartmentController@serverAction')->name('soap-server');
+Route::get('/soap/wsdl', [HospitalController::class, 'wsdlAction'])->name('soap-wsdl');
+Route::post('/soap/server', [HospitalController::class, 'serverAction'])->name('soap-server');
+Route::post('/soap/hospital', [HospitalController::class, 'handleRequest'])->name('handleRequest');
