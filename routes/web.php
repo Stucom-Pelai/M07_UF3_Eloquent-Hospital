@@ -3,6 +3,10 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepartmentController;
+
+Route::post('/soap/endpoint', [DepartmentController::class, 'yourSoapMethod']);
+
 
 Route::get('/', function () {
     return view('index');
@@ -22,6 +26,8 @@ Route::get('/app', function () {
 
 Route::view('/services', 'services');
 
+
+
 Route::get('/admin/', [AdminController::class, 'index'])->name("admins");
 
 // Route::post('/admin/login',[AdminController::class,'authenticate_admin'])->name("admin_login");
@@ -30,9 +36,9 @@ Route::get('/admin/', [AdminController::class, 'index'])->name("admins");
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
-
+    
     Route::get('nurses', App\Http\Livewire\Admins\Nurses::class)->name('nurses');
+    Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
 
     Route::get('/doctors', App\Http\Livewire\Admins\Doctors::class)->name('admin_doctors');
 
