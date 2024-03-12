@@ -10,7 +10,9 @@ class bill extends Model
     use HasFactory;
     protected $fillable=[
         'patients_id',
+        'amount',
         'status',
+        
     ];
 
     public function patient(){

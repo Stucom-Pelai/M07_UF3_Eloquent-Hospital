@@ -15,7 +15,7 @@ class Bills extends Component
 
     public $patients_id;
     public $amount;
-    public $payed;
+    public $status;
     public $edit_bill_id;
     public $button_text = "Add New Bill";
 
@@ -27,7 +27,7 @@ class Bills extends Component
 
         }else{
 
-           $this->validate([
+            $this->validate([
             'patients_id' => 'required',
             'amount' => 'required|numeric',
             ]);
@@ -35,12 +35,12 @@ class Bills extends Component
             bill::create([
                 'patients_id'         => $this->patients_id,
                 'amount'         => $this->amount,
-                'payed'         => $this->payed,
+                'status'         => $this->status,
             ]);
 
-           $this->amount=null;
+            $this->amount=null;
             $this->patients_id=null;
-            $this->payed=null;
+            $this->status=null;
 
             session()->flash('message', 'Bill Created successfully.');
         }
@@ -48,13 +48,13 @@ class Bills extends Component
     }
 
 
-     public function edit($id)
-    {
+    public function edit($id){
+
         $bill = bill::findOrFail($id);
         $this->edit_bill_id = $id;
         $this->amount = $bill->amount;
         $this->patients_id = $bill->patients_id;
-        $this->payed = $bill->payed;
+        $this->status = $bill->payed;
 
         $this->button_text="Update Bill";
     }
@@ -69,13 +69,13 @@ class Bills extends Component
         $bill = bill::findOrFail($id);
         $bill->amount = $this->amount;
         $bill->patients_id = $this->patients_id;
-        $bill->payed = $this->payed;
+        $bill->payed = $this->status;
 
         $bill->save();
 
         $this->amount=null;
         $this->patients_id=null;
-        $this->payed=null;
+        $this->status=null;
 
         $this->edit_bill_id=null;
 
@@ -92,7 +92,7 @@ class Bills extends Component
 
         $this->amount=null;
         $this->patients_id=null;
-        $this->payed=null;
+        $this->status=null;
 }
     public function render()
     {
