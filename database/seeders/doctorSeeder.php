@@ -23,5 +23,18 @@ class doctorSeeder extends Seeder
         Doctor::create([
             "employee_id"=>employee::where("position","doctor")->latest()->skip(1)->first()->id,
         ]);
+        Doctor::create([
+            "employee_id"=>employee::where("position","doctor")->latest()->skip(2)->first()->id,
+        ]);
+        Doctor::create([
+            "employee_id"=>employee::where("position","doctor")->latest()->skip(3)->first()->id,
+        ]);
+        Doctor::create([
+            "employee_id"=>employee::where("position","doctor")->latest()->skip(4)->first()->id,
+        ]);
+        Doctor::create([
+            "employee_id"=>employee::where("position","doctor")->latest()->skip(5)->first()->id,
+        ]);
+
     }
 }
