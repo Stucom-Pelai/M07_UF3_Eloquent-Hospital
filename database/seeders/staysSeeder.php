@@ -22,7 +22,7 @@ class StaysSeeder extends Seeder
             'room_id' => $faker->randomElement($roomIds),
             'start_time' => $faker->dateTime,
             'end_time' => $faker->dateTime,
-            'status' => $faker->numberBetween(0, 1),
+            'status' => $faker->randomElement(['active', 'completed']),
             'amount' => $amount = $faker->randomNumber(5),
             'discount' => $discount = $faker->randomNumber(5),
             'total' => $amount - $discount,

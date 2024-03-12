@@ -20,9 +20,9 @@ class CreateStaysTable extends Migration
             $table->string('start_time')->nullable()->default(time());
             $table->string('end_time')->nullable()->default(time());
             $table->enum('status', ['active', 'completed'])->default('active');
-            $table->string('amount')->nullable();
-            $table->string('discount')->nullable();
-            $table->string('total')->nullable();
+            $table->decimal('amount')->nullable();
+            $table->decimal('discount')->nullable();
+            $table->decimal('total')->nullable();
             $table->timestamps();
         });
     }
