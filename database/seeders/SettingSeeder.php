@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\settings;
 use Illuminate\Database\Seeder;
 
 class SettingSeeder extends Seeder
@@ -13,67 +14,21 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
-        $settings = [
-            [
-                'key' => 'title',
-                'value' => 'Hospital Management System'
-            ],
-            [
-                'key' => 'business_email',
-                'value' => 'testing@gmail.com'
-            ],
-            [
-                'key' => 'address',
-                'value' => 'xyz, abc, 1234, Nepal'
-            ],
-            [
-                'key' => 'business_phone',
-                'value' => '+911234567890'
-            ],
-            [
-                'key' => 'working_horse',
-                'value' => '7:00 AM - 8:00 PM'
-            ],
-            [
-                'key' => 'description',
-                'value' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore um.'
-            ],
-            [
-                'key' => 'logo',
-                'value' => 'logo.png'
-            ],
-            [
-                'key' => 'icon',
-                'value' => 'icon.png'
-            ],
-            [
-                'key' => 'facebook',
-                'value' => '#'
-            ],
-            [
-                'key' => 'twitter',
-                'value' => '#'
-            ],
-            [
-                'key' => 'instagram',
-                'value' => '#'
-            ],
-            [
-                'key' => 'linkedin',
-                'value' => '#'
-            ],
-            [
-                'key' => 'youtube',
-                'value' => '#'
-            ],
-            [
-                'key' => 'pinterest',
-                'value' => '#'
-            ]
-        ];
-
-        foreach ($settings as $setting) {
-            \App\Models\Settings::firstOrCreate($setting);
-        }
+        settings::create([
+            'title' => 'Hospital Management System',
+            'business_email' => 'testing@gmail.com',
+            'address' => 'xyz, abc, 1234, Nepal',
+            'business_phone' => '+911234567890',
+            'working_horse' => '7:00 AM - 8:00 PM',
+            'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore um.',
+            'logo' => 'logo.png',
+            'icon' => 'icon-logo.png',
+            'facebook' => '#',
+            'twitter' => '#',
+            'instagram' => '#',
+            'linkedin' => '#',
+            'youtube' => '#',
+            'pinterest' => '#'
+        ]);
     }
 }

@@ -15,6 +15,7 @@ class Settings extends Component
 
     use WithFileUploads;
 
+    public $edit_setting_id;
     public $title;
     public $business_email;
     public $favicon;
@@ -31,66 +32,64 @@ class Settings extends Component
 
     public $edit_logo;
     public $edit_favicon;
-    public $btn_text="Save";
+    public $btn_text = "Save";
 
 
 
     public function add_settings()
     {
-
+        dd($this);
+        $this->validate([
+            'title' => 'required',
+            'business_email' => 'required|email',
+            'address' => 'required',
+            'business_phone' => 'required',
+            'working_horse' => 'required',
+            'description' => 'required',
+        ]);
+        if (!$this->c_favicon) {
             $this->validate([
-                'title' => 'required',
-                'business_email' => 'required|email',
-                'address' => 'required',
-                'business_phone' => 'required',
-                'working_horse' => 'required',
-                'description' => 'required',
-                ]);
-                if (!$this->c_favicon) {
-                    $this->validate([
-                        'favicon' => 'required|image'
-                    ]);
-                  $favicon = $this->storeImage($this->favicon);
-
-                }
-                if (!$this->c_icon_logo) {
-                    $this->validate([
-                        'icon_logo' => 'required|image'
-                    ]);
-                  $icon_logo = $this->storeImage($this->icon_logo);
-
-                }
-                if (!$this->c_logo) {
-                    $this->validate([
-                        'logo' => 'required|image'
-                    ]);
-                  $logo = $this->storeImage($this->logo);
-                }
-
-                SettingModel::create([
-                'title'          => $this->title,
-                'business_email' => $this->business_email,
-                'favicon_path'   => ($favicon ?? $this->c_favicon),
-                'address'        => $this->address,
-                'business_phone' => $this->business_phone,
-                'description'    => $this->description,
-                'logo_path'      => ($logo ?? $this->c_logo),
-                'icon_logo_path'      => ($icon_logo ?? $this->c_icon_logo),
-                'working_horse'      => $this->working_horse,
+                'favicon' => 'required|image'
             ]);
+            $favicon = $this->storeImage($this->favicon);
+        }
+        if (!$this->c_icon_logo) {
+            $this->validate([
+                'icon_logo' => 'required|image'
+            ]);
+            $icon_logo = $this->storeImage($this->icon_logo);
+        }
+        if (!$this->c_logo) {
+            $this->validate([
+                'logo' => 'required|image'
+            ]);
+            $logo = $this->storeImage($this->logo);
+        }
 
-            $this->title="";
-            $this->business_email="";
-            $this->favicon="";
-            $this->address="";
-            $this->business_phone="";
-            $this->description="";
-            $this->address="";
-            $this->working_horse="";
-            $this->logo="";
-            $this->icon_logo="";
-            session()->flash('message', 'Operation successfull.');
+        SettingModel::create([
+            'title'          => $this->title,
+            'business_email' => $this->business_email,
+            'favicon_path'   => ($favicon ?? $this->c_favicon),
+            'address'        => $this->address,
+            'business_phone' => $this->business_phone,
+            'description'    => $this->description,
+            'logo_path'      => ($logo ?? $this->c_logo),
+            'icon_logo_path'      => ($icon_logo ?? $this->c_icon_logo),
+            'working_horse'      => $this->working_horse,
+        ]);
 
+        $this->edit_setting_id = "";
+        $this->title = "";
+        $this->description = "";
+        $this->business_email = "";
+        $this->favicon = "";
+        $this->address = "";
+        $this->business_phone = "";
+        $this->address = "";
+        $this->working_horse = "";
+        $this->logo = "";
+        $this->icon_logo = "";
+        session()->flash('message', 'Operation successfull.');
     }
 
     public function storeImage($image)
@@ -105,11 +104,11 @@ class Settings extends Component
     }
 
 
-     public function edit($id)
+    public function edit($id)
     {
         $setting = SettingModel::findOrFail($id);
+        dd($setting);
         $this->edit_setting_id = $id;
-
         $this->title = $setting->title;
         $this->business_email = $setting->business_email;
         $this->address = $setting->address;
@@ -121,20 +120,22 @@ class Settings extends Component
         // $this->edit_logo = $setting->c_icon_logo_path;
 
     }
-    public function update($id)
+    public function update()
     {
+        // He eliminado el campo address que estaba duplicado
         $this->validate([
-                'title' => 'required||min:6|max:50',
-                'business_email' => 'required|business_email',
-                'favicon' => 'required|min:6',
-                'address' => 'required',
-                'business_phone' => 'required',
-                'address' => 'required',
-                'description' => 'required',
-                'working_horse' => 'required',
-            ]);
+            'title' => 'required||min:6|max:50',
+            'business_email' => 'required|email',
+            'favicon' => 'required|min:6',
+            'address' => 'required',
+            'business_phone' => 'required',
+            'description' => 'required',
+            'working_horse' => 'required',
+        ]);
 
-        $setting = SettingModel::findOrFail($id);
+        $setting = SettingModel::first();
+        // dd($setting);
+        dd($this->title);
         $setting->title = $this->title;
         $setting->business_email = $this->business_email;
         $setting->favicon = bcrypt($this->favicon);
@@ -143,7 +144,7 @@ class Settings extends Component
         $setting->address = $this->address;
         $setting->working_horse = $this->working_horse;
         $setting->description = $this->description;
-
+        dd($setting);
         if ($this->logo) {
             $this->validate([
                 'logo' => 'required|image|max:3072',
@@ -155,36 +156,38 @@ class Settings extends Component
 
         $setting->save();
 
-        $this->title="";
-        $this->business_email="";
-        $this->favicon="";
-        $this->favicon="";
-        $this->address="";
-        $this->business_phone="";
-        $this->address="";
-        $this->description="";
-        $this->address="";
-        $this->working_horse="";
-        $this->logo="";
-        $this->edit_logo="";
+        $this->edit_setting_id = "";
+        $this->title = "";
+        $this->business_email = "";
+        $this->favicon = "";
+        $this->favicon = "";
+        $this->address = "";
+        $this->business_phone = "";
+        $this->address = "";
+        $this->description = "";
+        $this->address = "";
+        $this->working_horse = "";
+        $this->logo = "";
+        $this->edit_logo = "";
 
         session()->flash('message', 'setting Updated Successfully.');
-
-
-}
+    }
 
 
     public function render()
     {
-        // $settings =  DB::table('settings')->orderBy('id', 'DESC')->first();
-        //  $this->c_logo  = $settings->logo_path;
-        //  $this->c_favicon  = $settings->favicon_path;
-        //  $this->working_horse  = $settings->working_horse;
-        //  $this->title  = $settings->title;
-        //  $this->description  = $settings->description;
-        //  $this->address  = $settings->address;
-        //  $this->business_email  = $settings->business_email;
-        //  $this->business_phone  = $settings->business_phone;
+
+        $setting = json_decode(json_encode(SettingModel::first()), true);
+        // dd($setting);
+        $this->title  = $setting["title"];
+        $this->description  = $setting["description"];
+        $this->c_logo  = "images/" . $setting["logo"];
+        $this->c_favicon  = "images/" .  $setting["logo"];
+        $this->c_icon_logo  = "images/" . $setting["icon"];
+        $this->business_email  = $setting["business_email"];
+        $this->business_phone  = $setting["business_phone"];
+        $this->address  = $setting["address"];
+        $this->working_horse  = $setting["working_horse"];
 
         return view('livewire.admins.settings')->layout('admins.layouts.app');
     }
