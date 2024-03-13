@@ -96,7 +96,7 @@
                             @forelse ($rooms as $room)
                                 <tr>
                                     <td>{{ $room->id }}</td>
-                                    <td>{{ $room->roomtype }}</td>
+                                    <td>{{ $room->type }}</td>
                                     <td>{{ $room->department->name }}</td>
                                     <td>{{ $room->status }}</td>
                                     <td>{{ $room->created_at }}</td>
@@ -104,9 +104,7 @@
                                         <button wire:click="edit({{ $room->id }})"
                                             class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
                                         <button wire:click="delete({{ $room->id }})"
-                                            onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                            class="btn btn-outline-danger btn-rounded"><i
-                                                class="fas fa-trash"></i></button>
+                                            onclick="return confirm('{{ __('Are You Sure?') }}')" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
