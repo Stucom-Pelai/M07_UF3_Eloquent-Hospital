@@ -41,9 +41,9 @@
                             <select name="roomtype"  class="form-control" required>
                                 <option selected disabled>Enter Room Type</option>
                                 <option value="general">general</option>
-                                <option value="privado">private</option>
-                                <option value="semiprivado">semi-private</option>
-                                <option value="barrio">ward</option>
+                                <option value="private">private</option>
+                                <option value="semi-private">semi-private</option>
+                                <option value="ward">ward</option>
                             @error('roomtype')
                             <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
