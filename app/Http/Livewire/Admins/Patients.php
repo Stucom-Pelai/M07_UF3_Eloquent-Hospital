@@ -105,6 +105,7 @@ class Patients extends Component
         $this->address = $patient->address;
         $this->phone = $patient->phone;
         $this->age = $patient->age;
+        $this-> gender = $patient->gender;
         $this->bloodgroup = $patient->bloodgroup;
         $this->edit_photo = $patient->photo_path;
 
@@ -126,6 +127,7 @@ class Patients extends Component
         $patient->email = $this->email;
         $patient->address = $this->address;
         $patient->age = $this->age;
+        $patient->gender = $this->gender;
         $patient->bloodgroup = $this->bloodgroup;
         $patient->phone = $this->phone;
 
@@ -144,6 +146,7 @@ class Patients extends Component
         $this->email="";
         $this->address="";
         $this->phone="";
+        $this->gender="";
         $this->bloodgroup="";
         $this->address="";
         $this->age="";
