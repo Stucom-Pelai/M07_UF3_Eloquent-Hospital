@@ -81,6 +81,8 @@
                                 <option value="B-" class="text-red">B-</option>
                                 <option value="AB-" class="text-red">AB-</option>
                                 <option value="AB+" class="text-red">AB+</option>
+                                <option value="0-" class="text-red">0-</option>
+                                <option value="0+" class="text-red">0+</option>
                             </select>
                             @error('Gender')
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>

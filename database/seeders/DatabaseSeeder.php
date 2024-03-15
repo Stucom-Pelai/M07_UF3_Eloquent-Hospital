@@ -61,14 +61,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SettingSeeder::class,
             employeeSeeder::class,
-            // patientSeeder::class,
             blockSeeder::class,
             departmentSeeder::class,
             doctorSeeder::class,
+            patientSeeder::class,
+            birthreportSeeder::class,
             HodSeeder::class,
             roomSeeder::class,
             bedsSeeder::class,
             medicineSeeder::class,
+            NursesTableSeeder::class,
             ]);
 
         // \App\Models\User::factory(10)->create();

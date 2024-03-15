@@ -15,15 +15,7 @@ class CreateNursesTable extends Migration
     {
         Schema::create('nurses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('gender');
-            $table->string('address');
-            $table->string('qualification');
-            $table->string('photo')->nullable();
-            $table->string('position');
-            $table->timestamp('registered')->nullable();
+            $table->foreignId("employee_id")->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
