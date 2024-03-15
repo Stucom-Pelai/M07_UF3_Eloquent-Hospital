@@ -16,7 +16,10 @@ class checksuperadmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->is_super_admin == true) {
+        dd("DD en middleware");
+        dd($request->all());
+        //dd(Auth::user());
+        if (Auth::user()->role->name == 'admin') {
             return $next($request);
         }else{
             return abort('404');

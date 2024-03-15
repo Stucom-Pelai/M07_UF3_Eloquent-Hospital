@@ -11,10 +11,12 @@ class AdminController extends Controller
     {
         // return view("admins.login");
         return view("auth.login");
+        
     }
 
     public function authenticate_admin(Request $request)
     {
+        dd("aa");
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
