@@ -16,7 +16,6 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->foreignId("patients_id")->constrained();
-            $table->string('amount');
             $table->enum("status", ["paid", "unpaid"])->default("unpaid");
             $table->timestamps();
             $table->softDeletes();
