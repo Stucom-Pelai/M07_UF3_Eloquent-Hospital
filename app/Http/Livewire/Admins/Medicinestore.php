@@ -29,7 +29,7 @@ class Medicinestore extends Component
             $this->validate([
                 'price' => 'required|regex:/^\d*(\.\d{1,2})?$/',
                 'quantity' => 'required|numeric',
-                'code' => 'required',
+                'code' => 'required|unique:medicines',
             ]);
     
             medicine::create([
