@@ -34,13 +34,14 @@ class InfrastructureController extends Controller
                 $soapClientOptions = array(
                     'stream_context' => $context,
                     'actor' => route('soap-server'),
-                    'soap-version' => SOAP_1_2,
+                    'soap_version' => SOAP_1_2,
                     'uri' => route('soap-wsdl')
                 );
 
          //Instantiation for WSDL mode 
-        $server = new SoapServer('wsdl/Infrastructure.wsdl', ['cache_wsdl' => WSDL_CACHE_NONE]);
+        // $server = new SoapServer('wsdl/Infrastructure.wsdl', ['cache_wsdl' => WSDL_CACHE_NONE]);
         $server = new SoapServer(null, $soapClientOptions);
+        $server->setWSDL('wsdl/Infrastructure.wsdl');
         $server->setReturnResponse(true);
         $server->setClass(InfrastructureController::class);
         $soapResponse = $server->handle();
@@ -51,7 +52,9 @@ class InfrastructureController extends Controller
     public function getDepartment($departmentId)
     {
         $department = department::where('id', $departmentId)->firstOrFail();
-        $departmentype = new DepartmentType($department->name, "phone", $departmentId, 5);
+        // $departmentype = new DepartmentType($department->name, "phone", $departmentId, 5);
+        // $departmentype = new Department();
+        $departmentype = Department::where('id',$departmentId)->get();
         return $departmentype;
     }
 
