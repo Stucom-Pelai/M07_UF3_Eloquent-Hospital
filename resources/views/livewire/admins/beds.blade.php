@@ -68,7 +68,17 @@
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        <div class="form-group">
+                            <label for="size">Size</label> 
+                            <select name="size" wire:model.lazy="size" class="form-control" required> 
+                                <option value="" selected>Choose Size</option> 
+                                <option value="1">1</option> 
+                                <option value="2">2</option> 
+                            </select>
+                            @error('size') 
+                                <span class="text-red-500 text-danger text-xs">{{ $message }}</span> 
+                            @enderror 
+                        </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
                         </div>
@@ -85,6 +95,7 @@
                                 <th class="text-center">Patient id</th>
                                 <th class="text-center">Alloted Time</th>
                                 <th class="text-center">Descharge Time</th>
+                                <th class="text-center">Size</th> 
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -96,6 +107,7 @@
                                     <td class="text-center">{{ $bed->patient_id ?: 'Null' }}</td>
                                     <td class="text-center">{{ $bed->alloted_time ?: 'Null' }}</td>
                                     <td class="text-center">{{ $bed->discharge_time ?: 'Null' }}</td>
+                                    <td class="text-center">{{ $bed->size ?: 'Null' }}</td> 
                                     <td class="text-center">
                                         <button wire:click="edit({{ $bed->id }})"
                                             class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>

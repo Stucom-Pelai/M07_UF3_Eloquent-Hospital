@@ -15,7 +15,8 @@ class bedsSeeder extends Seeder
     {
         for ($i=0; $i <5 ; $i++) {
             beds::create([
-                'room_id'          => rand(1,5)
+                'room_id'          => rand(1,5),
+                'size' => rand(1, 2)
             ]);
     }
     }
