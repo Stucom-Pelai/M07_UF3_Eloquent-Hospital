@@ -16,10 +16,14 @@ class checksuperadmin
      */
     public function handle(Request $request, Closure $next)
     {
+<<<<<<< Updated upstream
         dd("DD en middleware");
         dd($request->all());
         //dd(Auth::user());
         if (Auth::user()->role->name == 'admin') {
+=======
+        if (Auth::user()->role->name == "admin") {
+>>>>>>> Stashed changes
             return $next($request);
         }else{
             return abort('404');
