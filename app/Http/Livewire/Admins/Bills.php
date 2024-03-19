@@ -35,7 +35,7 @@ class Bills extends Component
             bill::create([
                 'patients_id'         => $this->patients_id,
                 'amount'         => $this->amount,
-                'status'         => $this->status,
+                'status' => $this->status ? 'paid' : 'unpaid',
             ]);
 
             $this->amount=null;
@@ -54,7 +54,7 @@ class Bills extends Component
         $this->edit_bill_id = $id;
         $this->amount = $bill->amount;
         $this->patients_id = $bill->patients_id;
-        $this->status = $bill->payed;
+        $this->status = $bill->status;
 
         $this->button_text="Update Bill";
     }
@@ -69,7 +69,7 @@ class Bills extends Component
         $bill = bill::findOrFail($id);
         $bill->amount = $this->amount;
         $bill->patients_id = $this->patients_id;
-        $bill->payed = $this->status;
+        $bill->status = $this->status ? 'paid' : 'unpaid';
 
         $bill->save();
 
