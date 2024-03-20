@@ -19,4 +19,8 @@ class beds extends Model
     {
         return $this->belongsTo(rooms::class);
     }
+    public function patient()
+    {
+        return $this->belongsTo(patient::class);
+    }
 }
