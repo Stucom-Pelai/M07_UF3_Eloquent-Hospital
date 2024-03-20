@@ -11,16 +11,12 @@ class AdminController extends Controller
     {
         // return view("admins.login");
         return view("auth.login");
-        
     }
 
     public function authenticate_admin(Request $request)
     {
-<<<<<<< Updated upstream
-        dd("aa");
-=======
 
->>>>>>> Stashed changes
+
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
@@ -28,7 +24,7 @@ class AdminController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials) && Auth::user()->role_id==1) {
+        if (Auth::attempt($credentials) && Auth::user()->role_id == 1) {
             return redirect()->intended('admin/settings');
         }
 
