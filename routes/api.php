@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BedsController;
 use App\Http\Controllers\DoctorsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,5 @@ Route::get('rooms/available', [RoomsController::class, 'getAvailableRooms'])->na
 Route::get('medicines', [MedicinesController::class, 'getAllMedicines'])->name('getAllMedicines');
 Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAllDoctors');
 Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');
+Route::get('beds/status/{value}', [BedsController::class, 'getBedsByStatus'])->name('getBedsByStatus');
 Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
