@@ -105,8 +105,8 @@
                                     <td class="text-center">{{ $bed->id }}</td>
                                     <td class="text-center">{{ $bed->room_id }}</td>
                                     <td class="text-center">{{ $bed->patient_id ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bed->alloted_time ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bed->discharge_time ?: 'Null' }}</td>
+                                    <td class="text-center">{{ $bed->patient->admit_date ?: 'Null' }}</td>
+                                    <td class="text-center">{{ $bed->patient->discharge_date ?: 'Null' }}</td>
                                     <td class="text-center">{{ $bed->size ?: 'Null' }}</td> 
                                     <td class="text-center">
                                         <button wire:click="edit({{ $bed->id }})"
