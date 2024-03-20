@@ -34,29 +34,7 @@
                     {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('admin_doctors') }}"><i class="fas fa-file-alt"></i>Doctors</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin_operations_report') }}"><i class="fas fa-file-alt"></i>Operation
-                        reports</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin_birth_report') }}"><i class="fas fa-file-alt"></i>Birth Reports</a>
-                </li>
-                <li>
-                    <a href="{{ route('admin_patients') }}"><i class="fas fa-file-alt"></i>Patients</a>
-                </li>
-                <li>
-                    <a href="{{ route('nurses') }}"><i class="fas fa-file-alt"></i>Nurses</a>
-                </li>
-                <li>
-                    <a href="{{ route('employees') }}"><i class="fas fa-file-alt"></i>Employees</a>
-                </li>
-                <li>
-                    <a href="{{ route('departments') }}"><i class="fas fa-file-alt"></i>Departments</a>
-                </li>
-                <li>
-                    <a href="{{ route('Rooms') }}"><i class="fas fa-file-alt"></i>Rooms</a>
+                    <a href="{{ route('requestedAppointment') }}"><i class="fas fa-file-alt"></i>Appointment Requests</a>
                 </li>
                 <li>
                     <a href="{{ route('patients_beds') }}"><i class="fas fa-file-alt"></i>Beds</a>
@@ -64,42 +42,58 @@
                 <li>
                     <a href="{{ route('patient_bills') }}"><i class="fas fa-file-alt"></i>Bills</a>
                 </li>
-
                 <li>
-                    <a href="{{ route('medicinesStore') }}"><i class="fas fa-file-alt"></i>Medicines Store</a>
-                </li>
-                <li>
-                    <a href="{{ route('hods') }}"><i class="fas fa-file-alt"></i>HOD's</a>
+                    <a href="{{ route('admin_birth_report') }}"><i class="fas fa-file-alt"></i>Birth Reports</a>
                 </li>
                 <li>
                     <a href="{{ route('blocks') }}"><i class="fas fa-file-alt"></i>Blocks</a>
                 </li>
                 <li>
-                    <a href="{{ route('requestedAppointment') }}"><i class="fas fa-file-alt"></i>Appointment
-                        Requests</a>
-                </li>
-                <li>
-                    <a href="{{ route('subscribers') }}"><i class="fas fa-file-alt"></i>Subscribers</a>
-                </li>
-                <li>
                     <a href="{{ route('contactedus') }}"><i class="fas fa-file-alt"></i>Contacted Messages</a>
                 </li>
                 <li>
+                    <a href="{{ route('departments') }}"><i class="fas fa-file-alt"></i>Departments</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin_doctors') }}"><i class="fas fa-file-alt"></i>Doctors</a>
+                </li>
+                <li>
+                    <a href="{{ route('employees') }}"><i class="fas fa-file-alt"></i>Employees</a>
+                </li>
+                <li>
+                <a href="{{ route('hods') }}"><i class="fas fa-file-alt"></i>HOD's</a>
+                </li>
+                <li>
+                    <a href="{{ route('medicinesStore') }}"><i class="fas fa-file-alt"></i>Medicines Store</a>
+                </li>
+                <li>
+                    <a href="{{ route('nurses') }}"><i class="fas fa-file-alt"></i>Nurses</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin_operations_report') }}"><i class="fas fa-file-alt"></i>Operation reports</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin_patients') }}"><i class="fas fa-file-alt"></i>Patients</a>
+                </li>
+                <li>
+                    <a href="{{ route('Rooms') }}"><i class="fas fa-file-alt"></i>Rooms</a>
+                </li>
+                <li>
                     <a href="{{ route('admin_settings') }}"><i class="fas fa-cog"></i>Settings</a>
+                </li>
+                <li>
+                    <a href="{{ route('subscribers') }}"><i class="fas fa-file-alt"></i>Subscribers</a>
                 </li>
             </ul>
         </nav>
         <div id="body" class="active">
             <nav class="navbar navbar-expand-lg fixed-top navbar-white bg-white">
-                <button type="button" id="sidebarCollapse" class="btn btn-light"><i
-                        class="fas fa-bars"></i><span></span></button>
+                <button type="button" id="sidebarCollapse" class="btn btn-light"><i class="fas fa-bars"></i><span></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
-                                <a href="" class="nav-item nav-link dropdown-toggle text-secondary"
-                                    data-toggle="dropdown"><i class="fas fa-link"></i> <span>Quick Access</span> <i
-                                        style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                <a href="" class="nav-item nav-link dropdown-toggle text-secondary" data-toggle="dropdown"><i class="fas fa-link"></i> <span>Quick Access</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
                                         <li><a href="" class="dropdown-item"><i class="fas fa-list"></i> Access
@@ -109,8 +103,7 @@
                                         <li><a href="" class="dropdown-item"><i class="fas fa-database"></i> Back
                                                 ups</a></li>
                                         <div class="dropdown-divider"></div>
-                                        <li><a href="" class="dropdown-item"><i
-                                                    class="fas fa-cloud-download-alt"></i>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cloud-download-alt"></i>
                                                 Updates</a></li>
                                         <div class="dropdown-divider"></div>
                                         <li><a href="" class="dropdown-item"><i class="fas fa-user-shield"></i>
@@ -121,14 +114,11 @@
                         </li>
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
-                                <a href="" class="nav-item nav-link dropdown-toggle text-secondary"
-                                    data-toggle="dropdown"><i class="fas fa-user"></i>
-                                    <span>{{ auth()->user()->name ?? '' }}</span> <i style="font-size: .8em;"
-                                        class="fas fa-caret-down"></i></a>
+                                <a href="" class="nav-item nav-link dropdown-toggle text-secondary" data-toggle="dropdown"><i class="fas fa-user"></i>
+                                    <span>{{ auth()->user()->name ?? '' }}</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right nav-link-menu">
                                     <ul class="nav-list">
-                                        <li><a href="" class="dropdown-item"><i
-                                                    class="fas fa-address-card"></i>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i>
                                                 Profile</a></li>
                                         <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i>
                                                 Messages</a></li>
