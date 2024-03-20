@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class patient extends Model
 {
-    use HasFactory,SoftDeletes;
-    protected $fillable=[
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
         'name',
         'email',
         'phone',
@@ -19,5 +20,12 @@ class patient extends Model
         'age',
         'bloodgroup',
         'photo_path',
+        'status',
+        'image',
+        'description',
+        'disease',
+        'doctor', 
+        'admit_date',
+        'discharge_date',
     ];
 }

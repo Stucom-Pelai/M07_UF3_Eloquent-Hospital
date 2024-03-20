@@ -16,7 +16,7 @@ class checksuperadmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->is_super_admin == true) {
+        if (Auth::user()->role->name == "admin") {
             return $next($request);
         }else{
             return abort('404');

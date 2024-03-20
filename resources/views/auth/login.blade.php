@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
-                    <form method="POST" class="py-3" action="{{ route('login') }}">
+                    <form method="POST" class="py-3" action="{{ route('admin_login') }}">
                         @csrf
                         <div class="form-group">
                             <label for="email" class="form-label">{{ __('E-Mail') }}</label>

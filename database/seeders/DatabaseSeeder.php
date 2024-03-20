@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
             departmentSeeder::class,
             doctorSeeder::class,
             patientSeeder::class,
+            appointmentSeeder::class,
             birthreportSeeder::class,
             HodSeeder::class,
             roomSeeder::class,
@@ -72,6 +73,7 @@ class DatabaseSeeder extends Seeder
             medicineSeeder::class,
             NursesTableSeeder::class,
             staysSeeder::class,
+            SubscriberSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

@@ -20,7 +20,7 @@ class Subscribers extends Component
 }
     public function render()
     {
-        return view('livewire.admins.subscibers',[
+        return view('livewire.admins.Subscribers',[
             'subscribers' => subscriber::latest()->paginate(10)
         ])->layout('admins.layouts.app');
     }

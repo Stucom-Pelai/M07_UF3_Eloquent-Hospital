@@ -12,6 +12,7 @@ class beds extends Model
         'room_id',
         'patient_id',
         'status',
+        'size', 
     ];
 
     public function room()

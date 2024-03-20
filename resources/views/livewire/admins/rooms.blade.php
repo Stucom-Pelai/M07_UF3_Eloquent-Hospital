@@ -41,9 +41,9 @@
                             <select name="roomtype"  class="form-control" required>
                                 <option selected disabled>Enter Room Type</option>
                                 <option value="general">general</option>
-                                <option value="privado">privado</option>
-                                <option value="semiprivado">semiprivado</option>
-                                <option value="barrio">barrio</option>
+                                <option value="private">private</option>
+                                <option value="semi-private">semi-private</option>
+                                <option value="ward">ward</option>
                             @error('roomtype')
                             <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
@@ -87,7 +87,7 @@
                                 <th>Room No</th>
                                 <th>Room Type</th>
                                 <th>Department</th>
-                                <th>Available</th>
+                                <th>Status</th>
                                 <th>Dated</th>
                                 <th>Actions</th>
                             </tr>
@@ -96,7 +96,7 @@
                             @forelse ($rooms as $room)
                                 <tr>
                                     <td>{{ $room->id }}</td>
-                                    <td>{{ $room->roomtype }}</td>
+                                    <td>{{ $room->type }}</td>
                                     <td>{{ $room->department->name }}</td>
                                     <td>{{ $room->status }}</td>
                                     <td>{{ $room->created_at }}</td>
@@ -104,9 +104,7 @@
                                         <button wire:click="edit({{ $room->id }})"
                                             class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
                                         <button wire:click="delete({{ $room->id }})"
-                                            onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                            class="btn btn-outline-danger btn-rounded"><i
-                                                class="fas fa-trash"></i></button>
+                                            onclick="return confirm('{{ __('Are You Sure?') }}')" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty

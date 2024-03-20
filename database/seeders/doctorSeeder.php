@@ -16,12 +16,15 @@ class doctorSeeder extends Seeder
      */
     public function run()
     {
+
+        $consignedDoctors = 5;
         $faker = Faker::create();
+        for ($i=0; $i <= $consignedDoctors ; $i++) { 
+    
         Doctor::create([
-            "employee_id"=>employee::where("position","doctor")->first()->id,
-        ]);
-        Doctor::create([
-            "employee_id"=>employee::where("position","doctor")->latest()->first()->id,
-        ]);
+            "employee_id"=>employee::where("position","doctor")->latest()->skip($i)->first()->id,
+         ]);
+
+        }
     }
 }
