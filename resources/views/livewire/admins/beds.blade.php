@@ -99,34 +99,32 @@
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @forelse ($beds as $bed)
-                                <tr>
-                                    <td class="text-center">{{ $bed->id }}</td>
-                                    <td class="text-center">{{ $bed->room_id }}</td>
-                                    <td class="text-center">{{ $bed->patient_id ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bed->patient->admit_date ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bed->patient->discharge_date ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bed->size ?: 'Null' }}</td> 
-                                    <td class="text-center">
-                                        <button wire:click="edit({{ $bed->id }})"
-                                            class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
-                                        <button wire:click="delete({{ $bed->id }})"
-                                            onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                            class="btn btn-outline-danger btn-rounded"><i
-                                                class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            @empty
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
+                            <tbody>
+    @forelse ($beds as $bed)
+        <tr>
+            <td class="text-center">{{ $bed->id }}</td>
+            <td class="text-center">{{ $bed->room_id }}</td>
+            <td class="text-center">{{ $bed->patient_id ?: 'Null' }}</td>
+            <td class="text-center">{{ optional($bed->patient)->admit_date ?: 'Null' }}</td>
+            <td class="text-center">{{ optional($bed->patient)->discharge_date ?: 'Null' }}</td>
+            <td class="text-center">{{ $bed->size ?: 'Null' }}</td> 
+            <td class="text-center">
+                <button wire:click="edit({{ $bed->id }})" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
+                <button wire:click="delete({{ $bed->id }})" onclick="return confirm('{{ __('Are You Sure ?') }}')" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+    @empty
+        <tr>
+            <td class="text-warning">{{ __('Null') }}</td>
+            <td class="text-warning">{{ __('Null') }}</td>
+            <td class="text-warning">{{ __('Null') }}</td>
+            <td class="text-warning">{{ __('Null') }}</td>
+            <td class="text-warning">{{ __('Null') }}</td>
+            <td class="text-warning">{{ __('Null') }}</td>
+            <td class="text-warning">{{ __('Null') }}</td>
+        </tr>
+    @endforelse
+</tbody>
                     </table>
                     {{ $beds->links() }}
                 </div>
