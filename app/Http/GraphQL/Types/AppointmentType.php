@@ -20,9 +20,37 @@ class AppointmentType extends GraphQLType
                 'description' => 'The ID of the appointment',
             ],
             // Define other fields of the Appointment entity here
-            'patient' => [
-                'type' => GraphQL::type('Patient'),
+            'doctor_id' => [
+                'type' => Type::INT(),
                 'description' => 'The patient associated with the appointment',
+            ],
+            'intime' => [
+                'type' => Type::string(),
+                'description' => 'intime'
+            ],
+            'outtime' => [
+                'type' => Type::string(),
+                'description' => 'out time'
+            ],
+            'status' => [
+                'type' => Type::string(),
+                'description' => 'status appointment'
+            ],
+            'description' => [
+                'type' => Type::string(),
+                'description' => 'description appointment'
+            ],
+            'prescription' => [
+                'type' => Type::string(),
+                'description' => 'prescription appointment'
+            ],
+            'created_at' => [
+                'type' => Type::string(),
+                'description' => 'created date'
+            ],
+            'updated_at' => [
+                'type' => Type::string(),
+                'description' => 'updated date'
             ],
         ];
     }
