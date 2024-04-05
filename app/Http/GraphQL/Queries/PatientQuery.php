@@ -25,18 +25,18 @@ class PatientQuery extends Query
         ];
     }
 
-    public function resolve($args)
+    public function resolve($root, $args)
     {
         $query = Patient::query();
-
+    
         if (isset($args['id'])) {
             $query->where('id', $args['id']);
         }
-
+    
         if (isset($args['name'])) {
             $query->where('name', 'like', '%' . $args['name'] . '%');
         }
-
+    
         return $query->get();
     }
 }
