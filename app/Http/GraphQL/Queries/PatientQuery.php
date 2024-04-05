@@ -27,16 +27,16 @@ class PatientQuery extends Query
 
     public function resolve($root, $args)
     {
-        $query = Patient::with('appointments');
-    
+        $query = Patient::with(['appointments', 'birthReports']);
+        
         if (isset($args['id'])) {
             $query->where('id', $args['id']);
         }
-    
+        
         if (isset($args['name'])) {
             $query->where('name', 'like', '%' . $args['name'] . '%');
         }
-    
+        
         return $query->get();
     }
 }

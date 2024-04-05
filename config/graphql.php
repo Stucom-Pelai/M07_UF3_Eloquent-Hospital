@@ -85,6 +85,7 @@ return [
             'types' => [
                 App\Http\GraphQL\Types\PatientType::class,
                 App\Http\GraphQL\Types\AppointmentType::class,
+                App\Http\GraphQL\Types\BirthReportType::class
             ],
 
             // Laravel HTTP middleware

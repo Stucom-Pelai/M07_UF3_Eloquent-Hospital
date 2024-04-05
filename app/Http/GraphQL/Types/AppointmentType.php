@@ -19,7 +19,10 @@ class AppointmentType extends GraphQLType
                 'type' => Type::nonNull(Type::int()),
                 'description' => 'The ID of the appointment',
             ],
-            // Define other fields of the Appointment entity here
+            'patient_id' => [
+                'type' => Type::INT(),
+                'description' => 'patient id',
+            ],
             'doctor_id' => [
                 'type' => Type::INT(),
                 'description' => 'The patient associated with the appointment',
