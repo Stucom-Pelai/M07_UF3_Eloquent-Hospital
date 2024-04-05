@@ -34,34 +34,34 @@
                     {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>My Clinic data</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>My Clinic data</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Upcoming View Appointments</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Upcoming View Appointments</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Request Appointment</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Request Appointment</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Request Checkup</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Request Checkup</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Symptom Check</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Symptom Check</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>History Reports (Birth/Operation)</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>History Reports (Birth/Operation)</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Bills</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Bills</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Payments</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Payments</a>
                 </li>
                 <li>
-                    <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Diagnostic Center Locator</a>
+                    <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Diagnostic Center Locator</a>
                 </li>
                 <li>
-                <a href="{{ route('') }}"><i class="fas fa-file-alt"></i>Pharmacy Locator</a>
+                <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Pharmacy Locator</a>
                 </li>
             </ul>
         </nav>
