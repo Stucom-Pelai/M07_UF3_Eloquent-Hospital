@@ -5,7 +5,7 @@ declare(strict_types = 1);
 return [
     'route' => [
         // The prefix for routes; do NOT use a leading slash!
-        'prefix' => 'graphql',
+        'prefix' => 'hospital',
 
         // The controller/method to use in GraphQL request.
         // Also supported array syntax: `[\Rebing\GraphQL\GraphQLController::class, 'query']`
@@ -14,6 +14,7 @@ return [
         // Any middleware for the graphql route group
         // This middleware will apply to all schemas
         'middleware' => [],
+        'method' => ['get', 'post'],
 
         // Additional route group attributes
         //

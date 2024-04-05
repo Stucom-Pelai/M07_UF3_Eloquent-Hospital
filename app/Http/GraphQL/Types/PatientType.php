@@ -3,13 +3,14 @@ namespace App\Http\GraphQL\Types;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Type as GraphQLType;
+use App\Models\Patient;
 
 class PatientType extends GraphQLType
 {
     protected $attributes = [
         'name' => 'Patient',
         'description' => 'patients from hospital',
-        'model' => \App\Models\patient::class
+        'model' => Patient::class
     ];
 
     public function fields(): array

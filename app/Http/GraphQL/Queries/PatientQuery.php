@@ -25,7 +25,7 @@ class PatientQuery extends Query
         ];
     }
 
-    public function resolve($root, $args)
+    public function resolve($args)
     {
         $query = Patient::query();
 
