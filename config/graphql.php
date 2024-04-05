@@ -82,7 +82,7 @@ return [
             ],
             // The types only available in this schema
             'types' => [
-                // ExampleType::class,
+                App\Http\GraphQL\Types\PatientType::class,
             ],
 
             // Laravel HTTP middleware
