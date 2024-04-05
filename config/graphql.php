@@ -84,6 +84,7 @@ return [
             // The types only available in this schema
             'types' => [
                 App\Http\GraphQL\Types\PatientType::class,
+                App\Http\GraphQL\Types\AppointmentType::class,
             ],
 
             // Laravel HTTP middleware

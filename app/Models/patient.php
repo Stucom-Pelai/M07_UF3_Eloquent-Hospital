@@ -28,4 +28,9 @@ class patient extends Model
         'admit_date',
         'discharge_date',
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

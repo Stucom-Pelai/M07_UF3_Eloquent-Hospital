@@ -100,6 +100,13 @@ class PatientType extends GraphQLType
                 'resolve' => function ($model) {
                     return $model->delete_at;
                 }
+            ],
+            'appointments' => [
+                'type' => Type::listOf(GraphQL::type('Appointment')),
+                'description' => 'The appointments associated with the patient',
+                'resolve' => function ($patient) {
+                    return $patient->appointments;
+                },
             ]
         ];
     }
