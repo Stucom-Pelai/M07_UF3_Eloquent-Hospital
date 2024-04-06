@@ -8,6 +8,13 @@
     <div class="contact-section">
         <div class="form-contant">
             <form id="ajax-contact" wire:submit.prevent="add_to_contact">
+                <div id="captcha" class="mt-4" wire:ignore></div>
+ 
+        @error('captcha')
+            <p class="mt-3 text-sm text-red-600 text-left">
+                {{ $message }}
+            </p>
+        @enderror
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group in_name">
@@ -53,8 +60,26 @@
         <div id="googleMap" style="width:100%;height:450px;"></div>
     </div>
 </div>
+<script src="https://www.google.com/recaptcha/api.js?onload=handle&render=explicit"
+    async
+    defer>
+</script>
+ 
+<script>
+    var  handle = function(e) {
+        widget = grecaptcha.render('captcha', {
+            'sitekey': '{{ env('CAPTCHA_SITE_KEY') }}',
+            'theme': 'light', // you could switch between dark and light mode.
+            'callback': verify
+        });
+ 
+    }
+    var verify = function (response) {
+        @this.set('captcha', response)
+    }
+</script>
 
-<script src="https://www.google.com/recaptcha/api.js?render={{env('CAPTCHA_SITE_KEY')}}"></script>
+{{-- <script src="https://www.google.com/recaptcha/api.js?render={{env('CAPTCHA_SITE_KEY')}}"></script>
 <script>
     function handle(e) {
         grecaptcha.ready(function () {
@@ -64,4 +89,4 @@
                 });
         })
     }
-</script>
+</script> --}}

@@ -14,22 +14,33 @@ class Contactus extends Component
     public $subject;
     public $message;
     public $email;
-    public $captcha = 0;
+    public $captcha = false;
 
     public function updatedCaptcha($token)
     {
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . env('CAPTCHA_SECRET_KEY') . '&response=' . $token);
-        $this->captcha = $response->json()['score'];
-dd($this->captcha);
-        if (!$this->captcha = .3) {
-            $this->add_to_contact();
+        $response = Http::post(
+            'https://www.google.com/recaptcha/api/siteverify?secret=' .
+            env('CAPTCHA_SECRET_KEY') .
+            '&response=' . $token
+        );
+
+        $success = $response->json()['success'];
+
+        if (!$success) {
+            $this->captcha = false;
         } else {
-            return session()->flash('success', 'Google thinks you are a bot, please refresh and try again');
+            $this->captcha = true;
         }
     }
+ 
 
     public function add_to_contact()
     {
+        if (!$this->captcha) {
+            // if no clicked captchav2 show error
+            dd("You must check I'm not a robot");
+        }
+        
         $this->validate([
             'name' => 'required',
             'phone' => 'required',
