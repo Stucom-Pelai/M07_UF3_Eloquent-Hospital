@@ -170,11 +170,8 @@ class Patients extends Component
 
     public function render()
     {
-        // return view('livewire.admins.patients',[
-        //     'patients' => patient::latest()->paginate(10),
-        // ])->layout('admins.layouts.app');
-        return view('livewire.patients.patients',[
+        return view('livewire.admins.patients',[
             'patients' => patient::latest()->paginate(10),
-        ])->layout('patient.layouts.app');
+        ])->layout('admins.layouts.app');
     }
 }
