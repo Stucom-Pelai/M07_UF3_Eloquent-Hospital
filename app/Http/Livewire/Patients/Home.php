@@ -10,7 +10,7 @@ use Intervention\Image\ImageManagerStatic;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 
-class Settings extends Component
+class Home extends Component
 {
 
     public function render()

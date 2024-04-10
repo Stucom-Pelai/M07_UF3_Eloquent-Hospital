@@ -13,9 +13,13 @@
 <header style="width: auto;">
 <div class="wrapper">
 <nav id="sidebar" class="active mt-4">
-            <br><br>
             <ul class="mt-5 list-unstyled components text-secondary">
+                <br>
                 {{-- @auth --}}
+                <li>
+                    {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
+                    <a href="{{ route('patient_home') }}"><i class="fas fa-file-alt"></i>My Personal data</a>
+                </li>
                 <li>
                     {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
                     <a href="{{ route('personal_data') }}"><i class="fas fa-file-alt"></i>My Personal data</a>
@@ -87,5 +91,9 @@
     }
     ul li a{
         color: white;
+        font-size: 12px !important;
+    }
+    #sidebar ul li a {
+    padding: 0.7rem 1.5rem;
     }
 </style>

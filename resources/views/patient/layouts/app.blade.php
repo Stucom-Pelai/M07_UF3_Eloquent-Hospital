@@ -26,15 +26,17 @@
     <br>
     <div class="content">
     <div class="container">
-        <br><br><br>
         {{ $slot }}
         @livewireScripts
-
+</div>
+</div>
         <script src="{{ config('app.url') }}js/livewire-turbolinks.js"></script>
         <script src="{{ config('app.url') }}js/alpine.js"></script>
         <script src="{{ config('app.url') }}assets/vendor/jquery/jquery.min.js"></script>
         <script src="{{ config('app.url') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="{{ config('app.url') }}assets/js/script.js"></script>
+
+        @include('patient.layouts.footer')
 </body>
 
 </html>
