@@ -21,13 +21,13 @@ class Doctors extends Component
 
 
     public $name;
-    public $Email;
-    public $Password;
-    public $Address;
-    public $Phone;
+    public $email;
+    public $password;
+    public $address;
+    public $phone;
     public $department = 'null';
-    public $Specialization;
-    public $Photo;
+    public $specialization;    
+    public $photo;
 
     public $edit_photo;
     public $edit_doctor_id;
@@ -44,13 +44,13 @@ class Doctors extends Component
         }else{
             $this->validate([
                 'name' => 'required||min:6|max:50',
-                'Email' => 'required|email|unique:doctors,email,except,id',
-                'Password' => 'required|min:6',
-                'Address' => 'required',
-                'Phone' => 'required|unique:doctors,phone,except,id',
+                'email' => 'required|email|unique:doctors,email,except,id',
+                'password' => 'required|min:6',
+                'address' => 'required',
+                'phone' => 'required|unique:doctors,phone,except,id',
                 'department' => 'required',
-                'Specialization' => 'required',
-                'Photo' => 'required|image|max:3072', //3MB
+                'specialization' => 'required',
+                'photo' => 'required|image|max:3072', //3MB
                 ]);
             doctor::create([
                 'name'        => $this->name,
@@ -64,13 +64,13 @@ class Doctors extends Component
             ]);
             //unset variables
             $this->name="";
-            $this->Email="";
-            $this->Password="";
-            $this->Address="";
-            $this->Phone="";
+            $this->email="";
+            $this->password="";
+            $this->address="";
+            $this->phone="";
             $this->department="";
-            $this->Specialization="";
-            $this->Photo="";
+            $this->specialization="";
+            $this->photo="";
             session()->flash('message', 'Doctor Created successfully.');
         }
 
@@ -93,11 +93,11 @@ class Doctors extends Component
         $this->edit_doctor_id = $id;
 
         $this->name = $doctor->name;
-        $this->Email = $doctor->email;
-        $this->Address = $doctor->address;
-        $this->Phone = $doctor->phone;
+        $this->email = $doctor->email;
+        $this->address = $doctor->address;
+        $this->phone = $doctor->phone;
         $this->department = $doctor->department;
-        $this->Specialization = $doctor->specialization;
+        $this->specialization = $doctor->specialization;
         $this->edit_photo = $doctor->photo_path;
 
         $this->button_text="Update Doctor";
@@ -106,26 +106,26 @@ class Doctors extends Component
     {
         $this->validate([
                 'name' => 'required||min:6|max:50',
-                'Email' => 'required|email',
-                'Password' => 'required|min:6',
-                'Address' => 'required',
-                'Phone' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+                'address' => 'required',
+                'phone' => 'required',
                 'department' => 'required',
-                'Specialization' => 'required',
+                'specialization' => 'required',
             ]);
 
         $doctor = doctor::findOrFail($id);
         $doctor->name = $this->name;
-        $doctor->email = $this->Email;
-        $doctor->password = bcrypt($this->Password);
-        $doctor->address = $this->Address;
-        $doctor->phone = $this->Phone;
+        $doctor->email = $this->email;
+        $doctor->password = bcrypt($this->password);
+        $doctor->address = $this->address;
+        $doctor->phone = $this->phone;
         $doctor->department = $this->department;
-        $doctor->specialization = $this->Specialization;
+        $doctor->specialization = $this->specialization;
 
         if ($this->Photo) {
             $this->validate([
-                'Photo' => 'required|image|max:3072',
+                'photo' => 'required|image|max:3072',
             ]);
             Storage::disk('public')->delete($doctor->photo_path);
             $doctor->photo_path = $this->storeImage();
@@ -135,14 +135,13 @@ class Doctors extends Component
         $doctor->save();
 
         $this->name="";
-        $this->Email="";
-        $this->Password="";
-        $this->Password="";
-        $this->Address="";
-        $this->Phone="";
+        $this->email="";
+        $this->password="";
+        $this->address="";
+        $this->phone="";
         $this->department="";
-        $this->Specialization="";
-        $this->Photo="";
+        $this->specialization="";
+        $this->photo="";
         $this->edit_photo="";
 
         session()->flash('message', 'doctor Updated Successfully.');

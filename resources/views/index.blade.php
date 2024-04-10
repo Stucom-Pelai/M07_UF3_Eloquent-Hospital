@@ -31,7 +31,8 @@
          <div class="row">
             <div class="service-time one" style="background:#2895f1;">
                <span class="info-icon"><i class="fa fa-ambulance" aria-hidden="true"></i></span>
-               <h3>Emergency Case</h3>
+               <h3>{{ __('message.emergency_case') }}</h3>
+
                <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas mole.</p>
             </div>
          </div>
@@ -40,12 +41,12 @@
          <div class="row">
             <div class="service-time middle" style="background:#0071d1;">
                <span class="info-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-               <h3>Working Hours</h3>
+               <h3>{{ __('message.working_hours') }}</h3>
                <div class="time-table-section">
                   <ul>
-                     <li><span class="left">Monday - Friday</span><span class="right">8.00 – 18.00</span></li>
-                     <li><span class="left">Saturday</span><span class="right">8.00 – 16.00</span></li>
-                     <li><span class="left">Sunday</span><span class="right">8.00 – 13.00</span></li>
+                     <li><span class="left">{{ __('message.Monday-Friday') }}</span><span class="right">8.00 – 18.00</span></li>
+                     <li><span class="left">{{ __('message.Saturday') }}</span><span class="right">8.00 – 16.00</span></li>
+                     <li><span class="left">{{ __('message.Sunday') }}</span><span class="right">8.00 – 13.00</span></li>
                   </ul>
                </div>
             </div>
@@ -55,7 +56,7 @@
          <div class="row">
             <div class="service-time three" style="background:#0060b1;">
                <span class="info-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
-               <h3>Clinic Timetable</h3>
+               <h3>{{ __('message.Clinic_timetable') }}</h3>
                <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas mole.</p>
             </div>
          </div>
@@ -69,14 +70,14 @@
          <span class="icon-logo">
          <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
          </span>
-         <h2>The Specialist Clinic</h2>
+         <h2>{{ __('message.The_specialist_clinic') }}</h2>
       </div>
       <!-- end title -->
       <div class="row">
          <div class="col-md-6">
             <div class="message-box">
-               <h4>What We Do</h4>
-               <h2>Clinic Service</h2>
+               <h4>{{ __('message.What_we_do') }}</h4>
+               <h2>{{ __('message.Clinic_service') }}</h2>
                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
                <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
                <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
@@ -102,7 +103,7 @@
                   <a href="images/clinic_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/clinic_01.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Digital Control Center</h3>
+               <h3>{{ __('message.Digital_control_center') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -112,7 +113,7 @@
                   <a href="images/clinic_02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/clinic_02.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Hygienic Operating Room</h3>
+               <h3>{{ __('message.Hygienic_operating_room') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -122,7 +123,7 @@
                   <a href="images/clinic_03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/clinic_03.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Specialist Physicians</h3>
+               <h3>{{ __('message.Specialist_physicians') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -132,7 +133,7 @@
                   <a href="images/pharmacy.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/pharmacy.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Pharmacy</h3>
+               <h3>{{ __('message.Pharmacy') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -149,42 +150,42 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
-                      <h4>PREMIUM FACILITIES</h4>
+                      <h4>{{ __('message.PREMIUM_FACILITIES') }}</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
-                      <h4>LARGE LABORATORY</h4>
+                      <h4>{{ __('message.LARGE_LABORATORY') }}</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
-                      <h4>DETAILED SPECIALIST</h4>
+                      <h4>{{ __('message.DETAILED_SPECIALIST') }}</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
-                      <h4>CHILDREN CARE CENTER</h4>
+                      <h4>{{ __('message.CHILDREN_CARE_CENTER') }}</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
-                      <h4>FINE INFRASTRUCTURE</h4>
+                      <h4>{{ __('message.FINE_INFRASTRUCTURE') }}</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
-                      <h4>ANYTIME BLOOD BANK</h4>
+                      <h4>{{ __('message.ANYTIME_BLOOD_BANK') }}</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
@@ -206,7 +207,7 @@
          <span class="icon-logo">
          <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
          </span>
-         <h2>Our Team</h2>
+         <h2>{{ __('message.Our_Team') }}</h2>
       </div>
 
       <div class="row dev-list text-center">
@@ -215,10 +216,10 @@
                   <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
                   <div class="widget-title">
                       <h3>Soren Bo Bostian</h3>
-                      <small>Clinic Owner</small>
+                      <small>{{ __('message.Clinic_Owner') }}</small>
                   </div>
                   <!-- end title -->
-                  <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+                  <p>{{ __('message.Team_Presentation') }}</p>
 
                   <div class="footer-social">
                       <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
@@ -234,10 +235,10 @@
                   <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
                   <div class="widget-title">
                       <h3>Bryan Saftler</h3>
-                      <small>Internal Diseases</small>
+                      <small>{{ __('message.Internal_Diseases') }}</small>
                   </div>
                   <!-- end title -->
-                  <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+                  <p>{{ __('message.Team_Presentation') }}</p>
 
                   <div class="footer-social">
                       <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
@@ -253,10 +254,10 @@
                   <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
                   <div class="widget-title">
                       <h3>Matthew Bayliss</h3>
-                      <small>Orthopedics Expert</small>
+                      <small>{{ __('message.Orthopedics_Expert') }}</small>
                   </div>
                   <!-- end title -->
-                  <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+                  <p>{{ __('message.Team_Presentation') }}</p>
 
                   <div class="footer-social">
                       <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
@@ -401,19 +402,19 @@
    <div class="container">
       <div class="heading">
       <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
-         <h2>Testimonials</h2>
+         <h2>{{ __('message.Testimonials') }}</h2>
       </div>
       <!-- end title -->
       <div class="row">
          <div class="col-md-6 col-sm-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <div class="testimonial clearfix">
                <div class="desc">
-                  <h3><i class="fa fa-quote-left"></i> The amazing clinic! Wonderful Support!</h3>
-                  <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
+                  <h3><i class="fa fa-quote-left"></i> {{ __('message.The_amazing_clinic') }}</h3>
+                  <p class="lead">{{ __('message.Description_Testimonials') }}</p>
                </div>
                <div class="testi-meta">
                   <img src="images/testi_01.png" alt="" class="img-responsive alignleft">
-                  <h4>James Fernando <small>- Manager of Racer</small></h4>
+                  <h4>James Fernando <small>{{ __('message.Manager_of_Racer') }}</small></h4>
                </div>
                <!-- end testi-meta -->
             </div>
@@ -423,12 +424,12 @@
          <div class="col-md-6 col-sm-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
             <div class="testimonial clearfix">
                <div class="desc">
-                  <h3><i class="fa fa-quote-left"></i> Thanks for Help us!</h3>
-                  <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
+                  <h3><i class="fa fa-quote-left"></i> {{ __('message.Thanks_for_Help_us') }}</h3>
+                  <p class="lead">{{ __('message.Description_Testimonials') }}</p>
                </div>
                <div class="testi-meta">
                   <img src="images/testi_02.png" alt="" class="img-responsive alignleft">
-                  <h4>Andrew Atkinson <small>- Life Manager</small></h4>
+                  <h4>Andrew Atkinson <small>{{ __('message.Life_Manager') }}</small></h4>
                </div>
                <!-- end testi-meta -->
             </div>
@@ -442,12 +443,12 @@
          <div class="col-md-6 col-sm-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
             <div class="testimonial clearfix">
                <div class="desc">
-                  <h3><i class="fa fa-quote-left"></i> The amazing clinic! Wonderful Support!</h3>
-                  <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
+                  <h3><i class="fa fa-quote-left"></i> {{ __('message.The_amazing_clinic') }}</h3>
+                  <p class="lead">{{ __('message.Description_Testimonials') }}</p>
                </div>
                <div class="testi-meta">
                   <img src="images/testi_03.png" alt="" class="img-responsive alignleft">
-                  <h4>Amanda DOE <small>- Manager of Racer</small></h4>
+                  <h4>Amanda DOE <small>{{ __('message.Manager_of_Racer') }}</small></h4>
                </div>
                <!-- end testi-meta -->
             </div>
@@ -457,12 +458,12 @@
          <div class="col-md-6 col-sm-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
             <div class="testimonial clearfix">
                <div class="desc">
-                  <h3><i class="fa fa-quote-left"></i> Thanks for Help us!</h3>
-                  <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
+                  <h3><i class="fa fa-quote-left"></i> {{ __('message.Thanks_for_Help_us') }}</h3>
+                  <p class="lead">{{ __('message.Description_Testimonials') }}</p>
                </div>
                <div class="testi-meta">
                   <img src="images/testi_01.png" alt="" class="img-responsive alignleft">
-                  <h4>Martin Johnson <small>- Founder of Goosilo</small></h4>
+                  <h4>Martin Johnson <small>{{ __('message.Founder_of_Goosilo') }}</small></h4>
                </div>
                <!-- end testi-meta -->
             </div>
