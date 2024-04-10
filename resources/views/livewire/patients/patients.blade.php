@@ -14,6 +14,6 @@
 </div>
 <style>
     h1{
-        font-size: 42px;
+        font-size: 35px;
     }
 </style>
