@@ -24,7 +24,7 @@
                     <a href="{{ route('clinic_data') }}"><i class="fas fa-file-alt"></i>My Clinic data</a>
                 </li>
                 <li>
-                    <a href="{{ route('sysmptom_check') }}"><i class="fas fa-file-alt"></i>Symptom Check</a>
+                    <a href="{{ route('symptom_check') }}"><i class="fas fa-file-alt"></i>Symptom Check</a>
                 </li>
                 <li>
                     <a href="{{ ('') }}"><i class="fas fa-file-alt"></i>Upcoming View Appointments</a>
@@ -81,3 +81,11 @@
         </div>
     </div>
 </header>
+<style>
+    #sidebar{
+        background-color: #157fda;
+    }
+    ul li a{
+        color: white;
+    }
+</style>

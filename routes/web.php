@@ -86,7 +86,7 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
 
         Route::get('/personaldata', App\Http\Livewire\Patients\PersonalData::class)->name('personal_data');
 
-        Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SysmptomCheck::class)->name('sysmptom_check');
+        Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SymptomCheck::class)->name('symptom_check');
     });
 });
 
