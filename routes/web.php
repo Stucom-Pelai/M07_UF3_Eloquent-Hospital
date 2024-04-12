@@ -69,6 +69,12 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
     });
 });
 
+Route::prefix('patients')->group(function () {
+
+    Route::get('/home', App\Http\Livewire\Admins\Patients::class)->name('patients_home');
+    
+});
+
 
 
 
