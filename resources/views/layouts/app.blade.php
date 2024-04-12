@@ -89,6 +89,19 @@ $settings = $setting[0];
                             <li onclick="check_active('Departments')"><a id="Departments" data-scroll href="#departments">Departments</a></li>
                             <li onclick="check_active('About')"><a id="About" data-scroll href="{{ url('/about') }}">About us</a></li>
                             <li onclick="check_active('Contact')"><a id="Contact" data-scroll href="{{ url('contact') }}">Contact</a></li>
+                            @if(Auth::check())
+                                <!-- El usuario está autenticado, no se mostrará el botón de inicio de sesión -->
+                            @else
+                                <!-- El usuario no está autenticado, se mostrará el botón de inicio de sesión -->
+                                <li <?php $request_uri = $_SERVER['REQUEST_URI']; if ($request_uri === '/login' || $request_uri === '/admin') {echo 'style="display: none;"';}?>
+                                    onclick="check_active('Login')" class="menu-item">
+                                    <a id="Login" data-scroll href="{{ url('login') }}" style="display: flex; align-items: right;">
+                                        Login
+                                        <img src="images/login.png" alt="Descripción de la imagen" class="icono" width="30" height="30" style="margin-left: 5px; margin-top: -5px;">
+                                    </a>
+                                </li>
+                            @endif
+
                             @auth
                             @if (auth()->user()->is_super_admin)
                             <li onclick="check_active('admin-area')"><a id="admin-area" data-scroll href="{{ route('admin_settings') }}">Admin Area</a></li>

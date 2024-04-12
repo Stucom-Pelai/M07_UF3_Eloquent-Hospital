@@ -73,16 +73,16 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
     });
 });
 
-// Route::get('/login/google', 'Auth\LoginController@redirectToGoogle');
-// Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
-// Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('login.google');
-// Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback');
-// Route::get('/login/google', App\Http\Controllers\Auth\LoginController::class, "redirectToGoogle")->name('login.google');
-// Route::get('/login/google/callback', App\Http\Controllers\Auth\LoginController::class, "handleGoogleCallback");
-// Route::get('/login/google', LoginController::class, "redirectToGoogle")->name('login.google');
-// Route::get('/login/google/callback', LoginController::class, "handleGoogleCallback");
+
+Route::prefix('patients')->group(function () {
+
+    Route::get('/home', App\Http\Livewire\Admins\Patients::class)->name('patients_home');
+});
+
+
 
 
 

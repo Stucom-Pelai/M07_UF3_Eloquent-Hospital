@@ -36,6 +36,14 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
         ]);
 
+        User::create([
+            'name' => 'patient',
+            'email' => 'patient@gmail.com',
+            'password' => bcrypt('patient@'),
+            'role_id' => 3,
+            'created_at' => now(),
+        ]);
+
         // User::create([
         //     'name' =>'store employeer',
         //     'email' =>'storeemployeer@test.com',
