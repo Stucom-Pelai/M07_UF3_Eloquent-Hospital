@@ -47,4 +47,8 @@ class patient extends Model
     public function bills(){
         return $this->hasMany(bill::class, 'patients_id');
     }
+    
+    public function operationReports(){
+        return $this->hasMany(operationreport::class);
+    }
 }
