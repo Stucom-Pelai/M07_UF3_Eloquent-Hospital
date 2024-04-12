@@ -38,8 +38,7 @@
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Login') }}
                             </button>
-                            Hacer Funcional
-                            <a href="{{ url('/auth/google') }}" class="btn btn-primary">
+                            <a href="{{ url('/login/google') }}" class="btn btn-primary">
                                 {{ __('Login with Google') }}
                             </a>
                         </div>

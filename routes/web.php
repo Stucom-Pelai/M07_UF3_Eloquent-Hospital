@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 Route::get('/', function () {
     return view('index');
@@ -69,7 +73,16 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
     });
 });
 
-
+// Route::get('/login/google', 'Auth\LoginController@redirectToGoogle');
+// Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+// Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('login.google');
+// Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+// Route::get('/login/google', App\Http\Controllers\Auth\LoginController::class, "redirectToGoogle")->name('login.google');
+// Route::get('/login/google/callback', App\Http\Controllers\Auth\LoginController::class, "handleGoogleCallback");
+// Route::get('/login/google', LoginController::class, "redirectToGoogle")->name('login.google');
+// Route::get('/login/google/callback', LoginController::class, "handleGoogleCallback");
 
 
 
