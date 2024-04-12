@@ -20,7 +20,7 @@ class BillType extends GraphQLType
                 'type' => Type::nonNull(Type::int()),
                 'description' => 'The ID of the bill',
             ],
-            'patient_id' => [
+            'patients_id' => [
                 'type' => Type::int(),
                 'description' => 'The ID of the patient associated with the bill',
             ],

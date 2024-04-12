@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Livewire\Admins\Bills;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,5 +42,9 @@ class patient extends Model
 
     public function beds(){
         return $this->hasMany(beds::class);
+    }
+
+    public function bills(){
+        return $this->hasMany(bill::class);
     }
 }

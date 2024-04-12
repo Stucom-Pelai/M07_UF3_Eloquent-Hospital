@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\GraphQL\Queries;
+
 use GraphQL\Type\Definition\Type;
 use App\Models\Patient;
 use Rebing\GraphQL\Support\Facades\GraphQL;
@@ -27,16 +29,21 @@ class PatientQuery extends Query
 
     public function resolve($root, $args)
     {
-        $query = Patient::with(['appointments', 'birthReports', 'beds']);
-        
+        $query = Patient::with([
+            'appointments',
+            'birthReports',
+            'beds',
+            'bills',
+        ]);
+
         if (isset($args['id'])) {
             $query->where('id', $args['id']);
         }
-        
+
         if (isset($args['name'])) {
             $query->where('name', 'like', '%' . $args['name'] . '%');
         }
-        
+
         return $query->get();
     }
 }
