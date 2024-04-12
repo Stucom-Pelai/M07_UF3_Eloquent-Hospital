@@ -51,4 +51,8 @@ class patient extends Model
     public function operationReports(){
         return $this->hasMany(operationreport::class);
     }
+
+    public function patientCheckUp(){
+        return $this->hasMany(patientCheckup::class);
+    }
 }

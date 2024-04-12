@@ -89,6 +89,7 @@ return [
                 App\Http\GraphQL\Types\BedType::class,
                 App\Http\GraphQL\Types\BillType::class,
                 App\Http\GraphQL\Types\OperationReportType::class,
+                App\Http\GraphQL\Types\PatientCheckUpType::class,
             ],
 
             // Laravel HTTP middleware

@@ -35,6 +35,7 @@ class PatientQuery extends Query
             'beds',
             'bills',
             'operationReports',
+            'patientCheckUp',
         ]);
 
         if (isset($args['id'])) {
