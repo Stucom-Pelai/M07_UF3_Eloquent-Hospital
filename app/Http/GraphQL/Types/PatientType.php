@@ -115,6 +115,13 @@ class PatientType extends GraphQLType
                     return $patient->birthReports;
                 },
             ],
+            'beds' => [
+                'type' => Type::listOf(GraphQL::type('Bed')),
+                'description' => 'beds associated with the patient',
+                'resolve' => function ($patient) {
+                    return $patient->beds;
+                }
+            ]
         ];
     }
 }

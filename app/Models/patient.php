@@ -38,4 +38,8 @@ class patient extends Model
     {
         return $this->hasMany(BirthReport::class);
     }
+
+    public function beds(){
+        return $this->hasMany(beds::class);
+    }
 }

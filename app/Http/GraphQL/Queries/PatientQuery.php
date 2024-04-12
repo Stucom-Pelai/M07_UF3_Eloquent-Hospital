@@ -27,7 +27,7 @@ class PatientQuery extends Query
 
     public function resolve($root, $args)
     {
-        $query = Patient::with(['appointments', 'birthReports']);
+        $query = Patient::with(['appointments', 'birthReports', 'beds']);
         
         if (isset($args['id'])) {
             $query->where('id', $args['id']);
