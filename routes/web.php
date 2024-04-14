@@ -3,6 +3,13 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BotManController;
+use BotMan\BotMan\BotMan;
+use BotMan\BotMan\BotManFactory;
+use BotMan\Drivers\Web\WebDriver;
+
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
+
 
 Route::get('/', function () {
     return view('index');
