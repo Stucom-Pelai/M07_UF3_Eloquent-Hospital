@@ -13,7 +13,9 @@ return [
 
         // Any middleware for the graphql route group
         // This middleware will apply to all schemas
-        'middleware' => [],
+        'middleware' => [
+            \App\Http\Middleware\SaveGraphQLResult::class,
+        ],
         'method' => ['get', 'post'],
 
         // Additional route group attributes
