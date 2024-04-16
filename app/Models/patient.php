@@ -55,4 +55,12 @@ class patient extends Model
     public function patientCheckUp(){
         return $this->hasMany(patientCheckup::class);
     }
+
+    public function payments(){
+        return $this->hasMany(payment::class);
+    }
+
+    public function stays(){
+        return $this->hasMany(stay::class);
+    }
 }

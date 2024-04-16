@@ -142,6 +142,20 @@ class PatientType extends GraphQLType
                 'resolve' => function($patient){
                     return $patient->PatientCheckUp;
                 }
+            ],
+            'payment' => [
+                'type' => Type::listOf(GraphQL::type('Payment')),
+                'description' => 'payment associeted with the pacient',
+                'resolve' => function($patient){
+                    return $patient->Payment;
+                }
+            ],
+            'stay' => [
+                'type' => Type::listOf(GraphQL::type('Stay')),
+                'description' => 'stay associated with pacient',
+                'resolve' => function($patient){
+                    return $patient->Stay;
+                }
             ]
         ];
     }

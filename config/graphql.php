@@ -90,6 +90,8 @@ return [
                 App\Http\GraphQL\Types\BillType::class,
                 App\Http\GraphQL\Types\OperationReportType::class,
                 App\Http\GraphQL\Types\PatientCheckUpType::class,
+                App\Http\GraphQL\Types\PaymentType::class,
+                App\Http\GraphQL\Types\StayType::class,
             ],
 
             // Laravel HTTP middleware
