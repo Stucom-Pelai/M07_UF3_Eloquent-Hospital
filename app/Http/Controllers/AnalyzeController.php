@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\RequestException;
+
 
 class AnalyzeController extends Controller
 {
+    
+
     public function analyzeSymptoms(Request $request)
     {
 
         $sessionId = '';
         //url example: https://api.endlessmedical.com/v1/dx/Analyze?SessionID=GeLIy3MDIeoIPNZQ&NumberOfResults=5
-        // response: 
+        // response: we want Diseases key
         // {
         //     "status": "ok",
         //     "Diseases": [
@@ -163,24 +167,41 @@ class AnalyzeController extends Controller
         foreach($symptoms as $symptom){
             $this->addSymptoms($symptom, $sessionId);
         }
-        
+
+        //maybe sessionId is the problem
+        $response = Http::get('https://api.endlessmedical.com/v1/dx/Analyze', [
+            'SessionID' => $sessionId,
+            'NumberOfResults' => 5
+        ]);        
+        dd($response);
+        try {
+            return response()->json(['analyze' => $response]);
+        } catch(\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
         //analyze when symptoms have been updated
         //https://api.endlessmedical.com/v1/dx/Analyze?SessionID=$sessionKey&NumberOfResults=5
     }
 
-    public function addSymptoms($symptom, $sessionId){
-        //TODO
-        //do the two calls to update feature like this: https://api.endlessmedical.com/v1/dx/UpdateFeature?SessionID=$seassionKey&name=$symptom&value=$symptomValue
-        //then analyze 
+    public function addSymptoms($symptoms, $sessionId)
+    {
+        foreach ($symptoms as $key => $symptom) {
+            $response = Http::post('https://api.endlessmedical.com/v1/dx/UpdateFeature', [
+                'SessionID' => $sessionId,
+                'name' => $key,
+                'value' => $symptom
+            ]);
 
-        //url: https://api.endlessmedical.com/v1/dx/UpdateFeature?SessionID=GeLIy3MDIeoIPNZQ&name=Age&value=31
-        //url: https://api.endlessmedical.com/v1/dx/UpdateFeature?SessionID=GeLIy3MDIeoIPNZQ&name=Temp&value=31
+            if (!$response->successful()) {
+                return response()->json(['error' => 'Failed to add symptom'], 500);
+            }
+        }
 
     }
 
     public function initApi($sessionId){
 
-        $response = Http::post('https://api.endlessmedical.com/v1/dx/InitSession');
+        $response = Http::get('https://api.endlessmedical.com/v1/dx/InitSession');
        
         $responseInitApi = []; 
 
@@ -191,24 +212,50 @@ class AnalyzeController extends Controller
                 $responseInitApi['SessionID'] = $sessionId;
             }
         } else {
-            $responseInitApi['SessionID'] = 'Hubo un error al realizar la solicitud a la API';
+            $responseInitApi['SessionID'] = 'Failed to init session';
         }
 
-        $responseTerms = Http::get('https://api.endlessmedical.com/v1/dx/AcceptTermsOfUse', [
+        $responseTerms = Http::post('https://api.endlessmedical.com/v1/dx/AcceptTermsOfUse', [
             'SessionID' => $sessionId,
             'passphrase' => urlencode("I have read, understood and I accept and agree to comply with the Terms of Use of EndlessMedicalAPI and Endless Medical services. The Terms of Use are available on endlessmedical.com")
         ]);
 
-        if ($responseTerms->successful()) {
-            $responseDataTerms = $responseTerms->json();
-            if (isset($responseDataTerms['status']) && $responseDataTerms['status'] === 'ok') {
-                $responseInitApi['Terms'] = $responseDataTerms['status'];
+        //error
+        // if ($responseTerms->successful()) {
+        //     $responseDataTerms = $responseTerms->json();
+        //     if (isset($responseDataTerms['status']) && $responseDataTerms['status'] === 'ok') {
+        //         $responseInitApi['Terms'] = $responseDataTerms['status'];
+        //     } else {
+        //         $responseInitApi['Terms'] = 'Error while accepting terms of use';
+        //     }
+        // } else {//entering
+        //     $responseInitApi['Terms'] = 'Failed to request to API';
+        // }
+        
+        try {
+            //error here, parameters not appending into url
+            $responseTerms = Http::post('https://api.endlessmedical.com/v1/dx/AcceptTermsOfUse', [
+                'SessionID' => $sessionId,
+                'passphrase' => urlencode("I have read, understood and I accept and agree to comply with the Terms of Use of EndlessMedicalAPI and Endless Medical services. The Terms of Use are available on endlessmedical.com")
+            ]);
+            dd($responseTerms);
+            if ($responseTerms->successful()) {
+                $responseDataTerms = $responseTerms->json();
+                if (isset($responseDataTerms['status']) && $responseDataTerms['status'] === 'ok') {
+                    $responseInitApi['Terms'] = $responseDataTerms['status'];
+                } else {
+                    $responseInitApi['Terms'] = 'Error while accepting terms of use';
+                }
             } else {
-                $responseInitApi['Terms'] = 'Error al aceptar los términos de uso';
+                $responseInitApi['Terms'] = 'Failed to request to API';
             }
-        } else {
-            $responseInitApi['Terms'] = 'Hubo un error al realizar la solicitud a la API';
+        } catch (RequestException  $e) {
+            $errorMessage = $e->getMessage();
+            dd($errorMessage);
         }
+        
+
+        dd($responseInitApi);
 
         $responseInitApi = response()->json($responseInitApi);
 
