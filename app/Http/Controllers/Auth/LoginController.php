@@ -28,7 +28,8 @@ class LoginController extends Controller
     public function handleGoogleCallback()
     {
         $user = Socialite::driver("google")->user();
-        dd($user);
+        // dd($user);
+        return redirect()->intended('patients/home');
     }
 
 
