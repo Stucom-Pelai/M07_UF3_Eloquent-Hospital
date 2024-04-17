@@ -30,7 +30,9 @@ class AdminController extends Controller
             return redirect()->intended('patients/home');
 
         }elseif (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            Auth::logout();            
+            return redirect('/')->with('error', 'This user does not have any page assigned.');            
+            
         }
 
         return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
