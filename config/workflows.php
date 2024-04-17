@@ -103,7 +103,6 @@ return [
                 \App\Models\User::class => 'User',
                 \App\Models\requestedAppointment::class => 'requestedAppointment',
                 \the42coders\Workflows\Loggers\WorkflowLog::class => 'WorkflowLog',
-                \App\Models\subscriber::class => 'subscriber'
             ],
 
         ],
