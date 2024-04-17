@@ -18,7 +18,7 @@
                 {{-- @auth --}}
                 <li>
                     {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
-                    <a href="{{ route('patient_home') }}"><i class="fas fa-file-alt"></i>My Personal data</a>
+                    <a href="{{ route('patient_home') }}"><i class="fas fa-file-alt"></i>Home</a>
                 </li>
                 <li>
                     {{-- <a href="{{ route('admins') }}"><i class="fas fa-home"></i> Dashboard</a> --}}
