@@ -22,6 +22,7 @@ use App\Http\Controllers\AnalyzeController;
 |
 */
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -34,4 +35,5 @@ Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAll
 Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');
 Route::get('beds/status/{value}', [BedsController::class, 'getBedsByStatus'])->name('getBedsByStatus');
 Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
-Route::post('analyze', [AnalyzeController::class, 'analyzeSymptoms']);
+
+Route::post('analyze', [AnalyzeController::class, 'analyzeSymptoms'])->name('analyzeSymptoms');
