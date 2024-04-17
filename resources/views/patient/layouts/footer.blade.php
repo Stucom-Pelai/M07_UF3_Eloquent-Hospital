@@ -23,7 +23,7 @@
 </div>
 <style>
     #footer{
-        position: absolute;
-        top:90%
+        position: fixed;
+        bottom: 0;
     }
 </style>
