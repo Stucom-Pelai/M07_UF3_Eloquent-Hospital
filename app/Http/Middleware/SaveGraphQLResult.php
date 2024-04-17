@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SaveGraphQLResult
 {
@@ -22,14 +23,16 @@ class SaveGraphQLResult
         // Acceder al resultado de la consulta GraphQL
         $result = $response->original;
 
-        // Guardar el resultado en la base de datos MONGODB...
-        // DB::table('graphql_results')->insert([
-        //     'result' => json_encode($result),
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
+        //TODO: Implementar función para guardar el json en mongoDB, esto es un ejemplo que lo guarda en un json
+        if ($response->getData(true)) {
+            // Convertir la respuesta a formato JSON
+            $jsonResponse = json_encode($response->getData(true));
 
-        
+            // Guardar el resultado en un archivo JSON
+            Storage::put('graphql_results.json', $jsonResponse);
+        }
+
+
         // Devolver la respuesta original
         return $response;
     }
