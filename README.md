@@ -119,7 +119,7 @@ laravelhospital@gmail.com
 Password:
 
 ```bash
-12345678
+H12345678!
 ```
 
 2-Steps Verification:
