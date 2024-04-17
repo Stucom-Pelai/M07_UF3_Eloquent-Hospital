@@ -6,6 +6,13 @@
             <span class="card-header">{{ __('Login') }}</span>
         </h1>
         <div class="card-body p-5">
+             @if (session('error') && !isset($errorDisplayed))
+                <?php $errorDisplayed = true; ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="row justify-content-center">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
