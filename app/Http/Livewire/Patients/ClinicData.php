@@ -22,9 +22,9 @@ class ClinicData extends Component
     public function render()
     {
         // dd(patient::find(1));
-        $patient = patient::find(1);
+        $patient = (patient::find(1));
         return view('livewire.patients.clinic_data',[
-            'patients' => $patient,
+            'patient' => $patient,
         ])->layout('patient.layouts.app');
     }
 }
