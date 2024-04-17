@@ -51,6 +51,14 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="offset-md-4 text-center">
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('register') }}">
+                                            {{ __('Dont you have an account?') }}
+                                        </a>
+                                    @endif
+                                </div>
                         </div>
                     </form>
                 </div>
