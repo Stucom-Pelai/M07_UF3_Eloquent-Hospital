@@ -2,29 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use BotMan\BotMan\BotMan;
-use BotMan\BotMan\BotManFactory;
-use BotMan\BotMan\Drivers\DriverManager;
+use BotMan\BotMan\Messages\Incoming\Answer;
+use Illuminate\Http\Request;
 
 class BotManController extends Controller
-{
-    public function handle(Request $request)
+{    
+    protected $email;
+    protected $name;
+    public function handle()
     {
-        DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
-
-        $config = [
-        ];
-
-        $botman = BotManFactory::create($config);
-
-        $botman->hears('', function($bot) {
-            $bot->reply('Hello!');
-            $bot->ask('Whats your name?', function($answer, $bot) {
-                $bot->say('Welcome '.$answer->getText());
-            });
+        $botman = app('botman');
+        $botman->hears('{message}', function ($botman, $message) {
+            if ($message == 'hi') {
+                $this->askName($botman);
+                
+            } else {
+                $botman->reply("write 'hi' for testing...");
+            }
         });
-
         $botman->listen();
+    }
+    
+    public function askName($botman)
+    {
+        $botman->ask("Hello! What is Your Name?", function (Answer $answer) {
+            $name = $answer->getText();
+            $this->say('Nice to meet you ' . $name);
+        });
+    }
+
+    public function askEmail()
+    {
+        $this->ask('One more thing - what is your email?', function(Answer $answer) {
+            // Save result
+            $this->email = $answer->getText();
+
+            $this->say('Great - that is all we need ');
+        });
     }
 }

@@ -1,59 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
-<div id="botmanChatLog"></div>
-<form id="messageForm">
-   <input type="text" id="messageInput" placeholder="Escribe tu mensaje...">
-   <button type="submit">Enviar</button>
-</form>
-
 <script>
-   document.getElementById("messageForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      var messageInput = document.getElementById("messageInput");
-      var userMessage = messageInput.value.trim();
-      addToChat('Tú: ' + userMessage);
-      sendMessageToBotMan(userMessage);
-      messageInput.value = "";
-   });
-
-   function sendMessageToBotMan(userMessage) {
-      var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-      fetch('/botman', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json',
-               'X-CSRF-TOKEN': csrfToken
-            },
-            body: JSON.stringify({
-               message: userMessage
-            })
-         })
-         .then(response => {
-            if (!response.ok) {
-               throw new Error('Network response was not ok');
-            }
-            return response.json();
-         })
-         .then(data => {
-            data.messages.forEach(function(message) {
-               addToChat('Bot: ' + message.text);
-            });
-         })
-         .catch(error => {
-            console.error('Error al enviar el mensaje:', error);
-         });
-   }
-
-   function addToChat(message) {
-      var botmanChatLog = document.getElementById("botmanChatLog");
-      var messageElement = document.createElement("div");
-      messageElement.textContent = message;
-      botmanChatLog.appendChild(messageElement);
-   }
+   var botmanWidget = {
+      aboutText: 'Life♥Care',
+      introMessage: 'Hi Welcome to Life♥Care say hi to start',
+   };
 </script>
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
 <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');" {{ $app = App\Models\settings::latest()->first() }}>
    <div class="container">
