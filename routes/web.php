@@ -24,10 +24,6 @@ Route::get('/app', function () {
     return view('layouts.app');
 });
 
-Route::group(['middleware' => ['auth']], function () {
-    \the42coders\Workflows\Workflows::routes();
-});
-
 Route::view('/services', 'services');
 
 Route::get('/admin/', [AdminController::class, 'index'])->name("admins");
