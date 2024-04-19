@@ -30,14 +30,4 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'botman' => [
-        'conversation_cache_time' => 40,
-        'user_cache_time' => 30,
-        'configurations' => [
-            'default' => [
-                'driver' => 'web',
-            ],
-        ],
-    ],
-
 ];

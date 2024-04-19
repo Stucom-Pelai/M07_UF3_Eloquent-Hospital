@@ -1,23 +1,20 @@
 @extends('layouts.app')
 @section('content')
-
 <script>
-   var botmanWidget = {
-      aboutText: 'Life♥Care',
-      introMessage: 'Hi Welcome to Life♥Care say hi to start',
-   };
-</script>
-<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+   document.addEventListener('DOMContentLoaded', function() {
+      alert('Please update the Livewire package.   Steps: 3, 7, 8, 10(More information in "Readme.md")');
+   });
 
+</script>
 <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');" {{ $app = App\Models\settings::latest()->first() }}>
-   <div class="container">
+<div class="container">
       <div class="row">
          <div class="col-md-12 col-sm-12">
             <div class="text-contant">
                <h2>
                   <span class="center"><span class="icon"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#" /></span></span>
                   <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Life Care", "We Care Your Health", "We are Expert!" ]'>
-                     <span class="wrap"></span>
+                  <span class="wrap"></span>
                   </a>
                </h2>
             </div>
@@ -70,7 +67,7 @@
       <div class="heading">
          <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
          <span class="icon-logo">
-            <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
          </span>
          <h2>The Specialist Clinic</h2>
       </div>
@@ -81,7 +78,7 @@
                <h4>What We Do</h4>
                <h2>Clinic Service</h2>
                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-               <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+               <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
                <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
             </div>
             <!-- end messagebox -->
@@ -145,133 +142,133 @@
    <!-- end container -->
 </div>
 <div id="service" class="services wow fadeIn">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-            <div class="inner-services">
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="serv">
-                     <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
-                     <h4>PREMIUM FACILITIES</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="serv">
-                     <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
-                     <h4>LARGE LABORATORY</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="serv">
-                     <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
-                     <h4>DETAILED SPECIALIST</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="serv">
-                     <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
-                     <h4>CHILDREN CARE CENTER</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="serv">
-                     <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
-                     <h4>FINE INFRASTRUCTURE</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="serv">
-                     <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
-                     <h4>ANYTIME BLOOD BANK</h4>
-                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         @livewire('appointmentform')
-      </div>
-   </div>
-</div>
-<!-- end section -->
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+             <div class="inner-services">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <div class="serv">
+                      <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
+                      <h4>PREMIUM FACILITIES</h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                   </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <div class="serv">
+                      <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
+                      <h4>LARGE LABORATORY</h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                   </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <div class="serv">
+                      <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
+                      <h4>DETAILED SPECIALIST</h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                   </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <div class="serv">
+                      <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
+                      <h4>CHILDREN CARE CENTER</h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                   </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <div class="serv">
+                      <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
+                      <h4>FINE INFRASTRUCTURE</h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                   </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                   <div class="serv">
+                      <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
+                      <h4>ANYTIME BLOOD BANK</h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+          @livewire('appointmentform')
+       </div>
+    </div>
+ </div>
+ <!-- end section -->
 
 <!-- doctor -->
 
 <div id="doctors" class="parallax section db" data-stellar-background-ratio="0.4" style="background:#fff;" data-scroll-id="doctors" tabindex="-1">
-   <div class="container">
+  <div class="container">
 
-      <div class="heading">
+   <div class="heading">
          <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
          <span class="icon-logo">
-            <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
          </span>
          <h2>Our Team</h2>
       </div>
 
       <div class="row dev-list text-center">
-         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
-            <div class="widget clearfix">
-               <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
-               <div class="widget-title">
-                  <h3>Soren Bo Bostian</h3>
-                  <small>Clinic Owner</small>
-               </div>
-               <!-- end title -->
-               <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+              <div class="widget clearfix">
+                  <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
+                  <div class="widget-title">
+                      <h3>Soren Bo Bostian</h3>
+                      <small>Clinic Owner</small>
+                  </div>
+                  <!-- end title -->
+                  <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
-               <div class="footer-social">
-                  <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-               </div>
-            </div><!--widget -->
-         </div><!-- end col -->
+                  <div class="footer-social">
+                      <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                  </div>
+              </div><!--widget -->
+          </div><!-- end col -->
 
-         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
-            <div class="widget clearfix">
-               <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
-               <div class="widget-title">
-                  <h3>Bryan Saftler</h3>
-                  <small>Internal Diseases</small>
-               </div>
-               <!-- end title -->
-               <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
+              <div class="widget clearfix">
+                  <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
+                  <div class="widget-title">
+                      <h3>Bryan Saftler</h3>
+                      <small>Internal Diseases</small>
+                  </div>
+                  <!-- end title -->
+                  <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
-               <div class="footer-social">
-                  <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-               </div>
-            </div><!--widget -->
-         </div><!-- end col -->
+                  <div class="footer-social">
+                      <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                  </div>
+              </div><!--widget -->
+          </div><!-- end col -->
 
-         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
-            <div class="widget clearfix">
-               <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
-               <div class="widget-title">
-                  <h3>Matthew Bayliss</h3>
-                  <small>Orthopedics Expert</small>
-               </div>
-               <!-- end title -->
-               <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
+              <div class="widget clearfix">
+                  <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
+                  <div class="widget-title">
+                      <h3>Matthew Bayliss</h3>
+                      <small>Orthopedics Expert</small>
+                  </div>
+                  <!-- end title -->
+                  <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
-               <div class="footer-social">
-                  <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                  <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-               </div>
-            </div><!--widget -->
-         </div><!-- end col -->
+                  <div class="footer-social">
+                      <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                  </div>
+              </div><!--widget -->
+          </div><!-- end col -->
 
       </div><!-- end row -->
-   </div><!-- end container -->
+  </div><!-- end container -->
 </div>
 
 {{-- <div id="price" class="section pr wow fadeIn" style="background-image:url('images/price-bg.png');">
@@ -403,7 +400,7 @@
 <div id="testimonials" class="section wb wow fadeIn">
    <div class="container">
       <div class="heading">
-         <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
+      <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
          <h2>Testimonials</h2>
       </div>
       <!-- end title -->
