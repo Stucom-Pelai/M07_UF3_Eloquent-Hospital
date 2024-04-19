@@ -29,7 +29,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver("google")->user();
         // dd($user);
-        return redirect()->intended('patients/home');
+        return redirect()->intended('patients/home')->with('email', $user->email);
     }
 
 
