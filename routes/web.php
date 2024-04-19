@@ -4,6 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BotManController;
+
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
+
 
 Route::get('/', function () {
     return view('index');
