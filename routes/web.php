@@ -3,6 +3,10 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BotManController;
+
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
+
 
 Route::get('/', function () {
     return view('index');
@@ -18,10 +22,6 @@ Route::get("/doctors", function () {
 });
 Route::get('/app', function () {
     return view('layouts.app');
-});
-
-Route::group(['middleware' => ['auth']], function () {
-    \the42coders\Workflows\Workflows::routes();
 });
 
 Route::view('/services', 'services');
