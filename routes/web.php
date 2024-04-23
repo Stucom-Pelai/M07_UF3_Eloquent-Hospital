@@ -3,7 +3,8 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\LocaleController;
 Route::get('/', function () {
     return view('index');
 });
@@ -20,6 +21,7 @@ Route::get('/app', function () {
     return view('layouts.app');
 });
 
+Route::post('locale/update', [LocaleController::class, 'updateLocale'])->name('locale.update');
 Route::view('/services', 'services');
 
 Route::get('/admin/', [AdminController::class, 'index'])->name("admins");
@@ -66,9 +68,20 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
 
 
         Route::get('/contactedus', App\Http\Livewire\Admins\Contactedus::class)->name('contactedus');
-    });
-});
 
+        
+        // Route::get('set-locale/{locale}', function ($locale) {
+            //     session(['locale' => $locale]);
+            //     return redirect()->back();
+            // })->name('setLocale');
+            // Route::post('set-locale', function (Request $request) {
+                //     session(['locale' => $request->locale]);
+                //     \Illuminate\Support\Facades\App::setLocale($request->locale);
+                //     return response()->json(['success' => true]);
+                // })->name('setLocale');
+            });
+        });
+        
 
 
 

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-      alert('Please update the Livewire package.   Steps: 3, 7, 8, 10(More information in "Readme.md")');
-   });
+   // document.addEventListener('DOMContentLoaded', function() {
+   //    alert('Please update the Livewire package.   Steps: 3, 7, 8, 10(More information in "Readme.md")');
+   // });
 
 </script>
+<livewire:language-switcher />
 <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');" {{ $app = App\Models\settings::latest()->first() }}>
 <div class="container">
       <div class="row">

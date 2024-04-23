@@ -83,6 +83,17 @@ $settings = $setting[0];
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
+                            <li>
+                                <form id="locale-form" action="{{ route('locale.update') }}" method="POST">
+                                    @csrf
+                                    <select name="locale" onchange="document.getElementById('locale-form').submit()">
+                                        <option selected disabled>Escoge idioma</option>
+                                        <option value="es" {{ session('locale') == 'es' ? 'selected' : '' }}>Español</option>
+                                        <option value="en" {{ session('locale') == 'en' ? 'selected' : '' }}>Inglés</option>
+                                    </select>
+                                </form>
+
+                            </li>
                             <li onclick="check_active('Home')"><a id="Home" href="{{ url('/') }}">Home</a></li>
                             <li onclick="check_active('Services')"><a id="Services" data-scroll href="{{ url('/services') }}">Services</a></li>
                             <li onclick="check_active('Doctors')"><a id="Doctors" data-scroll href="{{ url('doctors') }}">Doctors</a></li>
