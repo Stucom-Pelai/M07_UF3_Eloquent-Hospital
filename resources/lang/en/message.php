@@ -32,5 +32,8 @@ return [
     'Thanks_for_Help_us!'=>'Thanks for Help us!',
     'Life_Manager'=>'- Life Manager',
     'Founder_of_Goosilo'=>'- Founder of Goosilo',
+    'Hello' => 'Hello!',
+    'Whats your name?' => 'Whats your name?',
+    'Welcome' => 'Welcome',
 ];
 ?>

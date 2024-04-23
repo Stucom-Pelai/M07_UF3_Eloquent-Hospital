@@ -32,5 +32,8 @@ return [
     'Thanks_for_Help_us!'=>'Gracias por ayudarnos!',
     'Life_Manager'=>'- Gerente de vida',
     'Founder_of_Goosilo'=>'- Fundador de Goosilo',
+    'Hello' => 'Hola!',
+    'Whats your name?' => 'Como te llamas?',
+    'Welcome' => 'Bienvenido',
 ];
 ?>
