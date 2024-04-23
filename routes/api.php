@@ -9,6 +9,7 @@ use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\MedicinesController;
 use App\Http\Controllers\BirthReportsController;
 use App\Http\Controllers\BillsController; 
+use App\Http\Controllers\AnalyzeController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\BillsController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -33,3 +35,5 @@ Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAll
 Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');
 Route::get('beds/status/{value}', [BedsController::class, 'getBedsByStatus'])->name('getBedsByStatus');
 Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
+
+Route::post('analyze', [AnalyzeController::class, 'analyzeSymptoms'])->name('analyzeSymptoms');
