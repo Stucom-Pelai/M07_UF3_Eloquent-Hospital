@@ -10,6 +10,8 @@ use App\Http\Controllers\MedicinesController;
 use App\Http\Controllers\BirthReportsController;
 use App\Http\Controllers\BillsController; 
 use App\Http\Controllers\AnalyzeController; 
+use App\Http\Controllers\DocumentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,10 @@ Route::get('patients', [PatientsController::class, 'getAllPatients'])->name('get
 Route::get('rooms/available', [RoomsController::class, 'getAvailableRooms'])->name('getAvailableRooms');
 Route::get('medicines', [MedicinesController::class, 'getAllMedicines'])->name('getAllMedicines');
 Route::post('medicines', [MedicinesController::class, 'addMedicine'])->name('addMedicine');
-Route::get('doctors', [DoctorsController::class, 'getAllDoctors'])->name('getAllDoctors');
+Route::get('', [DoctorsController::class, 'getAllDoctors'])->name('getAllDoctors');
 Route::get('birth-reports/stats', [BirthReportsController::class, 'getBirthStats'])->name('getBirthStats');
 Route::get('beds/status/{value}', [BedsController::class, 'getBedsByStatus'])->name('getBedsByStatus');
 Route::put('bills/{patient_id}/status', [BillsController::class, 'payBill']);
 
 Route::post('analyze', [AnalyzeController::class, 'analyzeSymptoms'])->name('analyzeSymptoms');
+Route::post('/documents', [DocumentController::class, 'saveDocuments']);;
