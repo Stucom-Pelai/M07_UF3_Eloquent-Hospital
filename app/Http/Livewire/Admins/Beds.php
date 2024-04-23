@@ -20,6 +20,7 @@ class Beds extends Component
     public $room_id;
     public $alloted_time = '';
     public $discharge_time = '';
+    public $size;
     public $edit_bed_id;
     public $button_text = "Add New Bed";
 
@@ -32,6 +33,7 @@ class Beds extends Component
 
             $this->validate([
                 'room_id' => 'required||numeric',
+                'size' => 'required',
             ]);
             if (!$this->patient_id == null) {
                 $this->validate([
@@ -46,12 +48,14 @@ class Beds extends Component
                 'patient_id'         => $this->patient_id,
                 'alloted_time'         => $this->alloted_time,
                 'discharge_time'         => $this->discharge_time,
+                'size'         => $this->size,
             ]);
 
             $this->room_id = null;
             $this->patient_id = null;
             $this->alloted_time = null;
             $this->discharge_time = null;
+            $this->size = null;
 
             session()->flash('message', 'Bed Assigned successfully.');
         }
@@ -74,6 +78,7 @@ class Beds extends Component
     {
         $this->validate([
             'room_id' => 'required|numeric',
+            'size' => 'required',
         ]);
         if (!$this->patient_id == null) {
             $this->validate([
@@ -89,6 +94,7 @@ class Beds extends Component
         $Room->patient_id = $this->patient_id;
         $Room->alloted_time = $this->alloted_time;
         $Room->discharge_time = $this->discharge_time;
+        $Room->size = $this->size;
 
         $Room->save();
 

@@ -14,12 +14,12 @@ class BillsController extends Controller
                     
             if ($bill->status === 'paid') {
                 return response()->json(['message' => 'The bill is already paid.'], 200);
-            }          
+            }else {
             $bill->status = 'paid';
             $bill->save();
 
             return response()->json(['message' => 'Bill status updated to paid.'], 200);
-
+        }
         } catch (ModelNotFoundException $e) {     
 
             return response()->json(['message' => 'Bill not found for the provided patient ID.'], 404);

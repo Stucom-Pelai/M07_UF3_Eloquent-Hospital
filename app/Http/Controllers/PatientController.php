@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class PatientController extends Controller
 {
     public function index()
     {
@@ -25,7 +25,7 @@ class AdminController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials) && Auth::user()->role_id == 1) {
-            return redirect()->intended('admin/settings');
+            return redirect()->intended('patients/settings');
         }
 
         return redirect('admin')->with('error', 'Oppes! You have entered invalid credentials');

@@ -21,4 +21,8 @@ class nurse extends Model
         "registered",
     ];
 
+    public function employee()
+    {
+        return $this->belongsTo(employee::class);
+    }
 }

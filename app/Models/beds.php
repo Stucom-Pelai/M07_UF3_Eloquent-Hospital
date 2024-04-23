@@ -12,10 +12,15 @@ class beds extends Model
         'room_id',
         'patient_id',
         'status',
+        'size', 
     ];
 
     public function room()
     {
         return $this->belongsTo(rooms::class);
+    }
+    public function patient()
+    {
+        return $this->belongsTo(patient::class);
     }
 }

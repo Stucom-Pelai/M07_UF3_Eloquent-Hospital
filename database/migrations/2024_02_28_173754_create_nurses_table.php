@@ -16,8 +16,8 @@ class CreateNursesTable extends Migration
         Schema::create('nurses', function (Blueprint $table) {
             $table->id();
             $table->foreignId("employee_id")->constrained();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

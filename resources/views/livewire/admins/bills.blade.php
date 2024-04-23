@@ -52,7 +52,6 @@
                                 <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                             @enderror
                         </div>
-
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
                         </div>
@@ -77,7 +76,7 @@
                                     <td class="text-center">{{ $bill->id }}</td>
                                     <td class="text-center">{{ $bill->patients_id ?: 'Null' }}</td>
                                     <td class="text-center">{{ $bill->amount ?: 'Null' }}</td>
-                                    <td class="text-center">{{ $bill->status ? : 'not payed' }}</td>
+                                    <td class="text-center">{{ $bill->status }}</td>
                                     <td class="text-center">
                                         <button wire:click="edit({{ $bill->id }})"
                                             class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
