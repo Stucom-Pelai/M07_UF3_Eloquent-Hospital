@@ -97,7 +97,7 @@ $settings = $setting[0];
                                     onclick="check_active('Login')" class="menu-item">
                                     <a id="Login" data-scroll href="{{ url('login') }}" style="display: flex; align-items: right;">
                                         Login
-                                        <img src="images/login.png" alt="Descripción de la imagen" class="icono" width="30" height="30" style="margin-left: 5px; margin-top: -5px;">
+                                        &nbsp;<i class="fa fa-user" aria-hidden="true"></i>
                                     </a>
                                 </li>
                             @endif
@@ -115,6 +115,14 @@ $settings = $setting[0];
         </div>
         </header>
         <main id="main">
+        @if (session('error') && !isset($errorDisplayed))
+            <?php $errorDisplayed = true; ?>
+            <div class="alert alert-danger text-center" role="alert" style="max-width: 1000px; margin: 0 auto;">
+                {{ session('error') }}
+            </div>
+            <div style="margin-bottom: 20px;"></div>
+        @endif
+
             @yield('content')
         </main>
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
