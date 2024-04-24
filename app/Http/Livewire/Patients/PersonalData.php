@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Http\Livewire\Patients;
-use App\Models\patient;
-use App\Models\settings as SettingModel;
-use Illuminate\Support\Facades\DB;
-use Livewire\Component;
+
+use App\Models\Patient;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\appointment;
 
 class PersonalData extends Component
 {
     use WithFileUploads;
+
     protected $paginationTheme = 'bootstrap';
 
     public $name;
@@ -22,26 +23,38 @@ class PersonalData extends Component
     public $age;
     public $address;
     public $photo;
-    public $button_text = "Add New Patient";
+    public $button_update = "Save";
 
-    public function update($id){
+    public $patient;
+
+    public function mount()
+    {
+        $this->patient = Patient::find(1);
+        $this->name = $this->patient->name;
+        $this->email = $this->patient->email;
+        $this->address = $this->patient->address;
+        $this->age = $this->patient->age;
+        $this->gender = $this->patient->gender;
+        $this->phone = $this->patient->phone;
+    }
+
+    public function update()
+    {
         $this->validate([
-            'name' => 'required||min:6|max:50',
+            'name' => 'required|min:6|max:50',
             'gender' => 'required',
-            'age' => 'required',
+            'age' => 'required|numeric',
             'email' => 'required|email',
             'address' => 'required',
-            'phone' => 'required',
-            'age' => 'required',
+            'phone' => 'required|numeric',
         ]);
 
-        $patient = patient::findOrFail($id);
+        $patient = Patient::findOrFail($this->patient->id);
         $patient->name = $this->name;
         $patient->email = $this->email;
         $patient->address = $this->address;
         $patient->age = $this->age;
         $patient->gender = $this->gender;
-        $patient->bloodgroup = $this->bloodgroup;
         $patient->phone = $this->phone;
 
         if ($this->photo) {
@@ -50,31 +63,36 @@ class PersonalData extends Component
             ]);
             Storage::disk('public')->delete($patient->photo_path);
             $patient->photo_path = $this->storeImage();
-
         }
 
         $patient->save();
- 
-        $this->name="";
-        $this->email="";
-        $this->address="";
-        $this->phone="";
-        $this->gender="";
-        $this->address="";
-        $this->age="";
-        $this->photo="";
 
         session()->flash('message', 'Patient Updated Successfully.');
 
-        $this->button_text = "Add New Patient";
-
-
+        $this->patient = Patient::find(1);
+        $this->button_update = "Save";
     }
 
-    public function render()
+    private function storeImage()
     {
+        $img = ImageManagerStatic::make($this->photo)->encode('jpg');
+        $name = Str::random() . '.jpg';
+        Storage::disk('public')->put($name, $img);
+
+        return $name;
+    }
+
+  
+
+    public function render()
+    { 
         $patient = (patient::find(1));
-        return view('livewire.patients.personal_data',['patient' => $patient])->layout('patient.layouts.app');
-        
+        $appointment = appointment::where('patient_id', $patient->id)
+        ->first();
+        if (!$appointment) {
+            $message = "You don't have any pending appointments.";
+            return view('livewire.patients.personal_data', ['patient' => $patient, 'message' => $message])->layout('patient.layouts.app');
+        }
+        return view('livewire.patients.personal_data', ['patient' => $patient, 'appointment' => $appointment])->layout('patient.layouts.app');
     }
 }
