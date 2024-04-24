@@ -87,7 +87,7 @@ $settings = $setting[0];
                                 <form id="locale-form" action="{{ route('locale.update') }}" method="POST">
                                     @csrf
                                     <select name="locale" onchange="document.getElementById('locale-form').submit()">
-                                        <option selected disabled>Escoge idioma</option>
+                                        <option selected disabled>Escoge Idioma</option>
                                         <option value="es" {{ session('locale') == 'es' ? 'selected' : '' }}>Español</option>
                                         <option value="en" {{ session('locale') == 'en' ? 'selected' : '' }}>Inglés</option>
                                     </select>
