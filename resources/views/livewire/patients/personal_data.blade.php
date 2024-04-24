@@ -60,6 +60,8 @@
 
     <div class="form-group">
         <button wire:click="update" class="btn btn-primary">Save</button>
+        <button class="btn btn-primary"><a href="{{ route('patient_home') }}">Go back</a></button>
+        
     </div>
 </div>
 <style>

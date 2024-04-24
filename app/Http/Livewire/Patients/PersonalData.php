@@ -54,7 +54,7 @@ class PersonalData extends Component
         }
 
         $patient->save();
-
+ 
         $this->name="";
         $this->email="";
         $this->address="";
