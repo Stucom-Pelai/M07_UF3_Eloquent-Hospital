@@ -20,9 +20,6 @@ Route::get('/app', function () {
     return view('layouts.app');
 });
 
-Route::group(['middleware' => ['auth']], function () {
-    \the42coders\Workflows\Workflows::routes();
-});
 
 Route::view('/services', 'services');
 
@@ -33,6 +30,10 @@ Route::post('/admin/login', [AdminController::class, 'authenticate_admin'])->nam
 Route::middleware(['auth', 'checksuperadmin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
+
+        Route::group([], function () {
+            \the42coders\Workflows\Workflows::routes();
+        });
 
         Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
 

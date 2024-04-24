@@ -84,6 +84,9 @@
                 <li>
                     <a href="{{ route('subscribers') }}"><i class="fas fa-file-alt"></i>Subscribers</a>
                 </li>
+                <li>
+                    <a href="{{ route('workflow.index') }}"><i class="fas fa-file-alt"></i>Workflows</a>
+                </li>
             </ul>
         </nav>
         <div id="body" class="active">
