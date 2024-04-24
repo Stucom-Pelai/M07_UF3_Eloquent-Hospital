@@ -20,7 +20,6 @@ Route::get('/app', function () {
     return view('layouts.app');
 });
 
-
 Route::view('/services', 'services');
 
 Route::get('/admin/', [AdminController::class, 'index'])->name("admins");
