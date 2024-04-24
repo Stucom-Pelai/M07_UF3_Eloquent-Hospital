@@ -1,39 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-    <div class="container mt-5 pt-5">
-        <h1 class="text-success p-3 text-center ">{{ env('APP_NAME') }}
-            <span class="card-header">{{ __('Login') }}</span>
-        </h1>
-        <div class="card-body p-5">
-             @if (session('error') && !isset($errorDisplayed))
-                <?php $errorDisplayed = true; ?>
-                <div class="alert alert-danger text-center" role="alert">
-                    {{ session('error') }}
-                </div>
-            @endif
 
-            <div class="row justify-content-center">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6">
-                    <form method="POST" class="py-3" action="{{ route('admin_login') }}">
-                        @csrf
-                        <div class="form-group">
-                            <label for="email" class="form-label">{{ __('E-Mail') }}</label>
-                            <input type="email" name="email" id="email" class="form-control"
-                                value="{{ old('email') }}" required>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-=======
 <div class="container mt-5 pt-5">
     <h1 class="text-success p-3 text-center ">{{ env('APP_NAME') }}
         <span class="card-header">{{ __('Login') }}</span>
     </h1>
     <div class="card-body p-5">
+    @if (session('error') && !isset($errorDisplayed))
+                <?php $errorDisplayed = true; ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
         <div class="row justify-content-center">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
@@ -69,7 +48,6 @@
                             <a href="{{ url('/login/google') }}" class="btn btn-primary">
                                 {{ __('Login with Google') }}
                             </a>
->>>>>>> 58c017183d1fa2c7b79eab38b03882595716480b
                         </div>
                         <div class="form-group">
                             <div class="offset-md-4 text-center">
