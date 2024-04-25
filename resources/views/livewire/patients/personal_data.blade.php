@@ -1,6 +1,16 @@
 <div class="box">
     <form wire:submit.prevent="update">
         <h3 class="text-info">My Personal Data</h3>
+        <div>
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
         
         <div class="form-group">
             <label for="status">Name</label>
@@ -59,7 +69,7 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary"><a href="{{ route('patient_home') }}">{{ $button_update }}</a></button>
+            <button type="submit" class="btn btn-primary">{{ $button_update }}</button>
             <button class="btn btn-primary"><a href="{{ route('patient_home') }}">Go back</a></button>
         </div>
     </form>
