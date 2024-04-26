@@ -28,7 +28,7 @@ class BotManController extends Controller
     {
         $botman->ask(__("messages.Whats your name?"), function (Answer $answer) {
             $name = $answer->getText();
-            $this->say(__("messages.Hello ") . $name);
+            $this->say(__("messages.Hello") . $name);
         });
     }
 
