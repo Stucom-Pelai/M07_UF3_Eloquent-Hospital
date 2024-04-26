@@ -14,11 +14,11 @@ class BotManController extends Controller
     {
         $botman = app('botman');
         $botman->hears('{message}', function ($botman, $message) {
-            if ($message == 'hi') {
+            if ($message == __('messages.Hello')) {
                 $this->askName($botman);
                 
             } else {
-                $botman->reply("write 'hi' for testing...");
+                $botman->reply(__("messages.error_message"));
             }
         });
         $botman->listen();
@@ -26,19 +26,10 @@ class BotManController extends Controller
     
     public function askName($botman)
     {
-        $botman->ask("Hello! What is Your Name?", function (Answer $answer) {
+        $botman->ask(__("messages.Whats your name?"), function (Answer $answer) {
             $name = $answer->getText();
-            $this->say('Nice to meet you ' . $name);
+            $this->say(__("messages.Hello ") . $name);
         });
     }
 
-    public function askEmail()
-    {
-        $this->ask('One more thing - what is your email?', function(Answer $answer) {
-            // Save result
-            $this->email = $answer->getText();
-
-            $this->say('Great - that is all we need ');
-        });
-    }
 }
