@@ -14,7 +14,7 @@ class BotManController extends Controller
     {
         $botman = app('botman');
         $botman->hears('{message}', function ($botman, $message) {
-            if ($message == __('messages.hello')) {
+            if ($message == __('messages.Hello')) {
                 $this->askName($botman);
                 
             } else {
@@ -26,9 +26,9 @@ class BotManController extends Controller
     
     public function askName($botman)
     {
-        $botman->ask(__("messages.welcome"), function (Answer $answer) {
+        $botman->ask(__("messages.Whats your name?"), function (Answer $answer) {
             $name = $answer->getText();
-            $this->say(__("messages.saludate") . $name);
+            $this->say(__("messages.Hello ") . $name);
         });
     }
 
