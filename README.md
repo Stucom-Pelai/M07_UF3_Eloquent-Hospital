@@ -86,13 +86,19 @@ php artisan db:create hms
 php artisan migrate:fresh --seed
 ```
 
-11. Start the Laravel development server 
+11. Enable soap extension in PHP server
+
+```bash
+edit php.ini and enable extension=soap line
+```
+
+12. Start the Laravel development server 
 
 ```bash
 php artisan serve
 ```
 
-12. You are all set
+13. You are all set
 
 ## Admin Credentials
 
