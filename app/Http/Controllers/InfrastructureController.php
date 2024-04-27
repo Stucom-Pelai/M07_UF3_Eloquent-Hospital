@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Laminas\Soap\AutoDiscover as WsdlAutoDiscover;
 use Laminas\Soap\Server as SoapServer;
 use App\Models\department;
-use App\Models\wsdl2php\DepartmentType;
 
 class InfrastructureController extends Controller
 {
