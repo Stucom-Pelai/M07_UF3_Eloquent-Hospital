@@ -12,17 +12,17 @@
         <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://hospital.hms.com/service" schemaLocation="Hospital.xsd"/>
             <!-- Department data -->
-            <xsd:element name="GetDepartment">
+            <xsd:element name="getDepartment">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="departmentId" type="xsd:int"/>                        
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="GetDepartmentResponse">
+            <xsd:element name="getDepartmentResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="department" type="tns:DepartmentType"/>
+                        <xsd:element name="department" type="tns:Department"/>
                         <!-- Add other elements as needed -->
                     </xsd:sequence>
                 </xsd:complexType>
@@ -31,18 +31,18 @@
     </wsdl:types>
     
     <!--A wsdl message element is used to define a message exchanged between a web service-->
-    <wsdl:message name="GetDepartment">
-        <wsdl:part name="parameters" element="GetDepartment"/>
+    <wsdl:message name="getDepartment">
+        <wsdl:part name="parameters" element="getDepartment"/>
     </wsdl:message>    
-    <wsdl:message name="GetDepartmentResponse">
-        <wsdl:part name="parameters" element="GetDepartmentResponse"/>
+    <wsdl:message name="getDepartmentResponse">
+        <wsdl:part name="parameters" element="getDepartmentResponse"/>
     </wsdl:message>     
     
     <!--A wsdl port type is used to combine multiple messages(input, output) into a single operation-->
     <wsdl:portType name="InfrastucturePortType">
         <wsdl:operation name="getDepartment">
-            <wsdl:input message="tns:GetDepartment"/>
-            <wsdl:output message="tns:GetDepartmentResponse"/>
+            <wsdl:input message="tns:getDepartment"/>
+            <wsdl:output message="tns:getDepartmentResponse"/>
         </wsdl:operation>      
     </wsdl:portType>
     

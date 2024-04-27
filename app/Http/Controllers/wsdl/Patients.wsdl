@@ -12,17 +12,17 @@
         <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://hospital.hms.com/service" schemaLocation="Hospital.xsd"/> 
             <!-- Patient data -->
-            <xsd:element name="GetPatient">
+            <xsd:element name="getPatient">
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="patientId" type="xsd:int"/>                        
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="GetPatientResponse">
+            <xsd:element name="getPatientResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="patient" type="tns:PatientType"/>
+                        <xsd:element name="patient" type="tns:Patient"/>
                         <!-- Add other elements as needed -->
                     </xsd:sequence>
                 </xsd:complexType>
@@ -31,18 +31,18 @@
     </wsdl:types>
     
     <!--A wsdl message element is used to define a message exchanged between a web service-->    
-    <wsdl:message name="GetPatient">
-        <wsdl:part name="parameters" element="GetPatient"/>
+    <wsdl:message name="getPatient">
+        <wsdl:part name="parameters" element="getPatient"/>
     </wsdl:message>    
-    <wsdl:message name="GetPatientResponse">
-        <wsdl:part name="parameters" element="GetPatientResponse"/>
+    <wsdl:message name="getPatientResponse">
+        <wsdl:part name="parameters" element="getPatientResponse"/>
     </wsdl:message>    
     
     <!--A wsdl port type is used to combine multiple messages(input, output) into a single operation-->
     <wsdl:portType name="PatientsPortType">       
         <wsdl:operation name="getPatient">
-            <wsdl:input message="tns:GetPatient"/>
-            <wsdl:output message="tns:GetPatientResponse"/>
+            <wsdl:input message="tns:getPatient"/>
+            <wsdl:output message="tns:getPatientResponse"/>
         </wsdl:operation>
     </wsdl:portType>
     

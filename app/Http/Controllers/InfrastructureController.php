@@ -41,7 +41,8 @@ class InfrastructureController extends Controller
          //Instantiation for WSDL mode 
         // $server = new SoapServer('wsdl/Infrastructure.wsdl', ['cache_wsdl' => WSDL_CACHE_NONE]);
         $server = new SoapServer(null, $soapClientOptions);
-        $server->setWSDL('wsdl/Infrastructure.wsdl');
+        // $server->setWSDL('wsdl/Infrastructure.wsdl');
+        // $server->setWSDL(__DIR__ . '/wsdl/Infrastructure.wsdl');
         $server->setReturnResponse(true);
         $server->setClass(InfrastructureController::class);
         $soapResponse = $server->handle();
@@ -52,10 +53,14 @@ class InfrastructureController extends Controller
     public function getDepartment($departmentId)
     {
         $department = department::where('id', $departmentId)->firstOrFail();
-        // $departmentype = new DepartmentType($department->name, "phone", $departmentId, 5);
-        // $departmentype = new Department();
-        $departmentype = Department::where('id',$departmentId)->get();
-        return $departmentype;
+        $object = new \stdClass();
+        $object->department = new \stdClass();
+        $object->department->departmentID = $department->getAttributeValue("id");
+        $object->department->departmentName = $department->getAttributeValue("name");
+        $object->department->departmentDescription = $department->getAttributeValue("description");
+        $object->department->headOfDepartmentId = $department->getAttributeValue("hod_id");
+        $object->department->blockId = $department->getAttributeValue("block_id");
+        return $object;
     }
 
     

@@ -1,583 +1,275 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema targetNamespace="http://hospital.hms.com/service"  
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns="http://hospital.hms.com/service" 
+<xs:schema targetNamespace="http://hospital.hms.com/service"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hospital.hms.com/service"
 	elementFormDefault="qualified">
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
-	<xs:complexType name="HospitalType">
+	<xs:element name="hospital" type="Hospital"/>
+	<xs:complexType name="Hospital">
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="Infrastructure"/>
-				<xs:element ref="Staff"/>
-				<xs:element ref="Patients"/>
-				<xs:element ref="History"/>
-				<xs:element ref="Reception"/>
-				<xs:element ref="Accounting"/>
-			</xs:sequence>
+			<xs:element name="infrastructure" type="Infrastructure"/>
+			<xs:element name="staff" type="Staff"/>
+			<xs:element name="patients" type="Patients"/>
+			<xs:element name="history" type="History"/>
+			<xs:element name="reception" type="Reception"/>
+			<xs:element name="accounting" type="Accounting"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Hospital" type="HospitalType"/>
-	<xs:complexType name="InfrastructureType">
+	<xs:complexType name="Infrastructure">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Wings" maxOccurs="unbounded"/>
-			</xs:choice>
+			<xs:element name="department" maxOccurs="unbounded" type="Department"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Infrastructure" type="InfrastructureType"/>
-	<xs:complexType name="WingsType">
+	<xs:element name="Infrastructure" type="Infrastructure"/>
+	<xs:complexType name="Department">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Wing" maxOccurs="unbounded"/>
-			</xs:choice>
+			<xs:element name="departmentId" type="xs:ID"/>
+			<xs:element name="departmentName" type="xs:string"/>
+			<xs:element name="departmentDescription" type="xs:string"/>
+			<xs:element name="headOfDepartmentId" type="xs:ID"/>
+			<xs:element name="blockId" type="xs:ID"/>
+			<xs:element name="room" maxOccurs="unbounded" type="Room" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Wings" type="WingsType"/>
-	<xs:complexType name="WingType">
+
+
+	<xs:complexType name="Room">
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="Departments" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="Wards" minOccurs="0" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="wingID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Wing[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Wing" type="WingType"/>
-	<xs:complexType name="DepartmentsType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Department" maxOccurs="unbounded"/>
-			</xs:choice>
+			<xs:element name="roomId" type="xs:ID"/>
+			<xs:element name="bed" maxOccurs="unbounded" type="Bed"/>
+			<xs:element name="roomSize">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Departments" type="DepartmentsType"/>
-	<xs:complexType name="DepartmentType">
-		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="DepartmentName"/>
-				<xs:element ref="DepartmentPhone" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="DeptartID" type="xs:ID" use="required"/>
-		<xs:attribute name="useWard" type="xs:IDREF"/>
-	</xs:complexType>
-	<xs:element name="Department" type="DepartmentType"/>
-	<xs:element name="DepartmentName" type="xs:string"/>
-	<xs:element name="DepartmentPhone" type="xs:string"/>
-	<xs:complexType name="WardsType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Ward" maxOccurs="unbounded"/>
-			</xs:choice>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="Wards" type="WardsType"/>
-	<xs:complexType name="WardType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Rooms" maxOccurs="unbounded"/>
-			</xs:choice>
-		</xs:sequence>
-		<xs:attribute name="WardID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Wing[0-9]+Ward[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Ward" type="WardType"/>
-	<xs:complexType name="RoomsType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Room" maxOccurs="unbounded"/>
-			</xs:choice>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="Rooms" type="RoomsType"/>
-	<xs:complexType name="RoomType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Beds" maxOccurs="unbounded"/>
-			</xs:choice>
-		</xs:sequence>
-		<xs:attribute name="RoomID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Wing[0-9]+Ward[0-9]+Room[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="RoomSize" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:NMTOKEN">
-					<xs:enumeration value="2"/>
-					<xs:enumeration value="3"/>
-					<xs:enumeration value="4"/>
-					<xs:enumeration value="5"/>
-					<xs:enumeration value="6"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Room" type="RoomType"/>
-	<xs:complexType name="BedsType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Bed" maxOccurs="unbounded"/>
-			</xs:choice>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="Beds" type="BedsType"/>
-	<xs:complexType name="BedType">
-		<xs:attribute name="BedID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Wing[0-9]+Ward[0-9]+Room[0-9]+Bed[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="BedSize" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:NMTOKEN">
-					<xs:enumeration value="1"/>
-					<xs:enumeration value="2"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Bed" type="BedType"/>
-	<xs:complexType name="StaffType">
+	<xs:element name="Room" type="Room"/>
+	<xs:complexType name="Bed">
 		<xs:sequence maxOccurs="unbounded">
-			<xs:element ref="Doctors"/>
-			<xs:element ref="Nurses"/>
+			<xs:element name="bedId" type="xs:ID"> </xs:element>
+			<xs:element name="bedSize">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Staff" type="StaffType"/>
-	<xs:complexType name="DoctorsType">
+	<xs:complexType name="Staff">
 		<xs:sequence>
-			<xs:element ref="Doctor" maxOccurs="unbounded"/>
+			<xs:element name="doctor" maxOccurs="unbounded" type="Doctor"/>
+			<xs:element name="nurse" maxOccurs="unbounded" type="Nurse"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Doctors" type="DoctorsType"/>
-	<xs:complexType name="DoctorType">
+
+	<xs:complexType name="Doctor">
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element ref="DoctorName"/>
-				<xs:element ref="Speciality"/>
-				<xs:element ref="Relantionship"/>
-				<xs:element ref="DoctorContact"/>
+				<xs:element name="doctorId" type="xs:ID"/>
+				<xs:element name="doctorName" type="xs:string"/>
+				<xs:element name="speciality" type="xs:string"/>
+				<xs:element name="relantionship" type="Relantionship"/>
+				<xs:element name="doctorContact" type="Contact"/>
 			</xs:sequence>
+		</xs:sequence>		
+	</xs:complexType>
+	<xs:simpleType name="Relantionship">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="Trainee"/>
+			<xs:enumeration value="Visiting"/>
+			<xs:enumeration value="Permanent"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Nurse">
+		<xs:sequence>
+			<xs:element name="nurseId" type="xs:ID"/>
+			<xs:element name="nurseName" type="xs:string"/>
+			<xs:element name="nurseContact" type="Contact"/>
 		</xs:sequence>
-		<xs:attribute name="DoctorID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Doctor[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="WorksIn" type="xs:IDREF" use="required"/>
-		<xs:attribute name="HeadOfDept" type="xs:IDREF"/>
 	</xs:complexType>
-	<xs:element name="Doctor" type="DoctorType"/>
-	<xs:element name="DoctorName" type="xs:string"/>
-	<xs:element name="Speciality" type="xs:string"/>
-	<xs:complexType name="RelantionshipT">
-		<xs:attribute name="RelantionshipType" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:NMTOKEN">
-					<xs:enumeration value="Trainee"/>
-					<xs:enumeration value="Visiting"/>
-					<xs:enumeration value="Permanent"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Relantionship" type="RelantionshipT"/>
-	<xs:complexType name="DoctorContactType">
+	<xs:complexType name="Contact">
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element ref="DoctorAddress"/>
-				<xs:element ref="DoctorPhone" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="DoctorContact" type="DoctorContactType"/>
-	<xs:element name="DoctorAddress" type="xs:string"/>
-	<xs:element name="DoctorPhone" type="xs:string"/>
-	<xs:complexType name="NursesType">
-		<xs:sequence>
-			<xs:element ref="Nurse" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="Nurses" type="NursesType"/>
-	<xs:complexType name="NurseType">
-		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="NurseName"/>
-				<xs:element ref="NurseContact"/>
-			</xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="NurseID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Nurse[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="WorksIn" type="xs:IDREF" use="required"/>
-		<xs:attribute name="InspectWard" type="xs:IDREF"/>
-	</xs:complexType>
-	<xs:element name="Nurse" type="NurseType"/>
-	<xs:element name="NurseName" type="xs:string"/>
-	<xs:complexType name="NurseContactType">
-		<xs:sequence>
-			<xs:sequence>
-				<xs:element name="NurseAddress" type="xs:string"/>
-				<xs:element name="NursePhone" type="xs:string" maxOccurs="unbounded"/>
+				<xs:element name="address" type="xs:string"/>
+				<xs:element name="phone" type="Phone"/>
 			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="NurseContact" type="NurseContactType"/>
-	<xs:complexType name="PatientsType">
+	<xs:complexType name="Patients">
 		<xs:sequence>
-			<xs:element ref="Patient" maxOccurs="unbounded"/>
+			<xs:element name="patient" type="Patient" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Patients" type="PatientsType"/>
-	<xs:complexType name="PatientType">
+	<!-- FIXME-->
+	<xs:complexType name="Patient">
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="PatientName"/>
-				<xs:element ref="Sex"/>
-				<xs:element ref="Weight"/>
-				<xs:element ref="Age"/>
-				<xs:element ref="AttendedDept" minOccurs="0"/>
-				<xs:element ref="AttendedDoctor"/>
-				<xs:element ref="BedTo"/>
-				<xs:element ref="RecoveryPeriod"/>
-				<xs:element ref="PatientContact"/>
-			</xs:sequence>
+			<xs:element name="patientId" type="xs:ID"/>
+			<xs:element name="patientName" type="xs:string"/>
+			<xs:element name="sex" type="xs:string"/>
+			<xs:element name="weight" type="xs:string"/>
+			<xs:element name="age" type="xs:string"/>
+			<xs:element name="attendedDept" type="xs:ID"/>
+			<xs:element name="attendedDoctor" type="xs:ID"/>
+			<xs:element name="bedTo" type="xs:ID"/>
+			<xs:element name="dateAdmitted" type="xs:date"/>
+			<xs:element name="dateDischarged" type="xs:date"/>
+			<xs:element name="patientAddress" type="xs:string"/>
+			<xs:element name="patientPhone" type="xs:string"/>
 		</xs:sequence>
-		<xs:attribute name="PatientID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Patient[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="PatientType" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:NMTOKEN">
-					<xs:enumeration value="OutPatient"/>
-					<xs:enumeration value="InPatient"/>
-					<xs:enumeration value="VisitPatient"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
 	</xs:complexType>
-	<xs:element name="Patient" type="PatientType"/>
-	<xs:element name="PatientName" type="xs:string"/>
-	<xs:complexType name="SexType">
-		<xs:attribute name="GenderGategory" use="required">
-			<xs:simpleType>
+	<!-- FIXME-->
+	<xs:element name="Patient" type="Patient"/>
+	<xs:simpleType name="Sex">
 				<xs:restriction base="xs:NMTOKEN">
 					<xs:enumeration value="Female"/>
 					<xs:enumeration value="Male"/>
 				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Sex" type="SexType"/>
-	<xs:complexType name="WeightType">
-		<xs:attribute name="PatientWeight" type="xs:string"/>
-	</xs:complexType>
-	<xs:element name="Weight" type="WeightType"/>
-	<xs:complexType name="AgeType">
-		<xs:attribute name="PatientAge" type="xs:int"/>
-	</xs:complexType>
-	<xs:element name="Age" type="AgeType"/>
-	<xs:complexType name="AttendedDeptType">
-		<xs:attribute name="AttendedIn" type="xs:IDREF"/>
-	</xs:complexType>
-	<xs:element name="AttendedDept" type="AttendedDeptType"/>
-	<xs:complexType name="AttendedDoctorType">
-		<xs:attribute name="AttendedBy" type="xs:IDREFS"/>
-	</xs:complexType>
-	<xs:element name="AttendedDoctor" type="AttendedDoctorType"/>
-	<xs:complexType name="BedToType">
-		<xs:attribute name="assignedBed" type="xs:IDREF"/>
-	</xs:complexType>
-	<xs:element name="BedTo" type="BedToType"/>
-	<xs:complexType name="RecoveryPeriodType">
+	</xs:simpleType>
+	<xs:complexType name="RecoveryPeriod">
 		<xs:attribute name="dateAdmitted" type="xs:date"/>
 		<xs:attribute name="dateDischarged" type="xs:date"/>
 	</xs:complexType>
-	<xs:element name="RecoveryPeriod" type="RecoveryPeriodType"/>
-	<xs:complexType name="PatientContactType">
+	<xs:complexType name="History">
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="PatientAddress"/>
-				<xs:element ref="PatientPhone" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="PatientContact" type="PatientContactType"/>
-	<xs:element name="PatientAddress" type="xs:string"/>
-	<xs:element name="PatientPhone" type="xs:string"/>
-	<xs:complexType name="HistoryType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Record" maxOccurs="unbounded"/>
+			<xs:choice>				
+				<xs:element name="record" maxOccurs="unbounded" type="Record"/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="History" type="HistoryType"/>
-	<xs:complexType name="RecordType">
+	<xs:complexType name="Record">
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element ref="AffiliatedPatient"/>
-				<xs:element ref="PatientState"/>
-				<xs:element ref="HistoryUpdate" maxOccurs="unbounded"/>
+				<xs:element name="patientId" type="xs:ID"/>
+				<xs:element name="patientState" type="PatientState"/>
+				<xs:element name="historyUpdate" type="HistoryUpdate" maxOccurs="unbounded"/>
 			</xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="HistoryRecID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Record[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Record" type="RecordType"/>
-	<xs:complexType name="AffiliatedPatientType">
-		<xs:attribute name="AffiliatedPatientID" type="xs:IDREF" use="required"/>
-	</xs:complexType>
-	<xs:element name="AffiliatedPatient" type="AffiliatedPatientType"/>
-	<xs:complexType name="PatientStateType">
-		<xs:attribute name="Pstate" use="required">
-			<xs:simpleType>
+		</xs:sequence>		
+	</xs:complexType>	
+	<xs:simpleType name="PatientState">
+		
 				<xs:restriction base="xs:NMTOKEN">
 					<xs:enumeration value="Sick"/>
 					<xs:enumeration value="Diseased"/>
 					<xs:enumeration value="Severe"/>
 					<xs:enumeration value="Good"/>
 				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="PatientState" type="PatientStateType"/>
-	<xs:complexType name="HistoryUpdateType">
+	</xs:simpleType>
+	<xs:simpleType name="Phone">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\(\d{3}\)\s\d{3}-\d{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+	<xs:complexType name="HistoryUpdate">
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element ref="UpdateDate"/>
-				<xs:element ref="UpdateTime"/>
-				<xs:element ref="AffiliatedDoctor"/>
-				<xs:element ref="AffiliatedDepart"/>
-				<xs:element ref="MedicalCase"/>
-				<xs:element ref="DoctorComments"/>
-				<xs:element ref="Prescription"/>
+				<xs:element name="historyId" type="xs:ID"/>
+				<xs:element name="updateDate" type="xs:date"/>
+				<xs:element name="updateTime" type="xs:time"/>
+				<xs:element name="departmentId" type="xs:ID"/>
+				<xs:element name="medicalCase" type="xs:string"/>
+				<xs:element name="doctorId" type="xs:ID"/>
+				<xs:element name="doctorComments" type="xs:string"/>
+				<xs:element name="prescription" type="Prescription"/>
 			</xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="HistoryUpdateID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="HistoryUpdate[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
+		</xs:sequence>		
 	</xs:complexType>
-	<xs:element name="HistoryUpdate" type="HistoryUpdateType"/>
-	<xs:complexType name="UpdateDateType">
-		<xs:attribute name="UptDate" type="xs:date" use="required"/>
-	</xs:complexType>
-	<xs:element name="UpdateDate" type="UpdateDateType"/>
-	<xs:complexType name="UpdateTimeType">
-		<xs:attribute name="UptTime" type="xs:time" use="required"/>
-	</xs:complexType>
-	<xs:element name="UpdateTime" type="UpdateTimeType"/>
-	<xs:complexType name="AffiliatedDoctorType">
-		<xs:attribute name="AffiliatedDoctorID" type="xs:IDREF" use="required"/>
-	</xs:complexType>
-	<xs:element name="AffiliatedDoctor" type="AffiliatedDoctorType"/>
-	<xs:complexType name="AffiliatedDepartType">
-		<xs:attribute name="AffiliatedDepartID" type="xs:IDREF" use="required"/>
-	</xs:complexType>
-	<xs:element name="AffiliatedDepart" type="AffiliatedDepartType"/>
-	<xs:element name="MedicalCase" type="xs:string"/>
-	<xs:element name="DoctorComments" type="xs:string"/>
-	<xs:element name="PrescriptionComments" type="xs:string"/>
-	<xs:complexType name="PrescriptionType">
+	<xs:complexType name="Prescription">
 		<xs:sequence>
-			<xs:element ref="Pill" maxOccurs="unbounded"/>
+			<xs:element name="pills" maxOccurs="unbounded" type="Pill"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Prescription" type="PrescriptionType"/>
-	<xs:complexType name="PillType">
-		<xs:attribute name="PillName" type="xs:string" use="required"/>
-		<xs:attribute name="Instructions" type="xs:string" use="required"/>
-	</xs:complexType>
-	<xs:element name="Pill" type="PillType"/>
-	<xs:complexType name="ReceptionType">
+	<xs:complexType name="Pill">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Appointment" maxOccurs="unbounded"/>
-			</xs:choice>
+		<xs:element name="pillName" type="xs:string" />
+		<xs:element name="instructions" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Reception" type="ReceptionType"/>
-	<xs:complexType name="AppointmentType">
+	<xs:complexType name="Reception">
+		<xs:sequence>
+				<xs:element name="appointment" type="Appointment" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Reception" type="Reception"/>
+	<xs:complexType name="Appointment">
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element ref="AppointedDoctor"/>
-				<xs:element ref="AppointedPatient"/>
-				<xs:element ref="AppointedDate"/>
-				<xs:element ref="AppointedTime"/>
-				<xs:element ref="comments"/>
-			</xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="AppointmentID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Appointment[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Appointment" type="AppointmentType"/>
-	<xs:complexType name="AppointedDoctorType">
-		<xs:attribute name="AppointedDoctorID" type="xs:IDREF" use="required"/>
-	</xs:complexType>
-	<xs:element name="AppointedDoctor" type="AppointedDoctorType"/>
-	<xs:complexType name="AppointedPatientType">
-		<xs:attribute name="AppointedPatientID" type="xs:IDREF" use="required"/>
-	</xs:complexType>
-	<xs:element name="AppointedPatient" type="AppointedPatientType"/>
-	<xs:complexType name="AppointedDateType">
-		<xs:attribute name="Aptdate" type="xs:date" use="required"/>
-	</xs:complexType>
-	<xs:element name="AppointedDate" type="AppointedDateType"/>
-	<xs:complexType name="AppointedTimeType">
-		<xs:attribute name="AptTime" type="xs:time"/>
-	</xs:complexType>
-	<xs:element name="AppointedTime" type="AppointedTimeType"/>
-	<xs:element name="comments" type="xs:string"/>
-	<xs:complexType name="AccountingType">
-		<xs:sequence>
-			<xs:sequence>
-				<xs:element ref="Expenditures"/>
-				<xs:element ref="Incomes"/>
+				<xs:element name="doctorId" type="xs:ID"/>
+				<xs:element name="patientId" type="xs:ID"/>
+				<xs:element name="appointedDate" type="xs:date"/>
+				<xs:element name="appointedTime" type="xs:time"/>
+				<xs:element name="comments" type="xs:string"/>
 			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Accounting" type="AccountingType"/>
-	<xs:complexType name="ExpendituresType">
+	<xs:complexType name="Accounting">
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element ref="Salaries"/>
-				<xs:element ref="MiscellaneousOrders"/>
+				<xs:element name="expenditures" type="Expenditures"/>
+				<xs:element name="incomes" type="Incomes"/>
 			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Expenditures" type="ExpendituresType"/>
-	<xs:complexType name="SalariesType">
+	<xs:element name="Accounting" type="Accounting"/>
+	<xs:complexType name="Expenditures">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="salaries" type="Salaries"/>
+				<xs:element name="miscellaneousOrders" type="MiscellaneousOrders"/>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Salaries">
 		<xs:sequence>
 			<xs:choice>
-				<xs:element ref="Salary" maxOccurs="unbounded"/>
+				<xs:element name="Salary" type="Salary" maxOccurs="unbounded"/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Salaries" type="SalariesType"/>
-	<xs:complexType name="SalaryType">
+	<xs:complexType name="Salary">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Payment"/>
-			</xs:choice>
+			<xs:element name="paymentId" type="xs:ID"/>
+			<xs:element name="staffId" type="xs:ID"/>
+			<xs:element name="payment" type="Amount"/>
 		</xs:sequence>
-		<xs:attribute name="SalaryID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Salary[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="staffID" type="xs:IDREF" use="required"/>
-	</xs:complexType>
-	<xs:element name="Salary" type="SalaryType"/>
-	<xs:complexType name="PaymentType">
-		<xs:attribute name="amount" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:NMTOKEN">
-					<xs:enumeration value="1800"/>
-					<xs:enumeration value="1500"/>
-					<xs:enumeration value="1200"/>
-					<xs:enumeration value="900"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-	</xs:complexType>
-	<xs:element name="Payment" type="PaymentType"/>
-	<xs:complexType name="MiscellaneousOrdersType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Order" maxOccurs="unbounded"/>
-			</xs:choice>
+	</xs:complexType>	
+	<xs:complexType name="MiscellaneousOrders">
+		<xs:sequence>				
+				<xs:element name="order" maxOccurs="unbounded" type="Order"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="MiscellaneousOrders" type="MiscellaneousOrdersType"/>
-	<xs:complexType name="OrderType">
+	<xs:element name="MiscellaneousOrders" type="MiscellaneousOrders"/>
+	<xs:complexType name="Order">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="Cost"/>
-			</xs:choice>
-		</xs:sequence>
-		<xs:attribute name="OrderID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Order[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="ForDepartment" type="xs:IDREFS" use="required"/>
-		<xs:attribute name="OrderDate" type="xs:date" use="required"/>
-	</xs:complexType>
-	<xs:element name="Order" type="OrderType"/>
-	<xs:complexType name="CostType">
-		<xs:attribute name="TotalCost" type="xs:double" use="required"/>
-	</xs:complexType>
-	<xs:element name="Cost" type="CostType"/>
-	<xs:complexType name="IncomesType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="PatientBill" maxOccurs="unbounded"/>
-			</xs:choice>
+			<xs:element name="orderId" type="xs:ID"/>
+			<xs:element name="orderDate" type="xs:date"/>
+			<xs:element name="cost" type="Amount"/>
+			<xs:element name="departmentId" type="xs:ID"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Incomes" type="IncomesType"/>
-	<xs:complexType name="PatientBillType">
+	<xs:simpleType name="Amount">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:complexType name="Incomes">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="BillCost"/>
-			</xs:choice>
+			<xs:element name="patientBill" type="PatientBill" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="BillID" use="required">
-			<xs:simpleType>
-				<xs:restriction base="xs:ID">
-					<xs:pattern value="Bill[0-9]+"/>
-				</xs:restriction>
-			</xs:simpleType>
-		</xs:attribute>
-		<xs:attribute name="BilledPatient" type="xs:IDREF" use="required"/>
 	</xs:complexType>
-	<xs:element name="PatientBill" type="PatientBillType"/>
-	<xs:complexType name="BillCostType">
-		<xs:attribute name="amount" type="xs:double" use="required"/>
+	<xs:complexType name="PatientBill">
+		<xs:sequence>
+			<xs:element name="billId" type="xs:ID"/>
+			<xs:element name="billCost" type="Amount"/>
+		<xs:element name="patientId" type="xs:ID"/>
+		</xs:sequence>		
 	</xs:complexType>
-	<xs:element name="BillCost" type="BillCostType"/>
 </xs:schema>
