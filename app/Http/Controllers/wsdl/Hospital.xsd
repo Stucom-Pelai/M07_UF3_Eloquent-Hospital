@@ -71,7 +71,6 @@
 	</xs:complexType>
 
 	<xs:complexType name="Doctor">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="doctorId" type="xs:ID"/>
 				<xs:element name="doctorName" type="xs:string"/>
@@ -79,7 +78,6 @@
 				<xs:element name="relantionship" type="Relantionship"/>
 				<xs:element name="doctorContact" type="Contact"/>
 			</xs:sequence>
-		</xs:sequence>		
 	</xs:complexType>
 	<xs:simpleType name="Relantionship">
 		<xs:restriction base="xs:NMTOKEN">
@@ -96,12 +94,10 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Contact">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="address" type="xs:string"/>
 				<xs:element name="phone" type="Phone"/>
 			</xs:sequence>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Patients">
 		<xs:sequence>
@@ -138,23 +134,18 @@
 		<xs:attribute name="dateDischarged" type="xs:date"/>
 	</xs:complexType>
 	<xs:complexType name="History">
-		<xs:sequence>
-			<xs:choice>				
+		<xs:sequence>				
 				<xs:element name="record" maxOccurs="unbounded" type="Record"/>
-			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Record">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="patientId" type="xs:ID"/>
 				<xs:element name="patientState" type="PatientState"/>
 				<xs:element name="historyUpdate" type="HistoryUpdate" maxOccurs="unbounded"/>
 			</xs:sequence>
-		</xs:sequence>		
 	</xs:complexType>	
-	<xs:simpleType name="PatientState">
-		
+	<xs:simpleType name="PatientState">		
 				<xs:restriction base="xs:NMTOKEN">
 					<xs:enumeration value="Sick"/>
 					<xs:enumeration value="Diseased"/>
@@ -167,11 +158,7 @@
 			<xs:pattern value="\(\d{3}\)\s\d{3}-\d{4}"/>
 		</xs:restriction>
 	</xs:simpleType>
-
-
-
 	<xs:complexType name="HistoryUpdate">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="historyId" type="xs:ID"/>
 				<xs:element name="updateDate" type="xs:date"/>
@@ -182,7 +169,6 @@
 				<xs:element name="doctorComments" type="xs:string"/>
 				<xs:element name="prescription" type="Prescription"/>
 			</xs:sequence>
-		</xs:sequence>		
 	</xs:complexType>
 	<xs:complexType name="Prescription">
 		<xs:sequence>
@@ -202,7 +188,6 @@
 	</xs:complexType>
 	<xs:element name="Reception" type="Reception"/>
 	<xs:complexType name="Appointment">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="doctorId" type="xs:ID"/>
 				<xs:element name="patientId" type="xs:ID"/>
@@ -210,30 +195,23 @@
 				<xs:element name="appointedTime" type="xs:time"/>
 				<xs:element name="comments" type="xs:string"/>
 			</xs:sequence>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Accounting">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="expenditures" type="Expenditures"/>
 				<xs:element name="incomes" type="Incomes"/>
 			</xs:sequence>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Accounting" type="Accounting"/>
 	<xs:complexType name="Expenditures">
-		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="salaries" type="Salaries"/>
 				<xs:element name="miscellaneousOrders" type="MiscellaneousOrders"/>
 			</xs:sequence>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Salaries">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element name="Salary" type="Salary" maxOccurs="unbounded"/>
-			</xs:choice>
+				<xs:element name="salary" type="Salary" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Salary">

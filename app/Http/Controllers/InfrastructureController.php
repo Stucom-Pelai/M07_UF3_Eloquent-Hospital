@@ -55,15 +55,13 @@ class InfrastructureController extends Controller
         $department = department::where('id', $departmentId)->firstOrFail();
         $object = new \stdClass();
         $object->department = new \stdClass();
-        $object->department->departmentID = $department->getAttributeValue("id");
+        $object->department->departmentId = $department->getAttributeValue("id");
         $object->department->departmentName = $department->getAttributeValue("name");
         $object->department->departmentDescription = $department->getAttributeValue("description");
         $object->department->headOfDepartmentId = $department->getAttributeValue("hod_id");
         $object->department->blockId = $department->getAttributeValue("block_id");
         return $object;
-    }
-
-    
+    }    
 
     public function wsdlAction(Request $request)
     {
@@ -81,16 +79,7 @@ class InfrastructureController extends Controller
     }
 
     public function serverAction(Request $request)
-    {
-        //echo($request->headers->get('soapaction'));
-        // $function = $request->headers->get('soapaction');
-        // if (str_contains($function, "calculateCircleArea")) {
-        //     # code...
-        //     echo "function1";
-        // }else{
-        //     echo "function2";
-
-        // }
+    {       
         if (!$request->isMethod('post')) {
             return $this->prepareClientErrorResponse('POST');
         }
