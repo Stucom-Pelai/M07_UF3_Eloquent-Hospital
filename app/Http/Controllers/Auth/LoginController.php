@@ -21,14 +21,12 @@ class LoginController extends Controller
     */
     public function redirectToGoogle()
     {
-        // dd("hola");
         return Socialite::driver("google")->redirect();
     }
 
     public function handleGoogleCallback()
     {
         $user = Socialite::driver("google")->user();
-        // dd($user);
         return redirect()->intended('patients/home')->with('email', $user->email);
     }
 
