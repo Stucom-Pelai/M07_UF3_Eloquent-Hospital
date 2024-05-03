@@ -89,6 +89,7 @@ Route::prefix('patient')->group(function () {
     Route::get('/personaldata', App\Http\Livewire\Patients\PersonalData::class)->name('personal_data');
 
     Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SymptomCheck::class)->name('symptom_check');
+    
 });
 
 
