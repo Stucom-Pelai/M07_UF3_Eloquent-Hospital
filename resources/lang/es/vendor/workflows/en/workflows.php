@@ -1,0 +1,43 @@
+<?php
+
+return [
+    'Elements' => [
+        'ObserverTrigger' => 'Observer Trigger',
+        'ButtonTrigger' => 'Button Trigger',
+        'SendMail' => 'Send Mail',
+        'Execute' => 'Execute',
+        'PregReplace' => 'Preg Replace',
+        'HtmlInput' => 'Html Input',
+        'DomPDF' => 'DomPDF',
+        'HttpStatus' => 'Http Status',
+        'LoadModel' => 'Load Model',
+        'ChangeModel' => 'Change Model',
+        'SaveModel' => 'Save Model',
+        'SendSlackMessage' => 'Send Slack Message',
+        'TextInput' => 'Text Input',
+    ],
+    'Resources' => [
+        'ValueResource' => 'From Direct Input',
+        'ModelResource' => 'From Model',
+        'DataResource' => 'From Workflow',
+        'ConfigResource' => 'From Config',
+    ],
+    'Logs' => [
+        'workflowLogs' => 'Workflow Logs',
+    ],
+    'Close' => 'Close',
+    'Save' => 'Save',
+    'Delete' => 'Delete',
+    'delete' => 'delete',
+    'Settings' => 'Settings',
+    'Cancel' => 'Cancel',
+    'Edit' => 'Edit',
+    'edit' => 'edit',
+    'show' => 'show',
+    'create' => 'create',
+    'Create a new Workflow' => 'Create a new Workflow',
+    'Name' => 'Name',
+    'Tasks' => 'Tasks',
+    'Created at' => 'Created at',
+    'ReRun' => 'ReRun',
+];

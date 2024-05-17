@@ -34,8 +34,7 @@
          <div class="row">
             <div class="service-time one" style="background:#2895f1;">
                <span class="info-icon"><i class="fa fa-ambulance" aria-hidden="true"></i></span>
-               <h3>Emergency Case</h3>
-               <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas mole.</p>
+               <h3>{{ __('messages.emergency_case') }}</h3>
             </div>
          </div>
       </div>
@@ -43,12 +42,12 @@
          <div class="row">
             <div class="service-time middle" style="background:#0071d1;">
                <span class="info-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-               <h3>Working Hours</h3>
+               <h3>{{ __('messages.working_hours') }}</h3>
                <div class="time-table-section">
                   <ul>
-                     <li><span class="left">Monday - Friday</span><span class="right">8.00 – 18.00</span></li>
-                     <li><span class="left">Saturday</span><span class="right">8.00 – 16.00</span></li>
-                     <li><span class="left">Sunday</span><span class="right">8.00 – 13.00</span></li>
+                     <li><span class="left">{{ __('messages.Monday-Friday') }}</span><span class="right">8.00 – 18.00</span></li>
+                     <li><span class="left">{{ __('messages.Saturday') }}</span><span class="right">8.00 – 16.00</span></li>
+                     <li><span class="left">{{ __('messages.Sunday') }}</span><span class="right">8.00 – 13.00</span></li>
                   </ul>
                </div>
             </div>
@@ -58,7 +57,7 @@
          <div class="row">
             <div class="service-time three" style="background:#0060b1;">
                <span class="info-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
-               <h3>Clinic Timetable</h3>
+               <h3>{{ __('message.Clinic_timetable') }}</h3>
                <p>Dignissimos ducimus qui blanditii sentium volta tum deleniti atque cori as quos dolores et quas mole.</p>
             </div>
          </div>
@@ -72,14 +71,14 @@
          <span class="icon-logo">
             <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
          </span>
-         <h2>The Specialist Clinic</h2>
+         <h2>{{ __('messages.The_specialist_clinic') }}</h2>
       </div>
       <!-- end title -->
       <div class="row">
          <div class="col-md-6">
             <div class="message-box">
-               <h4>What We Do</h4>
-               <h2>Clinic Service</h2>
+               <h4>{{ __('messages.What_we_do') }}</h4>
+               <h2>{{ __('messages.Clinic_service') }}</h2>
                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
                <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
                <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Learn More</a>
@@ -105,7 +104,7 @@
                   <a href="images/clinic_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/clinic_01.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Digital Control Center</h3>
+               <h3>{{ __('messages.Digital_control_center') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -115,7 +114,7 @@
                   <a href="images/clinic_02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/clinic_02.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Hygienic Operating Room</h3>
+               <h3>{{ __('messages.Hygienic_operating_room') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -125,7 +124,7 @@
                   <a href="images/clinic_03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/clinic_03.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Specialist Physicians</h3>
+               <h3>{{ __('messages.Specialist_physicians') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -135,7 +134,7 @@
                   <a href="images/pharmacy.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                   <img src="images/pharmacy.jpg" alt="" class="img-responsive">
                </div>
-               <h3>Pharmacy</h3>
+               <h3>{{ __('messages.Pharmacy') }}</h3>
             </div>
             <!-- end service -->
          </div>
@@ -152,42 +151,42 @@
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="serv">
                      <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
-                     <h4>PREMIUM FACILITIES</h4>
+                     <h4>{{ __('messages.PREMIUM_FACILITIES') }}</h4>
                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="serv">
                      <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
-                     <h4>LARGE LABORATORY</h4>
+                     <h4>{{ __('messages.LARGE_LABORATORY') }}</h4>
                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="serv">
                      <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
-                     <h4>DETAILED SPECIALIST</h4>
+                     <h4>{{ __('messages.DETAILED_SPECIALIST') }}</h4>
                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="serv">
                      <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
-                     <h4>CHILDREN CARE CENTER</h4>
+                     <h4>{{ __('messages.CHILDREN_CARE_CENTER') }}</h4>
                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="serv">
                      <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
-                     <h4>FINE INFRASTRUCTURE</h4>
+                     <h4>{{ __('messages.FINE_INFRASTRUCTURE') }}</h4>
                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="serv">
                      <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
-                     <h4>ANYTIME BLOOD BANK</h4>
+                     <h4>{{ __('messages.ANYTIME_BLOOD_BANK') }}</h4>
                      <p>Lorem Ipsum is simply dummy text of the printing.</p>
                   </div>
                </div>
