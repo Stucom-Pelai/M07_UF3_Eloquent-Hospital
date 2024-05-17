@@ -108,4 +108,17 @@ Password:
 root
 ```
 
-## If you like our project please leave a star ❤❤
+## Corporative Gmail Credentials
+
+Admin:
+
+```bash
+laravelhospital@gmail.com
+```
+
+Password:
+
+```bash
+H12345678!
+```
+

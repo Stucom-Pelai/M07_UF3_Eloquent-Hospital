@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
             medicineSeeder::class,
             NursesTableSeeder::class,
             staysSeeder::class,
-            SubscriberSeeder::class
+            subscriberSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

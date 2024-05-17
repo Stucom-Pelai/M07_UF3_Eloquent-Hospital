@@ -8,7 +8,7 @@ use App\Models\Stay;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class StaysSeeder extends Seeder
+class staysSeeder extends Seeder
 {
     public function run()
     {

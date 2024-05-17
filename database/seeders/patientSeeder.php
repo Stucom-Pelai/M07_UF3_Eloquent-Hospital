@@ -7,7 +7,7 @@ use Faker\Factory as Faker;
 use App\Models\Patient;
 use App\Models\Doctor;
 
-class PatientSeeder extends Seeder
+class patientSeeder extends Seeder
 {
     public function run()
     {

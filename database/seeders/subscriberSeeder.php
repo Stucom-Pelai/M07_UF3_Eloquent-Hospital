@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Subscriber;
 use Faker\Factory as Faker;
 
-class SubscriberSeeder extends Seeder
+class subscriberSeeder extends Seeder
 {
     /**
      * Run the database seeds.
