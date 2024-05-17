@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 class Home extends Component
 {
 
     public function render()
     {
-        // dd(patient::find(1)->toArray());
-        $patient = (patient::find(1));
+        // dd($user = Auth::id());
+        $patient = (patient::find(Auth::id()));
         $appointment = appointment::where('patient_id', $patient->id)
         ->where('status', 'pending')
         ->first();

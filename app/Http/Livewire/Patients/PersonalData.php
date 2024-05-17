@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\appointment;
+use Illuminate\Support\Facades\Auth;
 
 class PersonalData extends Component
 {
@@ -29,7 +30,7 @@ class PersonalData extends Component
 
     public function mount()
     {
-        $this->patient = Patient::find(1);
+        $this->patient = Patient::find(Auth::id());
         $this->name = $this->patient->name;
         $this->email = $this->patient->email;
         $this->address = $this->patient->address;
@@ -69,7 +70,7 @@ class PersonalData extends Component
 
         session()->flash('message', 'Patient Updated Successfully.');
 
-        $this->patient = Patient::find(1);
+        $this->patient = Patient::find(Auth::id());
         $this->button_update = "Save";
     }
 
@@ -86,7 +87,7 @@ class PersonalData extends Component
 
     public function render()
     { 
-        $patient = (patient::find(1));
+        $patient = (patient::find(Auth::id()));
         $appointment = appointment::where('patient_id', $patient->id)
         ->first();
         if (!$appointment) {

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 class ClinicData extends Component
 {
@@ -22,7 +23,7 @@ class ClinicData extends Component
     public function render()
     {
         // dd(patient::find(1));
-        $patient = (patient::find(1));
+        $patient = (patient::find(Auth::id()));
         return view('livewire.patients.clinic_data',[
             'patient' => $patient,
         ])->layout('patient.layouts.app');
