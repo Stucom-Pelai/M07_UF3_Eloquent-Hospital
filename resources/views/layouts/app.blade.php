@@ -89,6 +89,19 @@ $settings = $setting[0];
                             <li onclick="check_active('Departments')"><a id="Departments" data-scroll href="#departments">Departments</a></li>
                             <li onclick="check_active('About')"><a id="About" data-scroll href="{{ url('/about') }}">About us</a></li>
                             <li onclick="check_active('Contact')"><a id="Contact" data-scroll href="{{ url('contact') }}">Contact</a></li>
+                            @if(Auth::check())
+                                <!-- El usuario está autenticado, no se mostrará el botón de inicio de sesión -->
+                            @else
+                                <!-- El usuario no está autenticado, se mostrará el botón de inicio de sesión -->
+                                <li <?php $request_uri = $_SERVER['REQUEST_URI']; if ($request_uri === '/login' || $request_uri === '/admin') {echo 'style="display: none;"';}?>
+                                    onclick="check_active('Login')" class="menu-item">
+                                    <a id="Login" data-scroll href="{{ url('login') }}" style="display: flex; align-items: right;">
+                                        Login
+                                        &nbsp;<i class="fa fa-user" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            @endif
+
                             @auth
                             @if (auth()->user()->is_super_admin)
                             <li onclick="check_active('admin-area')"><a id="admin-area" data-scroll href="{{ route('admin_settings') }}">Admin Area</a></li>
@@ -102,6 +115,14 @@ $settings = $setting[0];
         </div>
         </header>
         <main id="main">
+        @if (session('error') && !isset($errorDisplayed))
+            <?php $errorDisplayed = true; ?>
+            <div class="alert alert-danger text-center" role="alert" style="max-width: 1000px; margin: 0 auto;">
+                {{ session('error') }}
+            </div>
+            <div style="margin-bottom: 20px;"></div>
+        @endif
+
             @yield('content')
         </main>
         <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
