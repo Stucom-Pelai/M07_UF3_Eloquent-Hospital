@@ -162,7 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Jenssegers\Mongodb\MongodbServiceProvider::class,
         /*
          * Package Service Providers...
          */
