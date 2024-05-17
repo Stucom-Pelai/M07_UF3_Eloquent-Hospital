@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BotManController;
@@ -28,6 +29,7 @@ Route::get("/doctors", function () {
 Route::get('/app', function () {
     return view('layouts.app');
 });
+Route::post('locale/update', [LocaleController::class, 'updateLocale'])->name('locale.update');
 
 Route::view('/services', 'services');
 

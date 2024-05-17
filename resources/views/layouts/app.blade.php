@@ -83,6 +83,16 @@ $settings = $setting[0];
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
+                            <li>
+                                <form id="locale-form" action="{{ route('locale.update') }}" method="POST">
+                                    <i class="fa fa-globe" aria-hidden="true" style="color:white"></i>
+                                    @csrf
+                                    <select name="locale" onchange="document.getElementById('locale-form').submit()">                                        
+                                        <option value="en" {{ session('locale') == 'en' ? 'selected' : '' }}>en</option>
+                                        <option value="es" {{ session('locale') == 'es' ? 'selected' : '' }}>es</option>
+                                    </select>
+                                </form>
+                            </li>
                             <li onclick="check_active('Home')"><a id="Home" href="{{ url('/') }}">Home</a></li>
                             <li onclick="check_active('Services')"><a id="Services" data-scroll href="{{ url('/services') }}">Services</a></li>
                             <li onclick="check_active('Doctors')"><a id="Doctors" data-scroll href="{{ url('doctors') }}">Doctors</a></li>
@@ -111,7 +121,7 @@ $settings = $setting[0];
                     </div>
                 </nav>
                 @livewire('search')
-            </div>
+            </div>            
         </div>
         </header>
         <main id="main">
