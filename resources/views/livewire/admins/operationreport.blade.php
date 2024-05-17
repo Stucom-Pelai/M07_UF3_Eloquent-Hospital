@@ -40,9 +40,10 @@
 
                         <div class="form-group">
                             <label for="Details">Details</label>
-                            <textarea name="Details" id="Details" wire:model.lazy="details" placeholder="Enter operation Details"
-                                class="form-control" required cols="30" rows="5"></textarea>
+                            <textarea name="Details" id="Details" wire:model.lazy="details" placeholder="Enter operation Details" class="form-control" required cols="30" rows="5"></textarea>
+                            <button id="start-btn">Start Recording</button>
                         </div>
+
                         @error('details')
                             <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
@@ -72,7 +73,33 @@
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
                         </div>
-                    </form><br>
+                    </form>
+                    <script>
+                        const startBtn = document.getElementById('start-btn');
+                        const detailsTextarea = document.getElementById('Details');
+                        let recognition = null;
+                        function startRecording() {
+                            if (!recognition) {
+                                if ('webkitSpeechRecognition' in window) {
+                                    recognition = new webkitSpeechRecognition();
+                                } else if ('SpeechRecognition' in window) {
+                                    recognition = new SpeechRecognition();
+                                } else {
+                                    alert('Tu navegador no admite la API de reconocimiento de voz.');
+                                    return;
+                                }
+                                recognition.lang = 'en-US'; 
+                                recognition.onresult = function(event) {
+                                    const transcript = event.results[0][0].transcript;
+                                    detailsTextarea.value += transcript;
+                                }
+                            }
+
+                            recognition.start();
+                        }
+                        startBtn.addEventListener('click', startRecording);
+                    </script>
+                    <br>
                     <hr>
                     <div class="text-capitalize bg-dark p-2 shadow mb-3 text-center text-lg text-light rounded">
                         {{ __('All  operationReports') }}</div>
@@ -90,29 +117,25 @@
                         </thead>
                         <tbody>
                             @forelse ($OperationReports as $operationReport)
-                                <tr>
-                                    <td>{{ $operationReport->id }}</td>
-                                    <td>{{ $operationReport->patient }}</td>
-                                    <td>{{ $operationReport->description }}</td>
-                                    <td>{{ $operationReport->doctor }}</td>
-                                    <td>{{ $operationReport->time }}</td>
-                                    <td>{{ $operationReport->created_at }}</td>
-                                    <td class="text-right">
-                                        <button wire:click="edit({{ $operationReport->id }})"
-                                            class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
-                                        <button wire:click="delete({{ $operationReport->id }})"
-                                            onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                            class="btn btn-outline-danger btn-rounded"><i
-                                                class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ $operationReport->id }}</td>
+                                <td>{{ $operationReport->patient }}</td>
+                                <td>{{ $operationReport->description }}</td>
+                                <td>{{ $operationReport->doctor }}</td>
+                                <td>{{ $operationReport->time }}</td>
+                                <td>{{ $operationReport->created_at }}</td>
+                                <td class="text-right">
+                                    <button wire:click="edit({{ $operationReport->id }})" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></button>
+                                    <button wire:click="delete({{ $operationReport->id }})" onclick="return confirm('{{ __('Are You Sure ?') }}')" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
                             @empty
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                <td class="text-warning">{{ __('Null') }}</td>
-                                </tr>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            <td class="text-warning">{{ __('Null') }}</td>
+                            </tr>
                             @endforelse
                         </tbody>
 
