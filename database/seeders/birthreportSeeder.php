@@ -8,7 +8,7 @@ use App\Models\Patient;
 use App\Models\Doctor;
 use Faker\Factory as Faker;
 
-class BirthreportSeeder extends Seeder
+class birthreportSeeder extends Seeder
 {
     /**
      * Run the database seeds.
