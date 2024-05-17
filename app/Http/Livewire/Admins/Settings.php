@@ -190,5 +190,6 @@ class Settings extends Component
         $this->working_horse  = $setting["working_horse"];
 
         return view('livewire.admins.settings')->layout('admins.layouts.app');
+        
     }
 }

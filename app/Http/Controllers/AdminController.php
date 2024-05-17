@@ -26,8 +26,15 @@ class AdminController extends Controller
 
         if (Auth::attempt($credentials) && Auth::user()->role_id == 1) {
             return redirect()->intended('admin/settings');
+        }elseif (Auth::attempt($credentials) && Auth::user()->role_id == 3) {
+            return redirect()->intended('patient/home');
+
+        }elseif (Auth::attempt($credentials)) {
+            Auth::logout();            
+            return redirect('/')->with('error', 'This user does not have any page assigned.');            
+            
         }
 
-        return redirect('admin')->with('error', 'Oppes! You have entered invalid credentials');
+        return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
     }
 }
