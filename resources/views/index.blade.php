@@ -208,7 +208,7 @@
          <span class="icon-logo">
             <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
          </span>
-         <h2>Our Team</h2>
+         <h2>{{ __('messages.Our_Team') }}</h2>
       </div>
 
       <div class="row dev-list text-center">
@@ -217,7 +217,7 @@
                <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
                <div class="widget-title">
                   <h3>Soren Bo Bostian</h3>
-                  <small>Clinic Owner</small>
+                  <small>{{ __('messages.Clinic_Owner') }}</small>
                </div>
                <!-- end title -->
                <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
@@ -236,7 +236,7 @@
                <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
                <div class="widget-title">
                   <h3>Bryan Saftler</h3>
-                  <small>Internal Diseases</small>
+                  <small>{{ __('messages.Internal_Diseases') }}</small>
                </div>
                <!-- end title -->
                <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
@@ -255,7 +255,7 @@
                <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
                <div class="widget-title">
                   <h3>Matthew Bayliss</h3>
-                  <small>Orthopedics Expert</small>
+                  <small>{{ __('messages.Orthopedics_Expert') }}</small>
                </div>
                <!-- end title -->
                <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
@@ -273,8 +273,15 @@
    </div><!-- end container -->
 </div>
 
-{{-- <div id="price" class="section pr wow fadeIn" style="background-image:url('images/price-bg.png');">
+<div id="price" class="section pr wow fadeIn" style="background-image:url('images/price-bg.png');">
    <div class="container">
+      <div class="heading">
+         <!-- <span class="icon-logo"><img src="{{ ($app) ? 'storage/'.$app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span> -->
+         <span class="icon-logo">
+            <img src="{{ asset($app->icon_logo_path ?? 'images/icon-logo.png') }}" alt="#">
+         </span>
+         <h2>{{ __('messages.Our_Plans') }}</h2>
+      </div>
       <div class="row">
          <div class="col-md-12">
             <div class="tab-content">
@@ -283,14 +290,14 @@
                      <div class="col-md-4">
                         <div class="pricing-table">
                            <div class="pricing-table-header">
-                              <h2>Shared Hosting</h2>
+                              <h2>Bronze</h2>
                               <h3>$85/month</h3>
                            </div>
                            <div class="pricing-table-features">
-                              <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                              <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                              <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                              <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
+                              <p><i class="fa fa-hospital-o"></i> <strong>25</strong> Hospitals</p>
+                              <p><i class="fa fa-heartbeat"></i> <strong>2</strong> Checks by year</p>
+                              <p><i class="fa fa-ambulance"></i> <strong>4</strong> Ambulance services</p>
+                              <p><i class="fa fa-stethoscope"></i> <strong>1</strong> Personal doctor</p>
                               <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
                            </div>
                            <div class="pricing-table-sign-up">
@@ -301,18 +308,18 @@
                      <div class="col-md-4">
                         <div class="pricing-table pricing-table-highlighted">
                            <div class="pricing-table-header grd1">
-                              <h2>WordPress Hosting</h2>
-                              <h3>$59/year</h3>
+                              <h2>Gold</h2>
+                              <h3>$590/year</h3>
                            </div>
                            <div class="pricing-table-space"></div>
                            <div class="pricing-table-text">
                               <p>This is a perfect choice for small businesses and startups.</p>
                            </div>
                            <div class="pricing-table-features">
-                              <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                              <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                              <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                              <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
+                              <p><i class="fa fa-hospital-o"></i> <strong>200</strong> Hospitals</p>
+                              <p><i class="fa fa-heartbeat"></i> <strong>4</strong> Checks by year</p>
+                              <p><i class="fa fa-ambulance"></i> <strong>Any</strong> Ambulance services</p>
+                              <p><i class="fa fa-stethoscope"></i> <strong>3</strong> Personal doctor</p>
                               <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
                            </div>
                            <div class="pricing-table-sign-up">
@@ -323,14 +330,14 @@
                      <div class="col-md-4">
                         <div class="pricing-table">
                            <div class="pricing-table-header">
-                              <h2>Reseller Hosting</h2>
-                              <h3>$85/one-time</h3>
+                              <h2>Silver</h2>
+                              <h3>$150/MONTH</h3>
                            </div>
                            <div class="pricing-table-features">
-                              <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                              <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                              <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                              <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
+                              <p><i class="fa fa-envelope-o"></i> <strong>100</strong> Hospitals</p>
+                              <p><i class="fa fa-rocket"></i> <strong>3</strong> Checks by year</p>
+                              <p><i class="fa fa-database"></i> <strong>10</strong> Ambulance services</p>
+                              <p><i class="fa fa-link"></i> <strong>2</strong> Personal doctor</p>
                               <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
                            </div>
                            <div class="pricing-table-sign-up">
@@ -340,54 +347,7 @@
                      </div>
                   </div>
                   <!-- end row -->
-               </div>
-               <!-- end pane -->
-               <div class="tab-pane fade" id="tab2">
-                  <div class="row text-center">
-                     <div class="col-md-6">
-                        <div class="pricing-table">
-                           <div class="pricing-table-header">
-                              <h2>Dedicated Server</h2>
-                              <h3>$85/month</h3>
-                           </div>
-                           <div class="pricing-table-space"></div>
-                           <div class="pricing-table-features">
-                              <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                              <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                              <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                              <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                              <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                           </div>
-                           <div class="pricing-table-sign-up">
-                              <a href="#contact" data-scroll="" class="btn btn-dark btn-radius btn-brd">Order Now</a>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="pricing-table pricing-table-highlighted">
-                           <div class="pricing-table-header grd1">
-                              <h2>VPS Server</h2>
-                              <h3>$59/month</h3>
-                           </div>
-                           <div class="pricing-table-space"></div>
-                           <div class="pricing-table-text">
-                              <p>This is a perfect choice for small businesses and startups.</p>
-                           </div>
-                           <div class="pricing-table-features">
-                              <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                              <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                              <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                              <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                              <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                           </div>
-                           <div class="pricing-table-sign-up">
-                              <a href="#contact" data-scroll="" class="btn btn-light btn-radius btn-brd grd1 effect-1">Order Now</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end row -->
-               </div>
+               </div>               
                <!-- end pane -->
             </div>
             <!-- end content -->
@@ -403,7 +363,7 @@
    <div class="container">
       <div class="heading">
          <span class="icon-logo"><img src="{{ ($app->icon_logo_path) ? $app->icon_logo_path:'images/icon-logo.png' }}" alt="#"></span>
-         <h2>Testimonials</h2>
+         <h2>{{ __('messages.Testimonials') }}</h2>
       </div>
       <!-- end title -->
       <div class="row">
