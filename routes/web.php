@@ -37,8 +37,11 @@ Route::post('/admin/login', [AdminController::class, 'authenticate_admin'])->nam
 
 
 Route::prefix('admin')->group(function () {
+        Route::group([], function () {
+            \the42coders\Workflows\Workflows::routes();
+        });
 
-    Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
+        Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
 
     Route::get('nurses', App\Http\Livewire\Admins\Nurses::class)->name('nurses');
 
