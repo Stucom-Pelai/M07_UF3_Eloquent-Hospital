@@ -80,9 +80,16 @@ Route::prefix('admin')->group(function () {
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 
-Route::prefix('patients')->group(function () {
+Route::prefix('patient')->group(function () {
 
-    Route::get('/home', App\Http\Livewire\Admins\Patients::class)->name('patients_home');
+    Route::get('/home', App\Http\Livewire\Patients\Home::class)->name('patient_home');
+
+    Route::get('/clinicdata', App\Http\Livewire\Patients\ClinicData::class)->name('clinic_data');
+
+    Route::get('/personaldata', App\Http\Livewire\Patients\PersonalData::class)->name('personal_data');
+
+    Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SymptomCheck::class)->name('symptom_check');
+    
 });
 
 

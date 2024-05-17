@@ -27,7 +27,7 @@ class AdminController extends Controller
         if (Auth::attempt($credentials) && Auth::user()->role_id == 1) {
             return redirect()->intended('admin/settings');
         }elseif (Auth::attempt($credentials) && Auth::user()->role_id == 3) {
-            return redirect()->intended('patients/home');
+            return redirect()->intended('patient/home');
 
         }elseif (Auth::attempt($credentials)) {
             Auth::logout();            
