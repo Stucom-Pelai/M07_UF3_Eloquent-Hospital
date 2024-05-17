@@ -14,27 +14,31 @@ class AnalyzeController extends Controller
      */
     public function analyzeSymptoms(Request $request)
     {
+
         $sessionId = '';
 
         $responseInit = $this->initApi($sessionId);
 
         $id = $responseInit->getData(true)['SessionID'];
 
-        $symptoms = $request->input('symptoms');
+        $symptoms = [
+            'Age' => $request->query->get('age'),
+            'Temp' => $request->query->get('temp'),
+        ];
 
-        foreach ($symptoms as $symptom) {
-            $this->addSymptoms($symptom, $id);
-        }
+        $this->addSymptoms($symptoms, $id);
 
         $response = Http::get('https://api.endlessmedical.com/v1/dx/Analyze', [
             'SessionID' => $id,
             'NumberOfResults' => 10
         ]);
         $data = $response->json();
-
+        // dd($data);
         try {
+            // dd($data["Diseases"]);
             return response()->json(['analyze' => $data["Diseases"]]);
         } catch (\Exception $e) {
+
             return response()->json(['error' => $e->getMessage()]);
         }
     }
@@ -45,7 +49,9 @@ class AnalyzeController extends Controller
      */
     public function addSymptoms($symptoms, $id)
     {
+
         foreach ($symptoms as $key => $symptom) {
+            // dd($symptoms, $symptom, $key);
 
             $url = 'https://api.endlessmedical.com/v1/dx/UpdateFeature?SessionID=' . urlencode($id) . '&name=' . urlencode($key) . '&value=' . urlencode($symptom);
             $response = Http::post($url);
@@ -97,7 +103,7 @@ class AnalyzeController extends Controller
         }
 
         return response()->json([
-            'SessionID' => $responseInitApi["SessionID"], 
+            'SessionID' => $responseInitApi["SessionID"],
             'Terms' => $responseInitApi["Terms"]
         ]);
     }
