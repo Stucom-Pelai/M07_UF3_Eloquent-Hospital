@@ -10,13 +10,10 @@ use App\Http\Controllers\BotManController;
 
 Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
 
-
-
-
-
 Route::get('/', function () {
     return view('index');
 });
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -84,26 +81,11 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
-
-Route::prefix('patient')->group(function () {
-
-    Route::get('/home', App\Http\Livewire\Patients\Home::class)->name('patient_home');
-
-    Route::get('/clinicdata', App\Http\Livewire\Patients\ClinicData::class)->name('clinic_data');
-
-    Route::get('/personaldata', App\Http\Livewire\Patients\PersonalData::class)->name('personal_data');
-
-    Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SymptomCheck::class)->name('symptom_check');
-    
-});
-
-
-
 Route::get('/patient/', [PatientController::class, 'index'])->name("patients");
 
-Route::post('/patient/login', [PatientController::class, 'authenticate_patient'])->name("patient_login");
-
 Route::prefix('patient')->group(function () {
+
+    Route::post('/login', [PatientController::class, 'authenticate_patient'])->name("patient_login");
 
     Route::get('/home', App\Http\Livewire\Patients\Home::class)->name('patient_home');
 
@@ -111,16 +93,8 @@ Route::prefix('patient')->group(function () {
 
     Route::get('/personaldata', App\Http\Livewire\Patients\PersonalData::class)->name('personal_data');
 
-    Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SymptomCheck::class)->name('symptom_check');
-    
+    Route::get('/sysmptomcheck', App\Http\Livewire\Patients\SymptomCheck::class)->name('symptom_check');    
 });
-
-
-
-
-
-
-
 
 Auth::routes();
 

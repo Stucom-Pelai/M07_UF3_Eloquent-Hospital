@@ -10,23 +10,15 @@ class LocaleController extends Controller
 {
     public function updateLocale(Request $request)
     {
-        //dd($_SERVER);
-        // Obtener el valor de locale desde la solicitud
+        // get value from request
         $locale = $request->input('locale');
 
-        // Validar que el valor de locale sea "es" o "en" para evitar posibles problemas de seguridad
+        // validate possible values
         if ($locale === 'es' || $locale === 'en') {
-            // Actualizar el locale en la sesión
-            // dd($_SERVER);
+            // update locale value
             App::setLocale($locale);
             session()->put('locale', $locale);
-            return view('index');
-            //return redirect('/about');     
+            return redirect()->back();    
         }
-    }
-
-    public function refreshLocale()
-    {        
-        return view('index');      
-    }
+    }    
 }

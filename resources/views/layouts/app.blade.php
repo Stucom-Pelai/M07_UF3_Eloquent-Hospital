@@ -99,7 +99,7 @@ $settings = $setting[0];
                             <li onclick="check_active('Departments')"><a id="Departments" data-scroll href="#departments">Departments</a></li>
                             <li onclick="check_active('About')"><a id="About" data-scroll href="{{ url('/about') }}">About us</a></li>
                             <li onclick="check_active('Contact')"><a id="Contact" data-scroll href="{{ url('contact') }}">Contact</a></li>
-                            @if(Auth::check())
+                            @if(auth()->check())
                                 <!-- El usuario está autenticado, no se mostrará el botón de inicio de sesión -->
                             @else
                                 <!-- El usuario no está autenticado, se mostrará el botón de inicio de sesión -->

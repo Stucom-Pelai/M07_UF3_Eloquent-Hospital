@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'emergency_case' => 'Caso de Emergéncia',
-    'working_hours' => 'Horas de Trabajo',
+    'emergency_case' => 'Emergencias',
+    'working_hours' => 'Horario',
     'Monday-Friday' => 'Lunes  -  Viernes',
     'Saturday' => 'Sabado',
     'Sunday' => 'Domingo',
