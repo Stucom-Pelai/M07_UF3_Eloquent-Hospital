@@ -27,13 +27,13 @@ class AnalyzeController extends Controller
         ];
 
         $this->addSymptoms($symptoms, $id);
-
-        $response = Http::get('https://api.endlessmedical.com/v1/dx/Analyze', [
+        
+        $response = Http::get('https://api-prod.endlessmedical.com/v1/dx/Analyze', [
             'SessionID' => $id,
             'NumberOfResults' => 10
         ]);
         $data = $response->json();
-        // dd($data);
+        // dd($data["Diseases"]);
         try {
             // dd($data["Diseases"]);
             return response()->json(['analyze' => $data["Diseases"]]);
@@ -53,7 +53,7 @@ class AnalyzeController extends Controller
         foreach ($symptoms as $key => $symptom) {
             // dd($symptoms, $symptom, $key);
 
-            $url = 'https://api.endlessmedical.com/v1/dx/UpdateFeature?SessionID=' . urlencode($id) . '&name=' . urlencode($key) . '&value=' . urlencode($symptom);
+            $url = 'https://api-prod.endlessmedical.com/v1/dx/UpdateFeature?SessionID=' . urlencode($id) . '&name=' . urlencode($key) . '&value=' . urlencode($symptom);
             $response = Http::post($url);
 
             if (!$response->successful()) {
@@ -69,7 +69,7 @@ class AnalyzeController extends Controller
     public function initApi($sessionId)
     {
 
-        $response = Http::get('https://api.endlessmedical.com/v1/dx/InitSession');
+        $response = Http::get('https://api-prod.endlessmedical.com/v1/dx/InitSession');
 
         $responseInitApi = [];
 
@@ -85,7 +85,7 @@ class AnalyzeController extends Controller
 
         try {
 
-            $url = 'https://api.endlessmedical.com/v1/dx/AcceptTermsOfUse?SessionID=' . urlencode($sessionId) . '&passphrase=' . urlencode("I have read, understood and I accept and agree to comply with the Terms of Use of EndlessMedicalAPI and Endless Medical services. The Terms of Use are available on endlessmedical.com");
+            $url = 'https://api-prod.endlessmedical.com/v1/dx/AcceptTermsOfUse?SessionID=' . urlencode($sessionId) . '&passphrase=' . urlencode("I have read, understood and I accept and agree to comply with the Terms of Use of EndlessMedicalAPI and Endless Medical services. The Terms of Use are available on endlessmedical.com");
             $responseTerms = Http::post($url);
 
             if ($responseTerms->successful()) {
