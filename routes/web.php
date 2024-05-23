@@ -34,11 +34,11 @@ Route::get('/admin/', [AdminController::class, 'index'])->name("admins");
 
 Route::post('/admin/login', [AdminController::class, 'authenticate_admin'])->name("admin_login");
 
+Route::group([], function () {
+    \the42coders\Workflows\Workflows::routes();
+});
 
 Route::prefix('admin')->group(function () {
-        Route::group([], function () {
-            \the42coders\Workflows\Workflows::routes();
-        });
 
         Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
 
